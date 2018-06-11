@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "provision-package": "bb-package project",
+    "statics-package": "bb-package cxp-statics"
+  },
+  "devDependencies": {
+    "@bb-cli/bb-package": "^2.0.0"
+  }
+}

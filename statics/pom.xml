@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.backbase.training</groupId>
+  <artifactId>statics</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>pom</packaging>
+
+  <name>Statics</name>
+
+  <properties>
+    <nodeVersion>v6.11.2</nodeVersion>
+    <npmVersion>3.10.10</npmVersion>
+    <standaloneTemplate>bb-serve-template-blank</standaloneTemplate>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+    
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>collection-banking-containers</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+    
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>collection-retail-banking-mocks</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+    
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>collection-retail-banking-theming</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+      <!-- collection source code -->
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>src.collection-retail-banking-theming</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+    
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>collection-retail-banking</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+      <!-- collection source code -->
+      <dependency>
+        <groupId>com.backbase.widget.collection</groupId>
+        <artifactId>src.collection-retail-banking</artifactId>
+        <version>2.10.0</version>
+      </dependency>
+      
+    
+      <dependency>
+        <groupId>com.backbase.bb-cli</groupId>
+        <artifactId>${standaloneTemplate}</artifactId>
+        <version>2.3.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <inherited>false</inherited>
+        <executions>
+          <!-- unpack dependencies -->
+          <execution>
+            <id>unpack-dependencies</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <!-- unpack zip-of-zips -->
+              
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>collection-banking-containers</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/collection-backbase-zips</outputDirectory>
+                </artifactItem>
+                
+              
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>collection-retail-banking-mocks</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/collection-backbase-zips</outputDirectory>
+                </artifactItem>
+                
+              
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>collection-retail-banking-theming</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/collection-backbase-zips</outputDirectory>
+                </artifactItem>
+                
+                <!-- collection source code -->
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>src.collection-retail-banking-theming</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/src.collection-retail-banking-theming-zips</outputDirectory>
+                </artifactItem>
+                
+              
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>collection-retail-banking</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/collection-backbase-zips</outputDirectory>
+                </artifactItem>
+                
+                <!-- collection source code -->
+                <artifactItem>
+                  <groupId>com.backbase.widget.collection</groupId>
+                  <artifactId>src.collection-retail-banking</artifactId>
+                  <type>zip</type>
+                  <outputDirectory>${project.build.directory}/src.collection-retail-banking-zips</outputDirectory>
+                </artifactItem>
+                
+              
+                <!-- extract standalone template -->
+                <artifactItem>
+                  <groupId>com.backbase.bb-cli</groupId>
+                  <artifactId>${standaloneTemplate}</artifactId>
+                  <type>tgz</type>
+                  <outputDirectory>${project.build.directory}/${standaloneTemplate}</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <inherited>false</inherited>
+        <dependencies>
+          <dependency>
+            <groupId>ant-contrib</groupId>
+            <artifactId>ant-contrib</artifactId>
+            <version>1.0b3</version>
+            <exclusions>
+              <exclusion>
+                <groupId>ant</groupId>
+                <artifactId>ant</artifactId>
+              </exclusion>
+            </exclusions>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant-nodeps</artifactId>
+            <version>1.8.1</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <!-- unpack all inner zip packages -->
+          <execution>
+            <id>unzip-inner</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <property name="zips.dir" value="${project.build.directory}/collection-backbase-zips" />
+                <property name="extract-backbase.dir" value="${project.build.directory}/backbase" />
+
+                <!-- for each inner zip, extract -->
+                <ac:for param="file" xmlns:ac="antlib:net.sf.antcontrib">
+                  <path>
+                    <fileset dir="${zips.dir}" includes="*.zip" />
+                  </path>
+                  <sequential>
+                    <!-- set property for basename -->
+                    <ac:propertyregex override="yes" property="componentName" input="@{file}"
+                      regexp=".*[\\/]([^\\/]*).zip" replace="\1" />
+                    <unzip src="@{file}" dest="${extract-backbase.dir}/${componentName}.extract" />
+                  </sequential>
+                </ac:for>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+      
+        
+      
+        
+      
+        
+          <execution>
+            <id>unzip-inner-sources-collection-retail-banking-theming</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <property name="zips.dir" value="${project.build.directory}/src.collection-retail-banking-theming-zips" />
+                <property name="extract-backbase-source.dir" value="${project.build.directory}/src.collection-retail-banking-theming" />
+                <!-- for each inner zip, extract -->
+                <ac:for param="file" xmlns:ac="antlib:net.sf.antcontrib">
+                  <path>
+                    <fileset dir="${zips.dir}" includes="*.zip" />
+                  </path>
+                  <sequential>
+                    <!-- set property for basename -->
+                    <ac:propertyregex override="yes" property="componentName" input="@{file}"
+                      regexp=".*[\\/]([^\\/]*).zip" replace="\1" />
+                    <unzip src="@{file}" dest="${extract-backbase-source.dir}/${componentName}.extract" />
+                  </sequential>
+                </ac:for>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        
+      
+        
+          <execution>
+            <id>unzip-inner-sources-collection-retail-banking</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                <property name="zips.dir" value="${project.build.directory}/src.collection-retail-banking-zips" />
+                <property name="extract-backbase-source.dir" value="${project.build.directory}/src.collection-retail-banking" />
+                <!-- for each inner zip, extract -->
+                <ac:for param="file" xmlns:ac="antlib:net.sf.antcontrib">
+                  <path>
+                    <fileset dir="${zips.dir}" includes="*.zip" />
+                  </path>
+                  <sequential>
+                    <!-- set property for basename -->
+                    <ac:propertyregex override="yes" property="componentName" input="@{file}"
+                      regexp=".*[\\/]([^\\/]*).zip" replace="\1" />
+                    <unzip src="@{file}" dest="${extract-backbase-source.dir}/${componentName}.extract" />
+                  </sequential>
+                </ac:for>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        
+      
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>collection-training</module>
+  </modules>
+</project>
