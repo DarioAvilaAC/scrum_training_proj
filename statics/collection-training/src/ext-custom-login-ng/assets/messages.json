@@ -1,0 +1,9 @@
+{
+  "en-US": {
+    "login.label.greeting": "Hi",
+    "login.label.username": "Login",
+    "login.label.password": "Password (OTP)",
+    "login.button": "LOGIN",
+    "login.error.invalidCredentials": "The Username or Password you entered is invalid"
+   }
+}
