@@ -1,0 +1,44 @@
+<div class="ext-custom-user-menu-ng" data-ng-controller="UserMenuController as $ctrl">
+  <div class="bb-user-menu">
+    <div data-ng-if="$ctrl.currentUser.name">
+      <a data-ng-if="$ctrl.userDataUrl" href="{{ $ctrl.userDataUrl }}" class="pull-left" title="{{ 'logout.title.customLink' | i18n }}">
+        <div data-ng-include="'templates/avatar.html'"></div>
+      </a>
+      <span data-ng-if="!$ctrl.userDataUrl" class="pull-left">
+        <div data-ng-include="'templates/avatar.html'"></div>
+      </span>
+      <!--something-->
+      <div class="text-left pull-left">
+        <a data-ng-if="$ctrl.userDataUrl" href="{{ $ctrl.userDataUrl }}" title="{{ 'logout.title.customLink' | i18n }}">
+          <div data-ng-include="'templates/userInfo.html'"></div>
+        </a>
+        <span data-ng-if="!$ctrl.userDataUrl">
+          <div data-ng-include="'templates/userInfo.html'"></div>
+        </span>
+        <!--<a data-ng-click="$ctrl.logout()" title="{{ 'logout.label.logout' | i18n }}" data-i18n-key="logout.label.logout"></a>-->
+      </div>
+
+      <div class="pull-right"
+           style="font-size:15px; border-right:1px solid #ccc; border-left:1px solid #ccc; margin-right:7px; margin-left:7px; padding-left:9px; padding-right:9px; line-height:inherit; vertical-align: middle; padding-top:10px; padding-bottom:10px;">
+        <a data-ng-click="$ctrl.logout()"><i class="fas fa-power-off faw-logout-trigger"></i></a>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<script type="text/ng-template" id="templates/avatar.html">
+  <ui-bb-avatar
+    class="bb-avatar media img-circle img-thumbnail no-padding pull-left text-center"
+    image="https://images.vexels.com/media/users/3/145908/preview2/52eabf633ca6414e60a7677b0b917d92-criador-de-avatar-masculino.jpg"
+    name="$ctrl.currentUser.name">
+  </ui-bb-avatar>
+</script>
+<script type="text/ng-template" id="templates/userInfo.html">
+  <span class="">
+    <span data-i18n-key="logout.label.greeting"></span>, <br><strong data-ng-bind="$ctrl.currentUser.name"></strong>
+  </span>
+</script>
+
+<!-- Logout "button" -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <feature>
+        <name>ext-custom-user-menu-ng</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="version" label="Version" readonly="true" viewHint="designModeOnly">
+                <value type="string">4.1.8</value>
+            </property>
+        </properties>
+    </feature>
+</catalog>
