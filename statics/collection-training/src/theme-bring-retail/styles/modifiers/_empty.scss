@@ -1,0 +1,56 @@
+/**
+ * @description
+ * Placeholder to be shown until element with no content is filled with some data.
+ *
+ * @example
+ * <div class="content-wrapper empty-element-placeholder"></div>
+ */
+.empty-element-placeholder {
+  &:empty {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: $empty-placeholder-height;
+    &:after {
+      content: " ";
+      display: inline-block;
+      @include spinner($empty-placeholder-spinner-size);
+    }
+  }
+}
+
+/**
+ * @description
+ * Placeholder to be shown until element with no content is filled with some data.
+ *
+ * @example
+ * <div class="content-wrapper empty-element-placeholder-relative"></div>
+ */
+.empty-element-placeholder-relative {
+  &:empty {
+    position: relative;
+    height: $empty-placeholder-height;
+    &:after {
+      content: " ";
+      position: absolute;
+      display: inline-block;
+      left: 50%;
+      top: 50%;
+      @include translate(-50%, -50%);
+      @include spinner($empty-placeholder-spinner-size);
+    }
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .empty-element-placeholder-relative {
+    &:empty {
+      padding-top: $empty-placeholder-height;
+    }
+  }
+}
+
+@supports (-ms-accelerator:true) {
+  /* IE Edge 12+ CSS styles go here */
+}

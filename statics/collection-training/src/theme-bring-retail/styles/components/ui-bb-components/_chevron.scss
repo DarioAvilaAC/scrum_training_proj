@@ -1,0 +1,22 @@
+/**
+ * @name chevron style
+ * @description Styles for styling chevron
+ *
+ * @example
+ * <i class="fa chevron-icon fa-chevron-down chevron-down"></i>
+ */
+
+.chevron-icon {
+  &.chevron-up:before {
+    @extend .fa-angle-up;
+  }
+
+  &.chevron-down:before {
+    @extend .fa-angle-down;
+  }
+
+  &.chevron-down, &.chevron-up {
+    @include font-size(22px);
+    line-height: 1;
+  }
+}

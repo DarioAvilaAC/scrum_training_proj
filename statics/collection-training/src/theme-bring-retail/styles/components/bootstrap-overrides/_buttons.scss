@@ -1,0 +1,45 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Buttons override
+ * --------------------------------------------------------------------------
+ * @name buttons
+ * @description
+ * Re-styling of default bootstrap buttons appearance
+ *
+ * @example
+ * Default large button
+ * <button class="btn btn-default btn-lg">
+ *   Default Large Button
+ * </button>
+ */
+
+
+.btn {
+  height: $btn-height-default;
+  @include button-size($btn-padding-vertical, $padding-base-horizontal, $btn-font-size-default, $line-height-base, $btn-border-radius-base);
+}
+
+.btn-lg {
+  height: $btn-height-large;
+  @include button-size($btn-padding-vertical, $padding-large-horizontal, $btn-font-size-large, $line-height-large, $btn-border-radius-large);
+}
+
+.btn-sm {
+  height: $btn-height-small;
+  @include button-size($btn-padding-vertical, $padding-small-horizontal, $btn-font-size-small, $line-height-small, $btn-border-radius-small);
+}
+
+.btn-xs {
+  height: $btn-height-extra-small;
+  @include button-size($btn-padding-vertical, $padding-xs-horizontal, $btn-font-size-extra-small, $line-height-small, $btn-border-radius-small);
+}
+
+.btn-default {
+  &:hover {
+    background-color: $gray-lighter;
+  }
+
+  &:active {
+    background-color: $gray;
+  }
+}

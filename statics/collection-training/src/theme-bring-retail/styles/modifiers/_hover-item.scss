@@ -1,0 +1,54 @@
+/**
+ * Modifier that adds default hover item styling to any element,
+ * supporting hover/focus and disabled state
+ *
+ * @example:
+ * <ul class="list-unstyled">
+ *   <li class="hover-item">...</li>
+ *   <li class="hover-item text-default">...</li>
+ *   <li class="hover-item">...</li>
+ *   <li class="hover-item">...</li>
+ * </ul>
+ */
+
+// Hover/Focus state
+.hover-item {
+  &:hover,
+  &:focus,
+  &.active {
+    cursor: pointer;
+    color: $text-color;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $gray-lighter;
+  }
+
+  &.active {
+    background-color: $primarycolor;
+    color: $gray95;
+  }
+
+  &.text-default:hover,
+  &.text-default:focus,
+  &.text-default.active {
+    color: $text-color;
+  }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+.hover-item {
+  &[disabled],
+  &.disabled {
+    cursor: $cursor-disabled;
+    color: $component-disabled-color;
+    &:hover,
+    &:focus {
+      color: $component-disabled-color;
+      background-color: transparent;
+    }
+  }
+}

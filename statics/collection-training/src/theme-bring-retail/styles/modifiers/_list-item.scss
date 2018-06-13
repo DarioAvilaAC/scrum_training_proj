@@ -1,0 +1,36 @@
+/**
+ * Modifier that puts wrapped items together by removing margins and top borders
+ * It can be used on any item
+ * list-items-wrapper class included to get higher priority selector
+ *
+ * @example:
+ * <div class="list-items-wrapper">
+ *   <div class="panel list-item">
+ *     ...
+ *   </div>
+ *   <div class="panel list-item">
+ *     ...
+ *   </div>
+ * </div>
+ */
+
+.list-items-wrapper .list-item:not(:last-child) {
+    border-bottom: $default-border;
+    border-color: $gray-light;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+}
+
+.list-items-wrapper .list-item + .list-item {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 0;
+}
+
+.list-items-wrapper .list-item-min-height {
+    padding: $list-item-padding;
+    // keep all items at same height regardless of amount of data
+    min-height: $font-size-base * $line-height-base * 3 + $list-item-padding * 2 + 2px;
+}

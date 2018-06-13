@@ -1,0 +1,141 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Dropdown Select component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-dropdown-select
+ * @description Dropdown select component
+ *
+ * @example
+ * <div class="dropdown-select" uib-dropdown data-keyboard-nav>
+ *   <button type="button" class="btn btn-default btn-dropdown-toggle" uib-dropdown-toggle>
+ *     <span class="dropdown-option dropdown-selected" ui-bb-dropdown-selected></span>
+ *     <span class="dropdown-option placeholder">Select account</span>
+ *     <span class="fa chevron-icon fa-chevron-down chevron-down"></span>
+ *   </button>
+ *
+ *   <ul class="uib-dropdown-menu ng-transclude-node dropdown-menu" role="menu" aria-labelledby="single-button">
+ *     <li role="menuitem" class="dropdown-option">
+ *       <a href="">
+ *         <div class="pull-left account-detail">
+ *           <div class="select-all-label">All Accounts</div>
+ *         </div>
+ *         <div class="pull-right text-right">
+ *           <div class="select-all-quantity">7 accounts</div>
+ *         </div>
+ *       </a>
+ *     </li>
+ *   </ul>
+ * </div>
+ */
+
+.dropdown-select {
+  outline: none;
+
+  &-wide {
+    min-width: $dropdown-select-wide-min-width;
+  }
+
+  &-text {
+    min-width: $dropdown-select-text-min-width;
+  }
+
+  a {
+    outline: none;
+  }
+
+  &.open button.btn-default.dropdown-toggle {
+    &, &:hover {
+      background-color: $dropdown-link-hover-bg;
+    }
+  }
+}
+
+.dropdown-toggle {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  &[disabled] {
+    > .dropdown-option, .placeholder {
+      pointer-events: none;
+    }
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+
+  .dropdown-option {
+    margin-right: $dropdown-chevron-width;
+    overflow: hidden;
+    display: none;
+
+    &.placeholder {
+      display: block;
+      padding-right: $dropdown-placeholder-padding-right;
+    }
+  }
+
+  .chevron-icon {
+    @include stick-right($dropdown-chevron-width, $dropdown-chevron-height);
+    font-weight: bold;
+    right: $dropdown-chevron-offset-right;
+    border: none;
+    display: inline-block;
+  }
+}
+
+// Something is selected, hide placeholder
+.dropdown-select.selected {
+  .dropdown-option {
+    display: block;
+
+    &.placeholder {
+      display: none;
+    }
+  }
+}
+
+.dropdown-menu {
+  min-width: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+  padding: $dropdown-menu-padding;
+  margin: $dropdown-menu-margin;
+  box-shadow: $default-box-shadow;
+
+  & > li > a {
+    padding: $dropdown-menu-item-padding;
+    position: relative;
+  }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+  color: $text-color;
+  background-color: $dropdown-bg;
+  text-decoration: none;
+  outline: none;
+  &:before {
+    @extend .fa;
+    @extend .fa-check;
+    position: absolute;
+    top: $dropdown-menu-active-item-mark-offset-top;
+    left: $dropdown-menu-active-item-mark-offset-left;
+  }
+}
+
+.dropdown-menu > .active > a {
+  &:hover,
+  &:focus {
+    color: $dropdown-link-hover-color;
+    background-color: $dropdown-link-hover-bg;
+    text-decoration: none;
+    outline: none;
+  }
+}

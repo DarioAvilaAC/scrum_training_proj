@@ -1,0 +1,122 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Autocomplete Search
+ * --------------------------------------------------------------------------
+ * @name ui-bb-autocomplete-search-ng
+ * @description
+ * UI component to create search with autocomplete.
+ *
+ * @example
+ * // Autocomplete Search with result
+ * <ui-bb-autocomplete-search-ng>
+ *   <div class="dropdown dropdown-select bb-autocomplete-search">
+ *     <ui-bb-search-box-ng class="autocomplete-search-input-box">
+ *     </ui-bb-search-box-ng>
+ *     <div class="dropdown-menu bb-autocomplete-search-dropdown">
+ *       <div class="bb-autocomplete-search-message">2 results found</div>
+ *       <ul class="list-group bb-autocomplete-search-list">
+ *         <ui-bb-list class="bb-autocomplete-search-list-inner">
+ *           <li class="list-group-item bb-autocomplete-search-list-item">
+ *             <a href tabindex="-1">lorem ipsum</a>
+ *           </li>
+ *           <li class="list-group-item bb-autocomplete-search-list-item">
+ *             <a href tabindex="-1">lorem ipsum</a>
+ *           </li>
+ *         </ui-bb-list>
+ *       </ul>
+ *     </div>
+ *   </div>
+ * </ui-bb-autocomplete-search-ng>
+ *
+ * // Autocomplete Search without result
+ * <ui-bb-autocomplete-search-ng>
+ *   <div class="dropdown dropdown-select bb-autocomplete-search">
+ *     <ui-bb-search-box-ng class="autocomplete-search-input-box">
+ *     </ui-bb-search-box-ng>
+ *     <div class="dropdown-menu bb-autocomplete-search-dropdown">
+ *       <div class="bb-autocomplete-search-message">No results found</div>
+ *       <ul class="list-group bb-autocomplete-search-list">
+ *         <ui-bb-list class="bb-autocomplete-search-list-inner">
+ *         </ui-bb-list>
+ *       </ul>
+ *     </div>
+ *   </div>
+ * </ui-bb-autocomplete-search-ng>
+ */
+.bb-autocomplete-search .bb-search-box {
+  display: block;
+  max-width: none;
+}
+
+.bb-autocomplete-search-input-box {
+  display: block;
+}
+
+.bb-autocomplete-search-dropdown.dropdown-menu {
+  padding: 0;
+  border: 0;
+}
+
+.bb-autocomplete-search-list {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.bb-autocomplete-search-list-inner {
+  max-height: $autocomplete-search-list-height;
+  position: relative;
+}
+
+.bb-autocomplete-search-list-item {
+  border-left: 0;
+  border-right: 0;
+  border-color: $autocomplete-search-list-item-border-color;
+  padding: 0;
+
+  & > a {
+    display: block;
+    padding: $autocomplete-search-list-item-padding;
+    color: $autocomplete-search-list-item-color;
+  }
+
+  &:first-child,
+  &:last-child {
+    border-radius: 0;
+  }
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  &.active,
+  &.active:hover,
+  &.active:focus {
+    border-color: $autocomplete-search-list-item-border-color;
+
+    & > a {
+      background-color: $autocomplete-search-list-item-background-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.bb-autocomplete-search-message {
+  padding: $autocomplete-search-list-item-padding-small;
+  color: $autocomplete-search-message-color;
+  font-size: $font-size-small;
+  border-bottom: $autocomplete-search-list-item-border;
+
+  &.big {
+    font-size: $font-size-base;
+    padding: $autocomplete-search-list-item-padding;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    border-top: $autocomplete-search-list-item-border;
+  }
+}
+
+.ui-bb-autocomplete-search-spinner {
+  @include spinner($search-box-addon-size);
+}

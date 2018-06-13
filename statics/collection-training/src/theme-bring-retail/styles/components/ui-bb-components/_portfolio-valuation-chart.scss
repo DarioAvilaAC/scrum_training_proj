@@ -1,0 +1,42 @@
+/**
+ * --------------------------------------------------------------------------
+ * Portfolio valuation chart component
+ * --------------------------------------------------------------------------
+ * @name portfolio-valuation-chart
+ * @description
+ * Component that renders valuation bar chart for portfolio
+ *
+ * @example
+ * <ui-bb-chartjs-chart-bar
+ *   data-ng-if="!$ctrl.state.valuation.asValuation"
+ *   class="col-xs-12"
+ *   data-series="$ctrl.state.valuation.data.variation"
+ *   data-bar-percentage="0.8"
+ *   data-category-percentage="1.0"
+ *   data-options="ext.helpers.chartVariationOptions">
+ * </ui-bb-chartjs-chart-bar>
+ */
+
+.portfolio-valuation-chart {
+  padding: $portfolio-valuation-chart-padding;
+
+  &-tooltip {
+    border-radius: $portfolio-valuation-tooltip-corner-radius;
+  }
+
+  &-ticks {
+    padding: $portfolio-valuation-ticks-padding;
+  }
+
+  &-bar {
+    background-color: $brand-primary;
+  }
+
+  &-bar-positive {
+    background-color: $brand-success;
+  }
+
+  &-bar-negative {
+    background-color: $brand-danger-light;
+  }
+}

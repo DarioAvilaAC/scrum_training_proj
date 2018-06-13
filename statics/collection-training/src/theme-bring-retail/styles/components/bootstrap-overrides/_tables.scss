@@ -1,0 +1,488 @@
+//
+// Tables
+// --------------------------------------------------
+
+// TO-DO: Needs to be removed from here. These styles don't belong to the table component
+//
+// For <div> tables
+.div-striped {
+  .row:nth-of-type(odd) {
+    background-color: $gray-lightest;
+  }
+}
+// Action bar on top of tables
+.table-controls {
+  padding: $table-controls-padding;
+}
+
+// Notification block on top of tables
+.table-info {
+  padding: $table-info-padding;
+  border-bottom: $table-info-border-default;
+  border-top: $table-info-border-default;
+}
+
+.fa-spinner-th {
+  position: absolute;
+  right: $table-header-spinner-right;
+  top: $table-header-spinner-top;
+}
+
+// Table Baseline styles
+.table {
+  &.table-relative {
+    position: relative;
+  }
+  th,
+  td {
+    vertical-align: middle;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+
+  thead th {
+    color: $gray-base;
+    font-weight: $headings-font-weight;
+    white-space: nowrap;
+  }
+
+  > thead:first-child {
+    > th {
+      border-bottom: 0;
+    }
+  }
+
+  .check-column {
+    width: $checkbox-col-width + $table-cell-padding;
+  }
+
+  .bg-info {
+    background-color: $table-cell-selected;
+  }
+}
+
+// Table font sizing
+//
+// Tables have a font size modifier to display text in extra-small size. Use .table-font-xs
+// for tables that display a lot of data
+.table-font-xs {
+  @include font-size($table-font-xs);
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.table-striped {
+
+  > tbody > tr.table-row-odd {
+    background-color: $table-cell-odd;
+
+    &:hover {
+      background-color: $table-cell-hover;
+    }
+  }
+
+  > tbody > tr.table-row-even {
+    background-color: $table-cell-even;
+
+    &:hover {
+      background-color: $table-cell-hover;
+    }
+  }
+
+  // Forces a blue background color on selected items
+  tbody tr.bg-info:nth-of-type(odd) {
+    background-color: $table-cell-selected;
+  }
+
+  // Forces a background color on selected items on hover of row
+  tbody tr.bg-info:hover {
+    background-color: $brand-primary-lightest;
+  }
+
+  > tbody > tr.table-row-transparent {
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+/**
+ * @description
+ * Responsive view of the table (<768px). Table is rendered in stacked, block pattern.
+ */
+ .table-responsive {
+  border: 0;
+  overflow: hidden;
+
+  table {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+
+      td {
+        @include clearfix;
+        display: block;
+        padding: $table-cell-padding;
+        input {
+          float: left;
+        }
+      }
+
+      td:before {
+        color: $gray-base;
+        content: attr(data-label);
+        float: left;
+        font-weight: $headings-font-weight;
+        width: $small-table-col-margin;
+      }
+
+      td:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    tr {
+      border-bottom: $default-border;
+      border-color: $gray-light;
+      display: block;
+
+      td {
+        text-align: left;
+        white-space: normal;
+      }
+    }
+  }
+
+  // Used to wrap the table cell content. Adds a left marging to the stacked data on responsive view
+  .table-small {
+    margin-left: $small-table-col-margin;
+  }
+
+  // Makes the button group span to 100% of the available width on responsive view
+  .btn-group {
+    width: 100%;
+    button {
+      line-height: $table-font-default * 2;
+    }
+
+    // Tooltip text is in one line
+    .tooltip-inner {
+      max-width: none;
+      white-space: nowrap;
+    }
+  }
+
+  // Forces the default table font-size on responsive view
+  > .table-font-xs {
+    font-size: $font-size-base;
+  }
+}
+
+/**
+ * @description
+ * Table with gray-medium background-color of body
+ */
+.table-body-gray-medium {
+
+  td {
+    background-color: $gray-lighter;
+  }
+}
+
+/**
+ * @description
+ * Table cells with large paddings.
+ */
+.table-cells-xl {
+
+  tbody > tr > th,
+  tbody > tr > td {
+    padding-left: $table-large-col-padding;
+    padding-right: $table-large-col-padding;
+  }
+}
+
+/**
+ * @description
+ * Table cells with small paddings.
+ */
+.table-cells-sm {
+  tbody > tr > th,
+  tbody > tr > td {
+    padding-left: $table-small-col-padding;
+    padding-right: $table-small-col-padding;
+  }
+}
+
+/**
+ * @description
+ * Table with white background-color
+ */
+.table-bg-white {
+  background-color: $white;
+}
+
+/**
+ * @description
+ * Table with gray-lightest background-color
+ */
+.table-bg-gray-lightest {
+  background-color: $gray-lightest;
+}
+
+/**
+ * @description
+ * Table without line nowrap
+ */
+.table-nowrap {
+  white-space: nowrap;
+}
+
+/**
+ * @description
+ * Table with custom height of cells
+ */
+.table-cells-fixed-height {
+  th, td {
+    height: $portfolio-positions-col-height;
+  }
+}
+
+/**
+ * @description
+ * Table with content aligned vertically.
+ */
+.table-vertical-align {
+  thead > tr > th,
+  tbody > tr > th,
+  tbody > tr > td {
+    vertical-align: middle;
+  }
+}
+
+/**
+ * @description
+ * Table, fit to width of it's wrapper
+ */
+.table-fixed-layout {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/**
+ * @description
+ * Table with fixed first column and padding left for second elements.
+ */
+.table-fixed-first-column {
+
+  th, td {
+
+     &:first-child {
+        position: absolute;
+        padding-left: $panel-heading-padding;
+        padding-right: $panel-heading-padding;
+        border-right: $default-border;
+        border-color: $gray-light;
+        border-width: $table-fixed-cell-border-width;
+        width: $portfolio-positions-col-width;
+      };
+
+      &:nth-child(2) {
+        padding-left: $portfolio-positions-col-width + $table-scrollable-col-first-padding;
+      }
+   }
+ }
+
+/**
+ * @description
+ * Table with fixed last column and padding right for last second elements.
+ */
+.table-fixed-last-column {
+
+  tr {
+
+    th, td {
+
+      &:last-child {
+        position: absolute;
+        right: 0;
+        border-left: $default-border;
+        border-color: $gray-light;
+        border-width: $table-fixed-cell-border-width;
+        width: $portfolio-positions-col-last-width;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      &:nth-last-child(2) {
+        padding-right: $portfolio-positions-col-last-width + $table-scrollable-col-last-padding;
+      }
+    }
+  }
+}
+
+.table-grid-aligned {
+  thead tr th:first-child,
+  tbody tr th:first-child,
+  tbody tr td:first-child {
+    padding-left: 0;
+  }
+}
+
+// Ensure the content wraps on responsive view
+@media (max-width: $screen-xs-max) {
+  .table-responsive {
+    > .table {
+      > tbody {
+        > tr {
+          > td {
+            white-space: normal;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    > .table-bordered {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * @description
+ * Desktop view of the table (>768px).
+ * Table should display a maximum of 8 columns with minimum padding between them of $table-cell-padding
+ */
+ @media (min-width: $screen-sm-min) {
+  .table-responsive {
+    > .table-font-xs {
+      font-size: $table-font-xs;
+    }
+
+    table {
+      display: table;
+
+      thead {
+        display: table-header-group;
+        th {
+          padding: $table-cell-padding 0 $table-cell-padding $grid-gutter-width/2;
+          vertical-align: middle;
+          white-space: normal;
+
+          .icon {
+            margin: $table-header-icon-margin;
+            color: $gray-dark;
+          }
+        }
+        th:last-child {
+          padding-right: $table-cell-padding;
+          width: $table-actions-col-width;
+        }
+        th.column-limits {
+          width: $table-limits-col-width;
+        }
+      }
+
+      tbody {
+        display: table-row-group;
+
+        td {
+          display: table-cell;
+          max-width: 0;
+          padding: $table-cell-padding 0 $table-cell-padding $grid-gutter-width/2;
+          text-align: left;
+          vertical-align: middle;
+
+          &.text-right {
+            text-align: right;
+          }
+        }
+        td:before {
+          content: none;
+        }
+        td:last-child {
+          padding-right: $table-cell-padding;
+
+          &>.btn-group {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      tr {
+        border-right: inherit;
+        display: table-row;
+
+        td {
+          text-align: inherit;
+          white-space: inherit;
+        }
+      }
+    }
+    .table-small {
+      margin-left: 0;
+    }
+  }
+
+  .btn-group, .btn-group-justified {
+    width: auto;
+    .btn-group {
+      button {
+        line-height: inherit;
+      }
+    }
+  }
+}
+
+/**
+ * @description
+ * Table with rows displayed as cards
+ */
+.table-card {
+  border-collapse: separate;
+  border-spacing: 0 $card-table-bottom-margin;
+
+  thead > tr > th,
+  tbody > tr > td {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  tbody > tr > td {
+    padding: $table-cell-padding;
+    border-top: $default-border;
+    border-bottom: $default-border;
+  }
+
+  tbody > tr > td:first-child {
+    border-left: $default-border;
+    border-top-left-radius: $border-radius-large;
+    border-bottom-left-radius: $border-radius-large;
+  }
+
+  tbody > tr > td:last-child {
+    border-right: $default-border;
+    border-top-right-radius: $border-radius-large;
+    border-bottom-right-radius: $border-radius-large;
+  }
+}

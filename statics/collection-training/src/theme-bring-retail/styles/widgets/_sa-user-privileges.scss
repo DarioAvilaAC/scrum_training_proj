@@ -1,0 +1,9 @@
+.ext-bb-sa-user-privileges-ng {
+  .ellipsis {
+    @include text-overflow;
+  }
+
+  .break-word {
+    word-wrap: break-word;
+  }
+}

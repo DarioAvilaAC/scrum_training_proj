@@ -1,0 +1,25 @@
+/**
+ * @name checkbox-indeterminate
+ * @description Item that mimics checkbox in indeterminate state
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate
+ *
+ * @example
+ * <span class="checkbox-indeterminate"></span>
+ */
+.checkbox-indeterminate {
+  display: inline-block;
+  position: relative;
+  background-color: $white;
+  border: $checkbox-border-default;
+  border-radius: $border-radius-medium;
+  @include dimensions($checkbox-indeterminate-dimensions, $checkbox-indeterminate-dimensions);
+  &:before {
+    font-family: fontAwesome;
+    content: "\f068";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $gray-darker;
+  }
+}

@@ -1,0 +1,92 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Card component
+ * --------------------------------------------------------------------------
+ * @name bb-card
+ * @description
+ * UI component for rendering simple card
+ *
+ * @example
+ * <div class="bb-card bb-card-hoverable"
+ *   tabindex="0">
+ *   <div class="bb-card-checkbox">
+ *     <input type="checkbox" />
+ *   </div>
+ *   <div class="bb-card-content">
+ *     <span class="h4">Card title</span>
+ *     <div class="text-muted">Card subtitle</div>
+ *   </div>
+ *   <div class="bb-card-buttons text-right">
+ *     <button class="btn btn-default bb-card-buttons-hover">
+ *       <span class="fa fa-trash-o" aria-hidden="true"></span>
+ *     </button>
+ *   </div>
+ * </div>
+ */
+
+.bb-card {
+  background-color: $white;
+  border: $default-border;
+  border-color: $gray-light;
+  border-radius: $border-radius-large;
+  margin: $card-margin;
+  padding: $card-padding;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  &.selected {
+    background-color: $component-active-bg;
+  }
+}
+
+.bb-card-header {
+  margin: $card-header-margin;
+  border: 0;
+}
+
+.bb-card-content,
+.bb-card-checkbox,
+.bb-card-buttons {
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+
+.bb-card-checkbox {
+  width: $card-checkbox-width;
+
+  .checkbox-indeterminate {
+    margin-top: $card-checkbox-margin-top;
+  }
+
+  input[type=checkbox] {
+    @include dimensions($checkbox-dimensions-size, $checkbox-dimensions-size);
+
+    &:before {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.bb-card-hoverable {
+  &:hover,
+  &:focus {
+    background-color: $component-active-bg;
+  }
+}
+
+.bb-card-buttons-hover {
+  opacity: 0;
+
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.bb-card:hover,
+.bb-card:focus {
+  .bb-card-buttons-hover {
+    opacity: 1;
+  }
+}

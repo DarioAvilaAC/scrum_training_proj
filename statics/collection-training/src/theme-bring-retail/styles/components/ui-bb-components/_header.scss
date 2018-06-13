@@ -1,0 +1,24 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Page title component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-header-ng
+ * @description Page title component
+ *
+ * @example
+ * <ui-bb-header class="bb-header">
+ *   <h1 role="heading" data-role="page-title">
+ *     Page title
+ *   </h1>
+ * </ui-bb-header>
+ */
+.bb-header {
+  /**
+   * @description
+   * Desktop view of the table (>768px).
+   * Remove padding from page title component on desktop view
+   */
+  @media (min-width: $screen-sm-min) {
+    padding: 0;
+  }
+}

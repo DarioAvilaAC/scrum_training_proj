@@ -1,0 +1,21 @@
+/**
+ * @name navigate-to
+ * @description Navigation button component
+ *
+ * @example
+ * <ui-bb-navigate-to-ng
+ *   data-label="'View all transactions'"
+ *   data-action="'view.account.transactions'">
+ * <ui-bb-navigate-to-ng>
+ */
+
+.navigate-to {
+  a {
+    display: block;
+    padding: $navigate-to-padding;
+  }
+
+  &:after {
+    @extend .clearfix;
+  }
+}

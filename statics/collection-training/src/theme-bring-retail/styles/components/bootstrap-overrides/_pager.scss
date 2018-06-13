@@ -1,0 +1,46 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Pager override
+ * --------------------------------------------------------------------------
+ * @name pager
+ * @description
+ * Bootstrap's pager styles envisage using only <a> and <span> tags. We need
+ * to extend it for <button> tag as well.
+ *
+ * @example
+ *  <nav>
+ *    <ul class="pager">
+ *      <li>
+ *        <button class="btn btn-link">
+ *          Page
+ *        </button>
+ *      </li>
+ *    </ul>
+ *  </nav>
+ */
+
+.pager {
+  li {
+    > button {
+      @extend a;
+    }
+  }
+
+  .next {
+    > button {
+      @extend a;
+    }
+  }
+
+  .previous {
+    > button {
+      @extend a;
+    }
+  }
+
+  .disabled {
+    > button {
+      @extend a;
+    }
+  }
+}

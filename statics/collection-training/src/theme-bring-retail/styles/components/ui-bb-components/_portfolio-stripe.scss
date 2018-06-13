@@ -1,0 +1,314 @@
+/**
+ * --------------------------------------------------------------------------
+ * Portfolio summary stripe component
+ * --------------------------------------------------------------------------
+ * @name portfolio-stripe
+ * @description
+ * Component that renders position for portfolio summary
+ *
+ * @example
+ *<div class="panel panel-default portfolio-stripe">
+ *  <div class="panel-heading panel-heading-collapse">
+ *    <div class="row portfolio-stripe-vertical-center">
+ *      <div class="col-xs-11">
+ *        <div class="row portfolio-stripe-header-items">
+ *          <div class="col-xs-6 portfolio-stripe-header-offset">
+ *            <p>Personal portfolio</p>
+ *            <p class="text-muted">VK60249166853598</p>
+ *          </div>
+ *          <div class="col-xs-6">
+ *            <div class="text-muted small">Valuation</div>
+ *            <div>
+ *              <span>EUR</span>
+ *              <span></span>
+ *            </div>
+ *          </div>
+ *        </div>
+ *      </div>
+ *      <div class="col-xs-1">
+ *        <button class="btn btn-link"><i class="fa fa-chevron-down"></i></button>
+ *      </div>
+ *    </div>
+ *  </div>
+ *  <div class="panel-collapse">
+ *    <div class="panel-body">
+ *      <div class="row">
+ *        <div class="col-xs-6 portfolio-stripe-body-item">
+ *          <div class="row">
+ *            <div class="col-xs-6">
+ *              <span class="text-muted">YTD Performance value</div>
+ *            </div>
+ *            <div class="col-xs-2">
+ *              <span>EUR</div>
+ *            </div>
+ *            <div class="col-xs-4">
+ *              <span>30,758,596.45</div>
+ *            </div>
+ *          </div>
+ *        </div>
+ *        <div class="col-xs-6">
+ *          <div>
+ *            <span>Portfolio managers:</span>
+ *            <a href="/" class="btn btn-link">Robinet Spacy</a>
+ *          </div>
+ *        </div>
+ *      </div>
+ *    </div>
+ *  </div>
+ *</div>
+ */
+
+@include generate-colorset-class(allocations, $portfolio-stripe-colors);
+@include generate-colorset-class(assets, $portfolio-stripe-colors);
+@include generate-colorset-class(legend, $chart-donut-colors);
+@include generate-colorset-chart-class(portfolio-donut, $chart-donut-colors);
+
+.portfolio-stripe {
+
+  &.list-item {
+    border-top: $default-border;
+    border-color: $gray-light;
+  }
+
+  &-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+
+  .any-panel-open .colorset-item-container-allocations &-bar.colorset-item-allocations {
+    background-color: $gray-lighter;
+  }
+
+  .fa {
+    font-size: inherit;
+  }
+
+  .font-size-small {
+    font-size: $font-size-small;
+  }
+
+  .text-gray {
+    color: $portfolio-stripe-text-gray;
+  }
+
+  &-icon {
+    padding-right: $panel-heading-padding;
+    &-info {
+      margin-right: $margin-small-vertical;
+    }
+  }
+
+  &-vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+  &-title {
+    padding-top: $portfolio-title-padding;
+    padding-bottom: $portfolio-title-padding;
+    border-bottom: $default-border;
+    border-color: $gray-light;
+  }
+  &-details-heading {
+    margin-bottom: $panel-margin;
+  }
+  &-details-amount-heading {
+    font-size: $font-size-h3;
+    margin-left: $portfolio-stripe-details-amount-heading-margin;
+  }
+
+  .panel-heading {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: $portfolio-heading-divider-right;
+      height: 100%;
+      border-right: $default-border;
+      border-color: $gray-light;
+    }
+  }
+
+  &-offset, &.panel {
+    margin-bottom: $portfolio-client-bottom-margin;
+
+    & & {
+      margin-bottom: 0;
+      border-top: 0;
+    }
+  }
+
+  &-no-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &-list-item {
+    padding-top: $portfolio-stripe-list-item-padding;
+    padding-bottom: $portfolio-stripe-list-item-padding;
+  }
+
+  &-body-item {
+    position: inherit;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-right: $default-border;
+      margin-left: -($grid-gutter-width / 2);
+    }
+
+    &:first-child:after {
+      display: none;
+    }
+  }
+
+  &-assets {
+    max-width: $portfolio-assets-width;
+    .chart {
+      padding-right: 0;
+    }
+    .asset {
+      min-height: $portfolio-asset-height;
+      padding-top: $portfolio-asset-padding-top;
+      border-radius: $border-radius-medium;
+      margin-bottom: $portfolio-asset-margin-small-vertical;
+      padding-right: $padding-large-vertical;
+
+      .asset-icon {
+        @include size($portfolio-asset-icon-width, $portfolio-asset-icon-height);
+        border-radius: $border-radius-medium;
+        margin-right: $portfolio-asset-icon-margin-small-horizontal;
+        margin-top: $portfolio-asset-margin-small-vertical;
+      }
+      .percent {
+        padding-left: $portfolio-asset-percent-padding-left;
+        padding-right: $portfolio-asset-percent-padding-right;
+      }
+
+      .asset-name {
+        padding-left: $portfolio-asset-asset-name-padding-left;
+        padding-right: $portfolio-asset-asset-name-padding-right;
+      }
+    }
+  }
+
+  .instrument-name {
+    line-height: $portfolio-stripe-instrument-name-line-height;
+  }
+
+  &-table {
+    &-title-shift,
+    th:first-child,
+    td:first-child {
+      padding-left: $portfolio-stripe-table-title-padding-left;
+    }
+
+    tbody > tr > th {
+      border-top: none;
+      border-bottom: $portfolio-stripe-table-header-border;
+    }
+
+    tbody + tbody {
+      border: 0;
+
+      th {
+        box-shadow: $portfolio-stripe-table-header-shadow-border;
+      }
+    }
+
+    &-column {
+      color: $portfolio-stripe-table-row-color;
+    }
+
+    &-header {
+      background-color: $portfolio-stripe-table-header-color;
+    }
+  }
+
+  &-header-items {
+    margin-left: $portfolio-stripe-table-header-margin;
+
+    .bb-sortable-icon {
+      right: auto;
+      margin-left: $portfolio-currency-label-margin;
+      visibility: visible;
+    }
+
+    .text-right .bb-sortable-icon {
+      position: relative;
+    }
+  }
+
+  &-header-offset {
+    padding-left: $portfolio-stripe-header-items-padding;
+  }
+
+  &-heading-xs {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: $portfolio-stripe-heading-xs-height;
+  }
+
+  &-link {
+    color: $text-muted;
+
+    &:hover {
+      color: $gray-base;
+    }
+  }
+
+  &-checkbox-wrap {
+    input[type="checkbox"] {
+      @include dimensions($checkbox-dimensions-size, $checkbox-dimensions-size);
+      margin: 0;
+
+      &:before {
+        left: 0;
+      }
+    }
+  }
+
+  &-drop-shadow {
+    margin-bottom: $line-height-computed;
+    @include box-shadow($default-box-shadow);
+  }
+
+  &-highlight-panel.panel.panel-striped {
+    .panel-heading {
+      background-color: $brand-primary-bright;
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    &-long-num-offset {
+      margin-left: $portfolio-stripe-long-num-offset;
+    }
+
+    &-font-xs {
+      font-size: $font-size-xs;
+    }
+
+    &-header-items {
+      margin-left: $portfolio-stripe-table-header-margin-xs;
+    }
+
+    &-header-offset {
+      padding-left: $portfolio-stripe-header-items-padding-xs;
+    }
+  }
+}
+
+.portfolios > .panel-group > .panel-open > .panel-heading {
+  background-color: $brand-primary-bright;
+}
+.portfolio-label {
+  margin-left: $portfolio-label-default-margin;
+  margin-top: $portfolio-label-default-margin;
+}

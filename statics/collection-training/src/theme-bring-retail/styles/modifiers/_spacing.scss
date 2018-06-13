@@ -1,0 +1,101 @@
+/**
+ * @name Margin and padding classes
+ * @description
+ * Assign responsive-friendly margin or padding values to an element
+ * or a subset of its sides with shorthand classes.
+ * Includes support for individual properties, all properties,
+ * and vertical and horizontal properties
+ *
+ * Notation:
+ * Spacing utilities that apply to all breakpoints, from xs to lg,
+ * have no breakpoint abbreviation in them. This is because those classes
+ * are applied from min-width: 0 and up, and thus are not bound by a media query.
+ * The remaining breakpoints, however, do include a breakpoint abbreviation.
+ *
+ * The classes are named using the format {property}{sides}-{size}
+ * for xs and {property}{sides}-{breakpoint}-{size} for sm, md, and lg.
+ *
+ * Where property is one of:
+ *
+ * m - for classes that set margin
+ * p - for classes that set padding
+ * Where sides is one of:
+ *
+ * t - for classes that set margin-top or padding-top
+ * b - for classes that set margin-bottom or padding-bottom
+ * l - for classes that set margin-left or padding-left
+ * r - for classes that set margin-right or padding-right
+ * x - for classes that set both *-left and *-right
+ * y - for classes that set both *-top and *-bottom
+ * blank - for classes that set a margin or padding on all 4 sides of the element
+ * Where size is one of:
+ *
+ * 0 - for classes that eliminate the margin or padding by setting it to 0
+ * 025 - (by default) for classes that set the margin or padding to $spacer * .25
+ * 0.5 - (by default) for classes that set the margin or padding to $spacer * 0.5
+ * 1 - (by default) for classes that set the margin or padding to $spacer
+ * 2 - (by default) for classes that set the margin or padding to $spacer * 2
+ * 3 - (by default) for classes that set the margin or padding to $spacer * 3
+ *
+ * Additionally, Bootstrap also includes an .mx-auto class for horizontally centering
+ * fixed-width block level content—that is, content that has display: block
+ * and a width set—by setting the horizontal margins to auto.
+ *
+ * Here are some examples:
+ * .mt-0 {
+ *   margin-top: 0;
+ * }
+ *
+ * .ml-025 {
+ *   margin-left: ($spacer * .25);
+ * }
+ *
+ * .px-2 {
+ *   padding-left: ($spacer * 2);
+ *   padding-right: ($spacer * 2);
+ * }
+ *
+ * .p-1 {
+ *   padding: $spacer;
+ * }
+ */
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+
+        .#{$abbrev}#{$infix}-#{$size}  { #{$prop}:        $length; }
+        .#{$abbrev}t#{$infix}-#{$size} { #{$prop}-top:    $length; }
+        .#{$abbrev}r#{$infix}-#{$size} { #{$prop}-right:  $length; }
+        .#{$abbrev}b#{$infix}-#{$size} { #{$prop}-bottom: $length; }
+        .#{$abbrev}l#{$infix}-#{$size} { #{$prop}-left:   $length; }
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length;
+          #{$prop}-left:  $length;
+        }
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top:    $length;
+          #{$prop}-bottom: $length;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto  { margin:        auto; }
+    .mt#{$infix}-auto { margin-top:    auto; }
+    .mr#{$infix}-auto { margin-right:  auto; }
+    .mb#{$infix}-auto { margin-bottom: auto; }
+    .ml#{$infix}-auto { margin-left:   auto; }
+    .mx#{$infix}-auto {
+      margin-right: auto;
+      margin-left:  auto;
+    }
+    .my#{$infix}-auto {
+      margin-top:    auto;
+      margin-bottom: auto;
+    }
+  }
+}

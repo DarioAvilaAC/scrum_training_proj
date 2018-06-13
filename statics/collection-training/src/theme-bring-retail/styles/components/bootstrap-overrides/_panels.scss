@@ -1,0 +1,255 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Panels override
+ * --------------------------------------------------------------------------
+ * @name panels
+ * @description
+ * While not always necessary, sometimes you need to put your DOM in a box.
+ * For those situations, try the panel component.
+ *
+ * @example
+ * Default panel
+ * <div class="panel panel-default">
+ *   <div class="panel-heading">
+ *     <h3 class="panel-title">Panel title</h3>
+ *   </div>
+ *   <div class="panel-body">
+ *     Panel content
+ *   </div>
+ *   <div class="panel-footer">
+ *     Panel footer
+ *   </div>
+ * </div>
+ *
+ * Panel with darker background and merged title and body if expanded
+ * <div class="panel panel-default panel-open panel-open-darker">
+ *   ...
+ * </div>
+ *
+ * Panel with hover effect
+ * <div class="panel panel-default panel-hover">
+ *   ...
+ * </div>
+ *
+ * Panel heading with larger padding
+ * ...
+ * <div class="panel-heading panel-heading-large">
+ * ...
+ *
+ * Panel title with smaller font (use element other than heading)
+ * ...
+ * <div class="panel-title panel-title-smaller">
+ * ...
+ *
+ * Panel body with larger padding
+ * ...
+ * <div class="panel-body panel-body-large">
+ * ...
+ */
+
+// Base class
+.panel {
+  margin-bottom: $line-height-computed;
+  background-color: $panel-bg;
+  border-radius: $border-radius-medium;
+  border: none;
+  @include box-shadow($panel-box-shadow);
+}
+
+// Optional heading
+.panel-heading {
+  border-top-left-radius: $border-radius-large;
+  border-top-right-radius: $border-radius-large;
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  background-color: $body-bg;
+  border-top: none;
+
+  .btn {
+    padding: $panel-footer-button-padding;
+  }
+
+  .btn + .btn {
+    margin-left: $panel-footer-button-margin;
+  }
+}
+
+// Additional non-Bootstrap panel definitons
+// panel with darker background and merged title and body if expanded
+.panel.panel-open.panel-open-darker {
+  &,
+  .panel-heading {
+    background-color: $panel-darker-heading-bg;
+  }
+
+  .panel-body {
+    border: none;
+  }
+}
+
+// panel with spacing on the top
+.panel-offset {
+  margin-top: $panel-margin;
+}
+
+// panel with hover effect
+.panel-hover {
+  &:hover,
+  .panel-heading:hover {
+    background-color: $component-active-bg;
+  }
+}
+
+// panel heading for collapsible component
+.panel:not(.panel-open) {
+  .panel-heading-collapse {
+    border-bottom: 0;
+    border-bottom-left-radius: $border-radius-large;
+    border-bottom-right-radius: $border-radius-large;
+  }
+
+  .panel-heading {
+    .btn-toggle {
+      color: $text-muted;
+
+      &:hover {
+        color: $gray-base;
+      }
+    }
+  }
+}
+
+.panel.panel-open {
+  .btn-link.remove-offsets {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .btn-toggle {
+    color: $link-color;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
+// bigger panel heading
+.panel-heading-large {
+  padding: $panel-heading-padding-large;
+}
+
+// smaller panel heading
+.panel-heading-small {
+  padding: $panel-heading-padding-small;
+}
+
+// panel heading with back navigation button
+.panel-heading-with-navigation {
+  padding: $panel-heading-navigation-padding;
+
+  .panel-title {
+    font-size: $font-size-base;
+    color: $gray-darker;
+    font-weight: $headings-font-weight;
+
+    .nav-icon {
+      margin: $panel-heading-nav-icon-margin;
+      color: $gray-darker;
+      font-size: $panel-heading-nav-icon-font-size;
+      line-height: $panel-heading-nav-icon-line-height;
+    }
+  }
+}
+
+// panel heading with larger title to align height with button
+.panel-heading-with-title-and-btn {
+  border-top: $default-border;
+  border-bottom: $default-border;
+  border-color: $gray-light;
+  padding: $panel-heading-title-btn-padding;
+
+  .panel-title {
+    line-height: $line-height-computed * 1.5;
+  }
+}
+
+// smaller panel title font
+.panel-title-smaller {
+  @include font-size($font-size-base);
+}
+
+// normal panel title font weight
+.panel-title-normal {
+  font-weight: 400;
+}
+
+.panel-title-primary > a {
+  color: $brand-primary;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.panel-body-large {
+  padding: $panel-body-padding * 2;
+}
+
+.panel-body-xlarge {
+  padding: $panel-body-padding * 3;
+}
+
+.panel-no-offset {
+  margin-bottom: 0;
+}
+
+.panel-body-small {
+  padding: $panel-body-padding-small;
+}
+
+.panel-body-no-padding {
+  padding: 0;
+}
+
+.panel-overflow-auto-x {
+  overflow-x: auto;
+}
+
+.panel-footer-white {
+  background: $white;
+}
+
+.panel-footer-small {
+  padding: $panel-footer-padding-small;
+}
+
+.panel-line-header {
+  background: $primarycolor;
+  padding: $padding-base-vertical $panel-body-padding * 2;
+}
+
+// Collapsable panels (aka, accordion)
+//
+// Ignore margin if we are in list wrapper
+.panel-group {
+  .list-items-wrapper & {
+    margin-bottom: 0;
+  }
+}
+
+.panel.panel-striped {
+  box-shadow: none;
+  border-bottom: $default-border;
+  border-color: $gray-light;
+
+  &:nth-child(odd) {
+    background-color: $gray-lightest;
+
+    .panel-heading {
+      background-color: $gray-lightest;
+    }
+  }
+}

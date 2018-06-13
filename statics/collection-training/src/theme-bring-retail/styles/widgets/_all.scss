@@ -1,0 +1,19 @@
+// FIXME: these stylesheets should be refactored.
+@import "authorization";
+@import "batch-list";
+@import "batch-upload";
+@import "contact";
+@import "data-access-groups";
+@import "direct-debits";
+@import "function-access-groups";
+@import "login";
+@import "payment";
+@import "initiate-payment";
+@import "standing-order";
+@import "places";
+@import "product-summary";
+@import "sa-assign-pairs";
+@import "sa-user-privileges";
+@import "user-grant-access";
+@import "contact-list";
+@import "create-new";

@@ -1,0 +1,12 @@
+/**
+ * @description
+ * Specifies how overflowed content that is not displayed should be signaled to the user.
+ * Requires inline-block or block for proper styling.
+ *
+ * @example
+ * <div class="text-overflow"></div>
+ */
+
+ .text-overflow {
+	@include text-overflow;
+ }

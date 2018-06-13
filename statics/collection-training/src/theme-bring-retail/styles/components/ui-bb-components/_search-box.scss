@@ -1,0 +1,100 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Search Box
+ * --------------------------------------------------------------------------
+ * @name ui-bb-search-box-ng
+ * @description
+ * UI component to create search box.
+ *
+ * @example
+ * // Search box with value
+ * <ui-bb-search-box-ng>
+ *   <div class="bb-search-box">
+ *     <label class="hidden">Search</label>
+ *     <i class="fa fa-search bb-search-box-icon" aria-hidden="true"></i>
+ *     <input type="search" class="form-control bb-search-box-input">
+ *     <button type="button" class="close bb-search-box-clear" aria-label="Clear">
+ *       <span aria-hidden="true">&times;</span>
+ *     </button>
+ *   </div>
+ * </ui-bb-search-box-ng>
+ *
+ * // Empty search box
+ * <ui-bb-search-box-ng>
+ *   <div class="bb-search-box empty">
+ *     <label class="hidden">Search</label>
+ *     <i class="fa fa-search bb-search-box-icon" aria-hidden="true"></i>
+ *     <input type="search" class="form-control bb-search-box-input">
+ *     <button type="button" class="close bb-search-box-clear" aria-label="Clear">
+ *       <span aria-hidden="true">&times;</span>
+ *     </button>
+ *   </div>
+ * </ui-bb-search-box-ng>
+ *
+ * // Disabled search box
+ * <ui-bb-search-box-ng>
+ *   <div class="bb-search-box disabled">
+ *     <label class="hidden">Search</label>
+ *     <i class="fa fa-search bb-search-box-icon" aria-hidden="true"></i>
+ *     <input type="search" class="form-control bb-search-box-input">
+ *     <button type="button" class="close bb-search-box-clear" aria-label="Clear">
+ *       <span aria-hidden="true">&times;</span>
+ *     </button>
+ *   </div>
+ * </ui-bb-search-box-ng>
+ */
+.bb-search-box {
+  display: block;
+  position: relative;
+
+  .close {
+    font-size: $font-size-large;
+    color: $gray-base;
+    @include opacity(.5);
+
+    &:hover,
+    &:focus {
+      @include opacity(.6);
+    }
+  }
+}
+
+.bb-search-box-wrapper {
+  width: 100%;
+}
+
+.bb-search-box-input {
+  padding-right: $search-box-input-padding-right;
+  border: $default-border;
+  border-radius: $input-border-radius-small;
+  height: $form-control-line-height;
+}
+
+.bb-search-box-icon,
+.bb-search-box-clear,
+.bb-search-box-spinner {
+  position: absolute;
+  top: 50%;
+  z-index: $search-box-addon-z-index;
+  width: $search-box-addon-size;
+  height: $search-box-addon-size;
+  @include translate(0, -50%);
+}
+
+.bb-search-box-clear,
+.bb-search-box-spinner {
+  right: $search-box-addon-horizontal-padding;
+
+  &.shift-right {
+    right: $search-box-addon-horizontal-padding-small;
+  }
+}
+
+.bb-search-box-icon {
+  left: $search-box-addon-horizontal-padding-small;
+  color: $gray-dark;
+}
+
+.bb-search-box-spinner {
+  @include spinner($search-box-addon-size);
+}

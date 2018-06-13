@@ -1,0 +1,24 @@
+/**
+ * @name switch-size
+ *
+ * @description
+ * This mixin produces sizes and positions for switcher, slider and text
+ * of switcher component
+ */
+
+@mixin switch-size($switcher-width, $switcher-height, $switcher-slider-size) {
+  height: $switcher-height;
+  width: $switcher-width;
+
+  .bb-slider {
+    height: $switcher-slider-size;
+    left: ($switcher-slider-size - $switcher-height) * -0.5;
+    top: ($switcher-slider-size - $switcher-height) * -0.5;
+    width: $switcher-slider-size;
+  }
+
+  .bb-switch-text {
+    left: $switcher-width;
+    top: -($line-height-computed - ceil($switcher-height)) / 2;
+  }
+}

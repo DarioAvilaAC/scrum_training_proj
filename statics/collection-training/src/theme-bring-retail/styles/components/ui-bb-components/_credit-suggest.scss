@@ -1,0 +1,66 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Credit Suggest component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-credit-suggest-ng
+ * @description
+ * Credit suggest input UI component
+ *
+ * @example
+ *  <div class="credit-suggest">
+ *    <input type="text" placeholder="Name" class="form-control" />
+ *    <div class="search-result-header px-2 py-3">Own Accounts</div>
+ *    <div class="row">
+ *      <div class="col-xs-8">
+ *        <div>Saving Accounts</div>
+ *        <div>NL74AEGO0735124873</div>
+ *      </div>
+ *      <div class="col-xs-4" >
+ *        <div class="pull-right search-result-ammount">
+ *          EUR 2.100,63
+ *        </div>
+ *      </div>
+ *    </div>
+ *    <span class="success-feedback"></span>
+ *    <span class="input-group-addon"></span>
+ *  </div>
+ */
+
+.credit-suggest {
+  &.input-group {
+    z-index: 3;
+
+    input:hover {
+      z-index: 5;
+    }
+
+    .input-group-addon:hover {
+      background-color: $dropdown-link-hover-bg;
+    }
+
+    .success-feedback {
+      top: $input-total-base-height - 1px; /* because of negative margin on the field */
+      right: $credit-suggest-success-feedback-right;
+      line-height: $input-total-base-height;
+      color: $brand-success;
+      z-index: 5;
+    }
+
+    .error-feedback {
+      display: none;
+    }
+  }
+
+  .search-result-header {
+    font-weight: $headings-font-weight;
+    color: $gray-base;
+    background-color: $gray-lightest;
+  }
+
+  .search-result-ammount {
+    line-height: $credit-suggest-search-result-ammount-line-height;
+    vertical-align: middle; 
+    color: $brand-primary;
+  }
+
+}

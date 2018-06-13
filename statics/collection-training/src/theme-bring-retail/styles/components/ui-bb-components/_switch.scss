@@ -1,0 +1,134 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Switcher component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-switcher-ng
+ * @description
+ * State switcher UI component
+ *
+ * @example
+ * <div class="">
+ *   <span class="bb-switch normal" role="button" tabindex="0">
+ *     <span class="bb-slider"></span>
+ *     <input type="checkbox" tabindex="-1" checked="">
+ *     <span class="bb-switch-text switch-text ng-scope">
+ *       <span class="off ng-binding">I am off (default)</span>
+ *     </span>
+ *   </span>
+ * </div>
+ *
+ * <div class="colored">
+ *   <span class="bb-switch normal checked" role="button" tabindex="0">
+ *     <span class="bb-slider"></span>
+ *     <input type="checkbox" tabindex="-1" checked="checked">
+ *     <span class="bb-switch-text switch-text ng-scope">
+ *       <span class="on ng-binding">I am on</span>
+ *     </span>
+ *   </span>
+ * </div>
+ *
+ * <div class="colored">
+ *   <span class="bb-switch normal" role="button" tabindex="0">
+ *     <span class="bb-slider"></span>
+ *     <input type="checkbox" tabindex="-1" checked="">
+ *     <span class="bb-switch-text switch-text ng-scope">
+ *       <span class="off ng-binding">I am off (colored)</span>
+ *     </span>
+ *   </span>
+ * </div>
+ */
+
+.bb-switch {
+  background-color: $switcher-background-default;
+  border: $default-border;
+  border-radius: $switcher-height;
+  box-sizing: content-box;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+ 
+  input[type="checkbox"] {
+    opacity: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .bb-slider {
+    background-color: $switcher-slider-background;
+    border: $default-border;
+    border-radius: 100%;
+    outline: none;
+    position: absolute;
+    transition: $switcher-transition-speed ease-out all;
+    -webkit-transition: $switcher-transition-speed ease-out all;
+  }
+
+  .bb-switch-text {
+    position: absolute;
+    margin-left: $switcher-text-margin-left;
+    outline: none;
+    white-space: nowrap;
+  }
+
+  @include switch-size(
+    $switcher-width,
+    $switcher-height,
+    $switcher-slider-size
+  );
+
+  .on {
+    display: none;
+  }
+
+  .off {
+    display: block;
+  }
+
+  &.checked {
+    background-color: $switcher-background-on;
+    border-color: $switcher-border-color-on;
+
+    .bb-slider {
+      border-color: $switcher-border-color-on;
+      left: $switcher-width - ($switcher-slider-size * 0.9);
+    }
+
+    .off {
+      display: none;
+    }
+
+    .on {
+      display: block;
+    }
+  }
+
+  .colored &:not(.checked) {
+    background-color: $switcher-background-off;
+    border-color: $switcher-border-color-off;
+  }
+
+  &.disabled {
+    opacity: $switcher-disabled-opacity;
+    outline: none;
+    cursor: not-allowed;
+
+    input {
+      display: none;
+    }
+  }
+
+  &:hover:not(.disabled), &.focus:not(.disabled) {
+    .bb-slider {
+      border-color: $switcher-slider-active;
+    }
+  }
+}

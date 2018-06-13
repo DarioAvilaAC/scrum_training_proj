@@ -1,0 +1,161 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's forms override
+ * --------------------------------------------------------------------------
+ * @description
+ * Vertical padding on top and bottom around the column in from-group
+ *
+ * @example
+ * <div class="form-group">
+ *  <div class="row>
+ *   <div class="col-xs-12">
+ *    <input type="text">
+ *   </div>
+ *  </div>
+ * </div>
+ */
+
+/**
+ * Default checkbox view restyling
+ */
+input[type="checkbox"] {
+  @include appearance(none);
+  visibility: hidden;
+  position: relative;
+  font-family: 'FontAwesome';
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    background-color: $white;
+    border: $checkbox-border-default;
+    color: $gray-darker;
+    border-radius: $border-radius-base;
+    @include dimensions($checkbox-dimensions-size, $checkbox-dimensions-size);
+    font-size: $checkbox-font-size;
+    visibility: visible;
+  }
+  &:hover {
+    &:before {
+      border-color: $checkbox-hover-border-color;
+    }
+  }
+  &:checked {
+    &:before {
+      content: "\f00c";
+    }
+  }
+  &:disabled {
+    &:before {
+      border-color: $gray;
+      background-color: $gray-lighter;
+      color: $gray-dark;
+    }
+  }
+}
+
+/**
+ * Default radio view restyling
+ */
+input[type="radio"] {
+  @include appearance(none);
+  visibility: hidden;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, -50%);
+    background-color: $white;
+    border: $radio-border-default;
+    border-radius: $radio-border-radius;
+    @include dimensions($radio-dimensions-size, $radio-dimensions-size);
+    visibility: visible;
+  }
+  &:hover {
+    &:before {
+      border-color: $radio-hover-border-color;
+    }
+  }
+  &:checked {
+    &:before {
+      background-color: $gray-darker;
+      @include box-shadow($radio-checked-inner-shadow);
+    }
+  }
+  &:disabled {
+    &:before {
+      border-color: $gray;
+      background-color: $gray-lighter;
+    }
+    &:checked {
+      &:before {
+        background-color: $gray-dark;
+        @include box-shadow($radio-checked-inner-shadow-disabled);
+      }
+    }
+  }
+}
+
+
+.form-group {
+  [class^='col-'] {
+    padding-top: $grid-gutter-width / 5;
+    padding-bottom: $grid-gutter-width / 5;
+  }
+}
+
+.form-horizontal {
+  .form-group {
+    label.control-label {
+      padding-top: $grid-gutter-width / 5;
+    }
+
+    [class^='col-'] {
+      padding-top: 0;
+      padding-bottom: $grid-gutter-width / 5;
+    }
+  }
+}
+
+label {
+  margin-bottom: $label-default-margin-bottom;
+}
+
+.checkbox-inline input[type="checkbox"] {
+  margin-top: $checkbox-inline-top-margin;
+}
+
+/**
+ * Display default checkbox element for IE and Edge
+ */
+@mixin ie-edge-checkbox-styles() {
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-top: $checkbox-ie-top-margin;
+    visibility: visible;
+  }
+
+  .checkbox-inline input[type="checkbox"],
+  .checkbox-inline input[type="radio"]{
+    margin-top: $checkbox-inline-ie-top-margin;
+  }
+}
+
+// MS Edge checkbox style fix
+@supports (-ms-ime-align: auto) {
+  @include ie-edge-checkbox-styles;
+
+  .checkbox-inline input[type="checkbox"],
+  .checkbox-inline input[type="radio"] {
+    -ms-transform: translate(0, -50%);
+  }
+}
+
+// MS IE checkbox style fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  @include ie-edge-checkbox-styles;
+}

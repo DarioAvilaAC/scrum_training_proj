@@ -1,0 +1,31 @@
+// styles related to payment's widget extensions and components
+.ext-bb-payment-ng {
+  .transfer-amount {
+    font-size: ceil(($font-size-base * 1.7));
+
+    .amount-decimals,
+    .amount-decimal-points {
+      font-size: $font-size-base;
+      margin-top: 4px;
+    }
+  }
+
+  .transfer-direction {
+    color: $brand-primary;
+    font-size: ceil(($font-size-base * 1.1));
+  }
+
+  .occurence-field {
+    width: 25%;
+  }
+
+  .amount-block {
+    padding-left: 0;
+    padding-right: 0;
+    border-collapse: separate;
+  }
+
+  .cross-currency-info > span {
+    margin-left: 7px;
+  }
+}

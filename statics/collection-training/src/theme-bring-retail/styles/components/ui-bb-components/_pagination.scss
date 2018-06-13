@@ -1,0 +1,42 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Pagination component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-pagination
+ * @description
+ * UI component for rendering pagination
+ *
+ * @example
+ * <ui-bb-paginator-ng>
+ *   <nav class="bb-pagination">
+ *     <ul class="pagination">
+ *       <li class="disabled"><a><span class="fa fa-angle-double-left fa-lg"></span></a></li>
+ *       <li class="disabled"><a><span class="fa fa-angle-left fa-lg"></span></a></li>
+ *       <li class="active"><a>1</a></li>
+ *       <li><a>2</a></li>
+ *       <li><a><span class="fa fa-angle-right fa-lg"></span></a></li>
+ *       <li><a><span class="fa fa-angle-double-right fa-lg"></span></a></li>
+ *     </ul>
+ *   </nav>
+ * </ui-bb-paginator-ng>
+ *
+ */
+.bb-pagination {
+  .pagination {
+    a {
+      border: none;
+      width: $pagination-item-width;
+      height: $pagination-item-height;
+    }
+
+    .active a {
+      background-color: $pagination-active-bg;
+      border-bottom: $pagination-active-border;
+      color: $pagination-color;
+    }
+
+    .disabled a {
+      color: $component-disabled-color;
+    }
+  }
+}

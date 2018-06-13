@@ -1,0 +1,25 @@
+/**
+ * @name radio-indeterminate
+ * @description Item that mimics radio in indeterminate state
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate
+ *
+ * @example
+ * <span class="radio-indeterminate"></span>
+ */
+.radio-indeterminate {
+  display: inline-block;
+  position: relative;
+  background-color: $white;
+  border: $radio-border;
+  border-radius: $radio-border-radius;
+  @include dimensions($radio-indeterminate-dimensions, $checkbox-indeterminate-dimensions);
+  &:before {
+    font-family: fontAwesome;
+    content: "\f068";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $gray-darker;
+  }
+}

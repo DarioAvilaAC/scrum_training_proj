@@ -1,0 +1,50 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Sortable column component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-sortable-column-ng
+ * @description Add sortable behavior to a column header
+ *
+ * @example
+ * // Left aligned title
+ * <th ui-bb-sortable-column-ng>
+ *   Account name
+ * </th>
+ *
+ * // Right aligned title. If no direction defined in options by default it will
+ * // be descending (DESC)
+ * <th ui-bb-sortable-column-ng
+ *     class="text-right">
+ *   Amount
+ * </th>
+ */
+th {
+  &.text-right {
+    &>.bb-sortable {
+      margin-right: -($font-size-xs);
+    }
+  }
+
+  &>.bb-sortable {
+    position: relative;
+    display: inline-block;
+    padding-right: $font-size-xs;
+  }
+}
+
+.bb-sortable-icon {
+  font-size: inherit;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -$font-size-large / 2;
+
+}
+
+.bb-sortable-icon-down {
+  @extend .fa-caret-down;
+}
+
+.bb-sortable-icon-up {
+  @extend .fa-caret-up;
+}

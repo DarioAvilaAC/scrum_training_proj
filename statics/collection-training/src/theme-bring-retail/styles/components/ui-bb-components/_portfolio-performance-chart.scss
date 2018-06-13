@@ -1,0 +1,42 @@
+/**
+ * --------------------------------------------------------------------------
+ * Portfolio performance chart component
+ * --------------------------------------------------------------------------
+ * @name portfolio-performance-chart
+ * @description
+ * Component that renders performance line chart for portfolio
+ *
+ * @example
+ * <ui-wm-chartjs-chart-line class="col-xs-12"
+ *   data-series="$ctrl.state.portfolioPerformance.data.performance"
+ *   data-options="ext.helpers.chartPerformanceOptions">
+ * </ui-wm-chartjs-chart-line>
+ */
+
+.portfolio-performance-chart {
+  padding: $portfolio-performance-chart-padding;
+
+  &-tooltip {
+    border-radius: $portfolio-performance-tooltip-corner-radius;
+  }
+
+  &-ticks {
+    padding: $portfolio-performance-ticks-padding;
+  }
+
+  &-line-positive {
+    background-color: $brand-success-bright;
+  }
+
+  &-line-negative {
+    background-color: $brand-danger-bright;
+  }
+
+  &-line-border-positive {
+    border-color: $brand-success-light;
+  }
+
+  &-line-border-negative {
+    border-color: $brand-danger-light;
+  }
+}

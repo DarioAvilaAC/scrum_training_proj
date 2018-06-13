@@ -1,0 +1,113 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Format amount component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-format-amount-ng
+ * @description Currency amount format component
+ *
+ * @example
+ * <ui-bb-format-amount>
+ *   <span class="amount amount-positive" data-role="amount">€300.00</span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bb-format-amount class="amount-regular-color">
+ *   <span class="amount amount-positive" data-role="amount">€300.00</span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bb-format-amount wrap="">
+ *   <span class="amount amount-positive" data-role="amount">
+ *     <span class="amount-currency">€</span>
+ *     <span class="amount-whole-number">300</span>
+ *     <span class="amount-decimal-points">.</span>
+ *     <span class="amount-decimals">00</span>
+ *   </span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bb-format-amount wrap="" class="amount-integer">
+ *   <span class="amount amount-positive" data-role="amount">
+ *     <span class="amount-currency">€</span>
+ *     <span class="amount-whole-number">300</span>
+ *     <span class="amount-decimal-points">.</span>
+ *     <span class="amount-decimals">00</span>
+ *   </span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bb-format-amount wrap="">
+ *   <span class="amount amount-negative" data-role="amount">
+ *     <span class="amount-sign">-</span>
+ *     <span class="amount-currency">€</span>
+ *     <span class="amount-whole-number">300</span>
+ *     <span class="amount-decimal-points">.</span>
+ *     <span class="amount-decimals">00</span>
+ *   </span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bb-format-amount class="amount-currency-padding">
+ *   <span class="amount amount-positive" data-role="amount">
+ *     <span class="amount-currency">€</span>
+ *     <span class="amount-whole-number">300</span>
+ *     <span class="amount-decimal-points">.</span>
+ *     <span class="amount-decimals">00</span>
+ *   </span>
+ * </ui-bb-format-amount>
+ *
+ * <ui-bus-format-amount>
+ *   <span class="amount amount-plain">
+ *     <span class="amount-currency">EUR</span>
+ *     <span class="amount-value">300</span>
+ *   <span>
+ * </ui-bus-format-amount>
+ */
+
+.amount-positive {
+  //color: $primarycolor;
+}
+
+.amount-negative {
+  color: $format-amount-negative-color;
+}
+
+.amount-positive,
+.amount-negative {
+  .amount-regular-color & {
+    color: inherit;
+  }
+}
+
+.amount-sign,
+.amount-currency,
+.amount-whole-number,
+.amount-decimals,
+.amount-decimal-points {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: $format-amount-base-line-height;
+}
+
+.amount-decimals,
+.amount-decimal-points {
+  margin-top: $format-amount-decimals-margin-top;
+  font-size: $format-amount-decimals-font-size;
+  line-height: $format-amount-decimals-line-height;
+
+  .amount-integer & {
+    display: none;
+  }
+}
+
+.amount-currency {
+  .amount-currency-padding & {
+    margin-right: $padding-xs-horizontal;
+  }
+}
+
+.amount-plain {
+  .amount-currency,
+  .amount-value {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: $amount-plain-height;
+    font-size: $amount-plain-height;
+    margin-top: 0;
+  }
+}

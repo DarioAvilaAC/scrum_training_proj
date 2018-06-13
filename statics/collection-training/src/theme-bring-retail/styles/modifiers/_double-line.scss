@@ -1,0 +1,12 @@
+/**
+ * @description
+ * Class for giving an element double line height
+ *
+ * @example
+ * <div>First line<br />Second line</div>
+ * <div class="double-line">Double line</div>
+ */
+
+.double-line {
+  line-height: $line-height-computed * 2;
+}

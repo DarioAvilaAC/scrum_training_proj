@@ -1,0 +1,37 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Avatar component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-avatar
+ * @description
+ * UI component for creating contact's avatar.
+ * It can display initials based on a name if image is not available.
+ *
+ * @example
+ * <ui-bb-avatar class="bb-avatar img-circle img-thumbnail">
+ *   <span aria-hidden="true">JD</span>
+ * </ui-bb-avatar>
+ *
+ * <ui-bb-avatar class="bb-avatar bb-avatar-lg img-circle img-thumbnail">
+ *   <span aria-hidden="true">JD</span>
+ * </ui-bb-avatar>
+ *
+ * <ui-bb-avatar class="bb-avatar bb-avatar-sm img-circle img-thumbnail">
+ *   <span aria-hidden="true">JD</span>
+ * </ui-bb-avatar>
+ */
+
+.bb-avatar {
+  @include avatar-size($avatar-size);
+  color: $text-color;
+  margin: $avatar-default-margin;
+  padding: 0;
+}
+
+.bb-avatar-lg {
+  @include avatar-size($avatar-size-big);
+}
+
+.bb-avatar-sm {
+  @include avatar-size($avatar-size-small);
+}

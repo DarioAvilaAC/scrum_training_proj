@@ -1,0 +1,109 @@
+@mixin fullscreen() { /* needs clean up */
+  @include size(100%, 100%);
+
+}
+
+/* Widget styles */
+.widget-bb-batch-upload-ng {
+  @include fullscreen();
+
+  > :first-child {
+    @include fullscreen();
+  }
+}
+
+/* Extension styles */
+.ext-bb-batch-upload-ng {
+  @include fullscreen();
+  border: 1px dashed $gray-dark;
+  border-radius: 2px;
+
+  .batch-upload-drop-message {
+    span:nth-child(1) {
+      display: block;
+      font-size: $font-size-large;
+    }
+  }
+
+  .batch-upload-empty-queue {
+    @include fullscreen();
+    background-color: $white;
+    padding: 160px 50px;
+    text-align: center;
+  }
+
+  .batch-upload-drop-zone {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .batch-upload-files-queue {
+    @include fullscreen();
+    background-color: $white;
+  }
+
+  .batch-upload-files-list {
+    width: 100%;
+  }
+
+  .batch-upload-file {
+    align-items: center;
+    border-top: 1px solid $gray;
+    display: flex;
+    padding: 14px 20px;
+    position: relative;
+
+    .batch-upload-file:first-child {
+      border-top: 0;
+    }
+
+    &__progress {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 0;
+      z-index: -1;
+    }
+
+    &__data {
+      flex-grow: 1;
+    }
+  }
+
+  .batch-upload-files-header {
+    background-color: $gray-lightest;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .batch-upload-queue-status {
+    color: $gray-darker;
+    flex-grow: 1;
+    font-size: 12px;  /* needs to use color variable */
+  }
+
+  .batch-upload-queue-actions {
+    flex-grow: 0;
+
+    .btn-primary {
+      margin-left: 10px;
+    }
+  }
+
+  .batch-upload-file__buttons {
+    .fa-check {
+      color: $brand-success;
+  }
+}
+
+  .file-size {
+    font-size: $font-size-xs;
+    color: $gray-darker;
+  }
+}

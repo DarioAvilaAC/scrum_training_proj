@@ -1,0 +1,72 @@
+//## Gray and brand colors for use across Bootstrap.
+
+//** Fluid UI Kit color palette.
+$white:     #FFFFFF;
+$black:     #000000;
+
+
+$blue:      #20A9FF;
+$blue20:    mix($white, $blue, 20%); // #4DBAFF
+$blue40:    mix($white, $blue, 40%); // #79CBFF
+$blue60:    mix($white, $blue, 60%); // #A6DDFF
+$blue80:    mix($white, $blue, 80%); // #D2EEFF
+$blue90:    mix($white, $blue, 90%); // #E9F6FF
+$blue-10:   mix($black, $blue, 10%); // #1D98E6
+$blue-20:   mix($black, $blue, 20%); // #1A87CC
+
+$green:     #18B290;
+$green20:   mix($white, $green, 20%); // #46C1A6
+$green40:   mix($white, $green, 40%); // #74D1BC
+$green60:   mix($white, $green, 60%); // #A3E0D3
+$green80:   mix($white, $green, 80%); // #D1F0E9
+$green90:   mix($white, $green, 90%); // #E8F7F4
+$green-10:  mix($black, $green, 10%); // #16A082
+$green-20:  mix($black, $green, 20%); // #138E73
+
+$orange:    #FFAA1E;
+$orange20:  mix($white, $orange, 20%); // #FFBB4B
+$orange40:  mix($white, $orange, 40%); // #FFCC78
+$orange60:  mix($white, $orange, 60%); // #FFDDA5
+$orange80:  mix($white, $orange, 80%); // #FFEED2
+$orange90:  mix($white, $orange, 90%); // #FFF7E9
+$orange-10: mix($black, $orange, 10%); // #E6991B
+$orange-20: mix($black, $orange, 20%); // #CC8818
+
+$red:       #ED3E44;
+$red20:     mix($white, $red, 20%); // #F16569
+$red40:     mix($white, $red, 40%); // #F48B8F
+$red60:     mix($white, $red, 60%); // #F8B2B4
+$red80:     mix($white, $red, 80%); // #FBD8DA
+$red90:     mix($white, $red, 90%); // #FDECEC
+$red-10:    mix($black, $red, 10%); // #D5383D
+$red-20:    mix($black, $red, 20%); // #BE3236
+
+
+$gray20:    mix($white, $black, 20%); // #333333
+$gray40:    mix($white, $black, 40%); // #666666
+$gray60:    mix($white, $black, 60%); // #999999
+$gray80:    mix($white, $black, 80%); // #CCCCCC
+$gray89:    mix($white, $black, 89%); // #E3E3E3
+$gray95:    mix($white, $black, 95%); // #F2F2F2
+$gray98:    mix($white, $black, 98%); // #FAFAFA
+
+
+$purple:    #9D62D1;
+$purple20:  mix($white, $purple, 20%); // #B181DA
+$purple40:  mix($white, $purple, 40%); // #C4A1E3
+$purple60:  mix($white, $purple, 60%); // #D8C0ED
+$purple80:  mix($white, $purple, 80%); // #EBE0F6
+$purple90:  mix($white, $purple, 90%); // #F5EFFA
+$purple-10: mix($black, $purple, 10%); // #8D58BC
+$purple-20: mix($black, $purple, 20%); // #7E4EA7
+
+$primarycolor: #be1e2d;
+$primarycolor20:    mix($white, $primarycolor, 20%);
+$primarycolor40:    mix($white, $primarycolor, 40%);
+$primarycolor60:    mix($white, $primarycolor, 60%);
+$primarycolor80:    mix($white, $primarycolor, 80%);
+$primarycolor90:    mix($white, $primarycolor, 90%);
+$primarycolor-10:   mix($black, $primarycolor, 10%);
+$primarycolor-20:   mix($black, $primarycolor, 20%); 
+$secondarycolor: #000000;
+$selectedelements: #000000;

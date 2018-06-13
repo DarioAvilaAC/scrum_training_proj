@@ -1,0 +1,40 @@
+ /**
+ * --------------------------------------------------------------------------
+ * UI BB Message
+ * --------------------------------------------------------------------------
+ * @name ui-bb-message-ng
+ * @description Message component
+ *
+ * @example
+ * <ui-bb-message class="message">
+ *   <span>
+ *     <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+ *   </span>
+ * </ui-bb-message>
+ *
+ * // one line message with ellipsis
+ * <ui-bb-message class="message ellipsis">
+ *   <span>
+ *     <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+ *   </span>
+ * </ui-bb-message>
+ *
+ * // multiline message with ellipsis
+ * <ui-bb-message class="message multiline-ellipsis">
+ *   <span>
+ *     <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+ *     <span>...</span>
+ *   </span>
+ * </ui-bb-message>
+ */
+.message {
+  display: block;
+
+  &.ellipsis {
+    @include text-overflow;
+  }
+
+  &.multiline-ellipsis {
+    overflow: hidden;
+  }
+}

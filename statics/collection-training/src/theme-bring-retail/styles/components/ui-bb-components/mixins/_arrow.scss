@@ -1,0 +1,54 @@
+/**
+ * @name Arrow classes mixin
+ *
+ * @description
+ * This will produce classes that can be used to display arrows attached on element
+ * for which the mixin is included.
+ * The classes are named using the format bb-arrow-{position}
+ *
+ * Where position is one of: top, right, bottom, left
+ *
+ * Parameters for this mixin are:
+ * size - Size of arrow in
+ * border - Size of border
+ * (it is rendered beneath arrow, so size should be greater than arrow size)
+ * offset - Arrow offset from left/top (depending on orientation)
+ * arrow-color
+ * border-color
+ */
+
+$positions: (
+  top:    ( side: bottom, offset: left ),
+  right:  ( side: left,   offset: top  ),
+  bottom: ( side: top,    offset: left ),
+  left:   ( side: right,  offset: top  ),
+);
+
+@mixin arrow($size, $border, $offset, $arrow-color, $border-color) {
+  @each $pos, $definitions in $positions {
+    $pos-side: map-get($definitions, side);
+    $pos-offset: map-get($definitions, offset);
+    &.bb-arrow-#{$pos} {
+      &:after, 
+      &:before {
+        @include size(0, 0);
+        #{$pos-side}: 100%;
+        border: solid transparent;
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        #{$pos-offset}: $offset;
+      }
+      &:after {
+        border-#{$pos-side}-color: $arrow-color;
+        border-width: $size;
+        margin-#{$pos-offset}: -$size;
+      }
+      &:before {
+        border-#{$pos-side}-color: $border-color;
+        border-width: $size + $border;
+        margin-#{$pos-offset}: - $size - $border;
+      }
+    }
+  }
+}

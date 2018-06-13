@@ -1,0 +1,91 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Popovers override
+ * --------------------------------------------------------------------------
+ * @name popovers
+ * @description
+ * When you need to open a drop menu list attached
+ * to an element inside a popover
+ * .
+ * @example
+ * Popover with menu list
+ * <button type="button"
+ *   uib-popover-template="'menu.html'"
+ *   popover-placement="bottom-right"
+ *   popover-trigger="outsideClick">
+ * </button>
+ * <script type="text/ng-template" id="menu.html">
+ *   <div class="popover-menu">
+ *     <button type="button" class="popover-menu-item">New</button>
+ *     <button type="button" class="popover-menu-item">Edit</button>
+ *     <button type="button" class="popover-menu-item">Move</button>
+ *     <button type="button" class="popover-menu-item">Delete</button>
+ *   </div>
+ * </script>
+ */
+.popover {
+  padding: 1px 0;
+  min-width: $popover-min-width;
+
+  // Offset the popover to account for the popover arrow
+  // Adjust box shadow to position
+  &.top     {
+    @include box-shadow(0 -2px 5px $default-shadow-color);
+    margin-top: -$popover-arrow-margin;
+  }
+  &.right   {
+    @include box-shadow(2px 0 5px $default-shadow-color);
+    margin-left: $popover-arrow-margin;
+  }
+  &.bottom  {
+    @include box-shadow(0 2px 5px $default-shadow-color);
+    margin-top: $popover-arrow-margin;
+  }
+  &.left    {
+    @include box-shadow(-2px 0 5px $default-shadow-color);
+    margin-left: -$popover-arrow-margin;
+  }
+}
+
+.popover-content {
+  padding: $popover-content-padding;
+}
+
+.popover-menu {
+  margin: 0;
+  padding: 0;
+}
+
+.popover-menu-item {
+  display: block;
+  background-color: transparent;
+  padding: $popover-menu-item-padding;
+  width: 100%;
+  height: $popover-menu-item-height;
+  text-align: left;
+  border-radius: 0;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+}
+
+.popover-md {
+  z-index: $zindex-dropdown;
+}
+
+.popover-md {
+  width: $popover-medium-width;
+  max-width: $popover-medium-width;
+}
+
+// For use when a popover is not a menu, and needs padding
+// Uses the menu item padding for consistency
+.popover-body {
+  padding: $popover-menu-item-padding;
+}
+
+// For use with a popover that has a text area inside it
+.popover-textarea {
+  max-width: 100%;
+  min-width: 100%;
+}
