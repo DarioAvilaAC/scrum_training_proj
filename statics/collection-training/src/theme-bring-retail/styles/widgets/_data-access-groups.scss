@@ -1,0 +1,9 @@
+.ext-bb-data-access-groups-ng {
+  .ellipsis {
+    @include text-overflow;
+  }
+
+  .break-word {
+    word-wrap: break-word;
+  }
+}

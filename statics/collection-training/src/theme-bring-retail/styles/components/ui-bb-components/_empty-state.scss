@@ -1,0 +1,28 @@
+/**
+ * --------------------------------------------------------------------------
+ * Empty state component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-empty-state
+ * @description
+ * Component for displaying empty state message inside content area.
+ *
+ * @example
+ * <div class="col-xs-12 text-center">
+ *   <i class="fa fa-bar-chart empty-state-icon"></i>
+ *   <p class="empty-state-title"><strong>Empty state title</strong></p>
+ *   <p class="empty-state-subtitle text-muted">Empty state subtitle</p>
+ * </div>
+ */
+
+.empty-state-icon {
+  color: $gray;
+  margin: $empty-state-icon-margin;
+}
+
+.empty-state-title {
+  font-size: $font-size-large;
+}
+
+.empty-state-subtitle {
+  margin-bottom: $empty-state-subtitle-margin-bottom;
+}

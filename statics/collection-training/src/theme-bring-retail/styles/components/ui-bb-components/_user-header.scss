@@ -1,0 +1,43 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB User Header component
+ * --------------------------------------------------------------------------
+ * @name bb-user-header
+ * @description
+ * User header component
+ *
+ * @example
+ * <div class="media bb-user-header">
+ *   <div class="media-left">
+ *     <ui-bb-avatar class="text-center bb-avatar bb-avatar-lg img-circle img-thumbnail"
+ *       name="John Doe"
+ *       image="$ctrl.state.user.imageAvatar">
+ *     </ui-bb-avatar>
+ *   </div>
+ *   <div class="media-body">
+ *     <div class="media-heading">
+ *       <div class="user-header-title">John Doe</div>
+ *       <small class="user-header-user-name-value user-header-subtitle">Backbase</small>
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+.bb-user-header {
+  margin: 0;
+  padding: $user-header-padding;
+  background-color: $gray-lightest;
+
+  .bb-avatar {
+    margin-left: 0;
+  }
+
+  .user-header-title {
+    font-size: $font-size-h2;
+  }
+
+  .user-header-subtitle {
+    font-size: $font-size-small;
+    color: $gray-darker;
+  }
+}

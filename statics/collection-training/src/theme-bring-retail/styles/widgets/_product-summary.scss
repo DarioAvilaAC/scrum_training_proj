@@ -1,0 +1,11 @@
+// styles related to product summary widget extensions and components
+
+.ext-bb-product-selected-ng {
+  .panel-heading {
+    border-bottom: $default-border;
+  }
+
+  .panel-body {
+    padding: 30px;
+  }
+}

@@ -1,0 +1,67 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's List groups component override
+ * --------------------------------------------------------------------------
+ * @name list-groups
+ * @description
+ * List groups are a flexible and powerful component for displaying not only simple
+ * lists of elements, but complex ones with custom content
+ *
+ * @example
+ * <ul class="list-group">
+ *   <li class="list-group-item">Cras justo odio</li>
+ *   <li class="list-group-item">Dapibus ac facilisis in</li>
+ *   <li class="list-group-item">Morbi leo risus</li>
+ *   <li class="list-group-item">Porta ac consectetur ac</li>
+ *   <li class="list-group-item">Vestibulum at eros</li>
+ * </ul>
+ */
+
+// Custom content options
+//
+// Extra classes for creating well-formatted content within `.list-group-item`s.
+
+.list-group-item-text {
+  line-height: $line-height-base;
+}
+
+.list-group-item-bottom-border,
+.list-group-item-bottom-border:last-child,
+.list-group-item-bottom-border:first-child {
+  border-radius: 0;
+  border-width: 0 0 1px 0;
+  margin-bottom: 0;
+}
+
+.list-group-striped {
+  .list-group-item:nth-child(odd) {
+    background-color: $gray-lighter;
+  }
+}
+
+.list-group-hoverable {
+  .list-group-item {
+    &:hover {
+      background-color: $component-active-bg;
+    }
+
+    &.selected {
+      background-color: $component-active-bg;
+    }
+  }
+}
+
+.list-group-item {
+  &.reset-side-border {
+    border-left: none;
+    border-right: none;
+  }
+
+  &.reset-border-radius {
+    border-radius: 0;
+  }
+}
+
+.list-group-no-padding {
+  padding: 0;
+}

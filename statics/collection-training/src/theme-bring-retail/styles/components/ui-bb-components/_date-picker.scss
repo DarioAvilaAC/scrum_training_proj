@@ -1,0 +1,451 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Calendar popup component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-calendar-popup-ng
+ * @description
+ * Popup with calendar that allows user to select a date that will be set
+ * into connected form input
+ *
+ * @example
+ * <ul class="uib-datepicker-popup dropdown-menu" role="button" tabindex="0">
+ *   <li>
+ *     <div class="uib-datepicker" role="application" uib-datepicker="">
+ *       <table class="uib-daypicker" role="grid" tabindex="0">
+ *         <thead>
+ *           <tr>
+ *             <th>
+ *               <button type="button" class="btn btn-default btn-sm pull-left uib-left" tabindex="0">
+ *                 <i class="glyphicon glyphicon-chevron-left"></i>
+ *               </button>
+ *             </th>
+ *             <th colspan="5">
+ *               <button role="heading" type="button" class="btn btn-default btn-sm uib-title" tabindex="0">
+ *                 <strong>July 2017</strong>
+ *               </button>
+ *             </th>
+ *             <th>
+ *               <button type="button" class="btn btn-default btn-sm pull-right uib-right" tabindex="0">
+ *                 <i class="glyphicon glyphicon-chevron-right"></i>
+ *               </button>
+ *             </th>
+ *           </tr>
+ *         </thead>
+ *         <tbody>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>25</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>26</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>27</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>28</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>29</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>30</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>01</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>02</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>03</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>04</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>05</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>06</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>07</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>08</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>09</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>10</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>11</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>12</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>13</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>14</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>15</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>16</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>17</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>18</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>19</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>20</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>21</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>22</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>23</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>24</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>25</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>26</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>27</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>28</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>29</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *           <tr class="uib-weeks">
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>30</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>31</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>01</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>02</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>03</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>04</span>
+ *               </button>
+ *             </td>
+ *             <td class="uib-day text-center" role="gridcell">
+ *               <button type="button" class="btn btn-default btn-sm" tabindex="0">
+ *                 <span>05</span>
+ *               </button>
+ *             </td>
+ *           </tr>
+ *         </tbody>
+ *       </table>
+ *     </div>
+ *   </li>
+ * </ul>
+ */
+
+%selected-date {
+  background-color: $brand-primary;
+  color: $btn-default-bg;
+
+  .text-info {
+    border: none;
+    color: $btn-default-bg;
+  }
+}
+
+%highlighted-date {
+  border-radius: 50%;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.uib-datepicker-popup.dropdown-menu {
+  padding: 0;
+  min-width: $datepicker-min-width;
+}
+
+.uib-datepicker {
+  table {
+    thead {
+      tr:first-of-type {
+        th {
+          padding-top: $datepicker-container-padding;
+        }
+      }
+    }
+
+    tr:last-of-type {
+      td {
+        padding-bottom: $datepicker-container-padding;
+      }
+    }
+
+    th, td {
+      padding: $datepicker-table-cell-padding;
+
+      &:first-of-type {
+        padding-left: $datepicker-container-padding;
+      }
+
+      &:last-of-type {
+        padding-right: $datepicker-container-padding;
+      }
+    }
+  }
+
+  // Current date
+  .text-info {
+    @extend %highlighted-date;
+    border: $datepicker-border-primary;
+  }
+
+  .btn-info {
+    color: $gray-base;
+  }
+
+  .btn {
+    background-color: unset;
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+    padding: 0;
+
+    &:hover {
+      background-color: $component-active-bg;
+      color: $brand-primary;
+    }
+
+    &[disabled]:hover {
+      background-color: unset;
+      color: $gray-base;
+    }
+
+    &.btn-info {
+      @extend %selected-date;
+    }
+  }
+
+  .uib-day {
+    padding: $datepicker-day-button-padding;
+  }
+
+  .uib-month {
+    padding: $datepicker-month-button-padding;
+  }
+
+  .uib-year {
+    padding: $datepicker-year-button-padding;
+  }
+
+  .uib-day .btn, .uib-left, .uib-right {
+    height: $datepicker-day-button-size;
+    line-height: $datepicker-day-button-size;
+    width: $datepicker-day-button-size;
+  }
+
+  .uib-month .btn {
+    height: $datepicker-month-button-size;
+    line-height: $datepicker-month-button-size;
+    width: $datepicker-month-button-size;
+  }
+
+  .uib-year .btn {
+    height: $datepicker-year-button-size;
+    line-height: $datepicker-year-button-size;
+    width: $datepicker-year-button-size;
+  }
+
+  .uib-day {
+    &.one-day-range .btn {
+      @extend %selected-date;
+    }
+
+    &.date-range-start .btn,
+    &.date-range-end .btn,
+    &.date-range-captured .btn {
+      position: relative;
+      background-color: $brand-primary;
+
+      &::before {
+        position: absolute;
+        content: '';
+        background-color: $brand-primary;
+        top: 0;
+        bottom: 0;
+        z-index: 0;
+      }
+
+      & span {
+        position: relative;
+        z-index: 1;
+        color: $btn-default-bg;
+      }
+    }
+
+    &.date-range-start .btn::before {
+      right: $datepicker-day-button-horizontal-offset * -1;
+      left: 50%;
+    }
+
+    &.date-range-end .btn::before {
+      left: $datepicker-day-button-horizontal-offset * -1;
+      right: 50%;
+    }
+
+    &.date-range-captured .btn::before {
+      left: $datepicker-day-button-horizontal-offset * -1;
+      right: $datepicker-day-button-horizontal-offset * -1;
+    }
+  }
+
+  .glyphicon {
+    @extend .fa;
+  }
+
+  .glyphicon-chevron-left {
+    @extend .fa-chevron-left;
+  }
+
+  .glyphicon-chevron-right {
+    @extend .fa-chevron-right;
+  }
+}
+
+// Custom classes to be added by JS functions
+// The fns add them to the td. But the span is styled.
+.uib-datepicker .highlight-date-secondary > .btn > span,
+.highlight-date-secondary-legend {
+  @extend %highlighted-date;
+  border: $datepicker-border-secondary;
+}
+
+// Title view and action highlighting
+.uib-title.btn {
+  padding: $datepicker-title-button-padding;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $component-active-bg;
+    border-radius: $datepicker-title-button-radius;
+    color: $brand-primary;
+  }
+}

@@ -1,0 +1,38 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Chart.js donut chart component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-chartjs-chart-donut-ng
+ * @description
+ * Chart.js donut chart UI component
+ *
+ * Some styles are read inside code that generates canvas.
+ * Examples for that kind of styles cannot be provided.
+ *
+ * @example
+ * <ui-bb-chartjs-chart-donut-ng class="chart-donut col-xs-6 col-xs-offset-3">
+ *   <canvas width="660" height="660"></canvas>
+ * </ui-bb-chartjs-chart-donut-ng>
+ * <i class="fa chart-donut-icon bb-transaction-category-groceries"></i>
+ */
+
+.chart-donut {
+  margin: $chart-donut-margin-top auto $chart-donut-margin-bottom auto;
+  padding: $chart-donut-padding;
+  max-width: $chart-donut-max-width;
+}
+
+.chart-donut-slice-icon {
+  font-size: $font-size-large;
+}
+
+.chart-donut-slice-amount {
+  color: $gray-base;
+  font-size: $font-size-xs;
+  margin: 0;
+  padding: 0;
+
+  .amount {
+    white-space: nowrap;
+  }
+}

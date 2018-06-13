@@ -1,0 +1,28 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB User menu component
+ * --------------------------------------------------------------------------
+ * @name widget-bb-user-menu-ng
+ * @description
+ * UI component for rendering user menu
+ *
+ * @example
+ * <div class="bb-user-menu">
+ *  <ui-bb-avatar class="bb-avatar media img-circle img-thumbnail no-padding pull-left text-center">
+ *    <span aria-hidden="true">JD</span>
+ *  </ui-bb-avatar>
+ *  <div class="text-right pull-left">
+ *    <span class="center-block">Hi, <strong>John Doe</strong></span>
+ *    <a title="Logout">Logout</a>
+ *  </div>
+ *  <div class="clearfix"></div>
+ * </div>
+ */
+
+.bb-user-menu {
+  margin-top: $margin-small-vertical;
+  border-left: $default-border;
+  a {
+    cursor: pointer;
+  }
+}

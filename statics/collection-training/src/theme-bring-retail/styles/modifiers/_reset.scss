@@ -1,0 +1,13 @@
+/**
+ * Global theme reset rules and style normalizers
+ */
+
+body {
+  // Prevent IE scrollbar from overlapping the page content
+  -ms-overflow-style: scrollbar;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}

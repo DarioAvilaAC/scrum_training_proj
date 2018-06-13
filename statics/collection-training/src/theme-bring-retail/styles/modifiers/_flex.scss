@@ -1,0 +1,188 @@
+/**
+ * @name flex
+ * @description
+ * Quickly manage the layout, alignment, and sizing of grid columns,
+ * navigation, components, and more with a full suite of
+ * responsive flexbox utilities.
+ *
+ * Use .flex-row to set a horizontal direction (the browser default),
+ * or .flex-row-reverse to start the horizontal direction from the opposite side.
+ *
+ * Use justify-content utilities on flexbox containers to change the alignment of flex
+ * items on the main axis (the x-axis to start, y-axis if flex-direction: column).
+ * Choose from start (browser default), end, center, between, or around.
+ *
+ * Use align-items utilities on flexbox containers to change the alignment of flex items
+ * on the cross axis (the y-axis to start, x-axis if flex-direction: column).
+ * Choose from start, end, center, baseline, or stretch (browser default).
+ *
+ * Use align-self utilities on flexbox items to individually change their alignment
+ * on the cross axis (the y-axis to start, x-axis if flex-direction: column).
+ * Choose from the same options as align-items:
+ * start, end, center, baseline, or stretch (browser default).
+ *
+ * Change how flex items wrap in a flex container.
+ * Choose from no wrapping at all (the browser default) with .flex-nowrap,
+ * wrapping with .flex-wrap, or reverse wrapping with .flex-wrap-reverse.
+ *
+ * Change the visual order of specific flex items with a handful of order utilities.
+ * Only options provided are first or last, as well as a reset to use the DOM order.
+ *
+ * Use align-content utilities on flexbox containers to align flex items together on the cross axis.
+ * Choose from start (browser default), end, center, between, around, or stretch.
+ *
+ * @example
+ * <div class="d-flex">I'm a flexbox container!</div>
+ * <div class="d-inline-flex">I'm an inline flexbox container!</div>
+ *
+ * <div class="d-flex flex-row">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex flex-row-reverse">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ *
+ * <div class="d-flex flex-column">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex flex-column-reverse">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * 
+ * <div class="d-flex justify-content-start">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex justify-content-end">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex justify-content-center">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex justify-content-between">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex justify-content-around">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * 
+ * <div class="d-flex align-items-start">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex align-items-end">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex align-items-center">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex align-items-baseline">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * <div class="d-flex align-items-stretch">
+ *   <div class="col-xs-2">Flex item 1</div>
+ *   <div class="col-xs-2">Flex item 2</div>
+ *   <div class="col-xs-2">Flex item 3</div>
+ * </div>
+ * 
+ * <div class="align-self-start">Aligned flex item</div>
+ * <div class="align-self-end">Aligned flex item</div>
+ * <div class="align-self-center">Aligned flex item</div>
+ * <div class="align-self-baseline">Aligned flex item</div>
+ * <div class="align-self-stretch">Aligned flex item</div>
+ * 
+ * <div class="d-flex justify-content-end">
+ *   <div class="mr-auto">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ * </div>
+ * 
+ * <div class="d-flex justify-content-start">
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="ml-auto">Flex item</div>
+ * </div>
+ * 
+ * <div class="d-flex align-items-start flex-column" style="height: 200px;">
+ *   <div class="mb-auto">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ * </div>
+ * 
+ * <div class="d-flex align-items-end flex-column" style="height: 200px;">
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="col-xs-2">Flex item</div>
+ *   <div class="mt-auto">Flex item</div>
+ * </div>
+ * 
+ * <div class="d-flex flex-nowrap">
+ *   <div class="flex-last">First flex item</div>
+ *   <div class="col-xs-2">Second flex item</div>
+ *   <div class="flex-first">Third flex item</div>
+ * </div>
+ */
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}-row            { flex-direction: row; }
+    .flex#{$infix}-column         { flex-direction: column; }
+    .flex#{$infix}-row-reverse    { flex-direction: row-reverse; }
+    .flex#{$infix}-column-reverse { flex-direction: column-reverse; }
+
+    .flex#{$infix}-wrap         { flex-wrap: wrap; }
+    .flex#{$infix}-nowrap       { flex-wrap: nowrap; }
+    .flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse; }
+
+    .justify-content#{$infix}-start   { justify-content: flex-start; }
+    .justify-content#{$infix}-end     { justify-content: flex-end; }
+    .justify-content#{$infix}-center  { justify-content: center; }
+    .justify-content#{$infix}-between { justify-content: space-between; }
+    .justify-content#{$infix}-around  { justify-content: space-around; }
+
+    .align-items#{$infix}-start    { align-items: flex-start; }
+    .align-items#{$infix}-end      { align-items: flex-end; }
+    .align-items#{$infix}-center   { align-items: center; }
+    .align-items#{$infix}-baseline { align-items: baseline; }
+    .align-items#{$infix}-stretch  { align-items: stretch; }
+
+    .align-content#{$infix}-start   { align-content: flex-start; }
+    .align-content#{$infix}-end     { align-content: flex-end; }
+    .align-content#{$infix}-center  { align-content: center; }
+    .align-content#{$infix}-between { align-content: space-between; }
+    .align-content#{$infix}-around  { align-content: space-around; }
+    .align-content#{$infix}-stretch { align-content: stretch; }
+
+    .align-self#{$infix}-auto     { align-self: auto; }
+    .align-self#{$infix}-start    { align-self: flex-start; }
+    .align-self#{$infix}-end      { align-self: flex-end; }
+    .align-self#{$infix}-center   { align-self: center; }
+    .align-self#{$infix}-baseline { align-self: baseline; }
+    .align-self#{$infix}-stretch  { align-self: stretch; }
+  }
+}

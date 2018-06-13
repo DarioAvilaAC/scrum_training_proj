@@ -1,0 +1,62 @@
+.portfolio-transactions {
+  &-status {
+    &-open {
+      color: $brand-success;
+      border: $portfolio-transactions-status-open-border;
+    }
+
+    &-pending {
+      color: $brand-warning;
+      border: $portfolio-transactions-status-pending-border;
+    }
+
+    &-closed {
+      color: $brand-danger;
+      border: $portfolio-transactions-status-closed-border;
+    }
+  }
+  &-actions-panel {
+    border-bottom: $table-info-border-default;
+
+    .position-type-switcher-btn {
+      width: $portfolio-transactions-position-switcher-btn-width;
+    }
+  }
+  &-selected-panel {
+    border-bottom: $table-info-border-default;
+    padding-left: $portfolio-transactions-selected-panel-padding-left;
+    padding-top: $portfolio-transactions-selected-panel-padding-top;
+    padding-bottom : $portfolio-padding;
+  }
+  &-filter {
+    padding: $filter-padding;
+
+    &-panel {
+      border-bottom: $table-info-border-default;
+      background-color: $filter-panel-background-color;
+
+      &-footer {
+        &-action {
+          margin-left: $filter-space-between-buttons;
+        }
+      }
+    }
+
+    .form-group {
+      margin-bottom: $filter-margin-between-row;
+
+      .field-wrapper {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    .field {
+      padding-top: $filter-field-example-margin-top;
+      font-size: $font-size-small;
+      &-example {
+        color: $filter-field-example-text-color;
+      }
+    }
+  }
+}

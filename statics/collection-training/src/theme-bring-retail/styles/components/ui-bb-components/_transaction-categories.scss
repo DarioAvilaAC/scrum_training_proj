@@ -1,0 +1,167 @@
+/**
+ * --------------------------------------------------------------------------
+ * Transaction category component
+ * --------------------------------------------------------------------------
+ * @name bb-transaction-category
+ * @description
+ * Component that renders particular font awesome icon for
+ * transaction category and provides an option to render them
+ * in a form of radio button list
+ *
+ * @example
+ * <span
+ *   aria-hidden="true"
+ *   class="bb-transaction-category bb-transaction-category-home"
+ * ></span>
+ *
+ * // double sized icon
+ * <span
+ *   aria-hidden="true"
+ *   class="bb-transaction-category bb-transaction-category-large bb-transaction-category-home"
+ * ></span>
+ *
+ * // list of categories
+ * <div class="bb-transaction-category-list bb-transaction-category-list-limited list-items-wrapper row">
+ *   <div class="bb-transaction-category-list-item list-item hover-item text-default col-xs-12">
+ *     <div class="radio clearfix m-0">
+ *       <label class="col-xs-12">
+ *         <input
+ *           class="bb-transaction-category-input"
+ *           type="radio"
+ *           value="Category"
+ *         />
+ *         <span aria-hidden="true"
+ *           class="bb-transaction-category bb-transaction-category-home fa-lg">
+ *         </span>
+ *         <span class="bb-transaction-category-name">Category</span>
+ *       </label>
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+$bb-tc-css-prefix: "bb-transaction-category";
+
+.#{$bb-tc-css-prefix} {
+  @extend .fa;
+  line-height: inherit;
+}
+
+.#{$bb-tc-css-prefix}-large {
+  @include font-size($font-size-base * 1.44);
+  line-height: $line-height-computed * 2.1;
+}
+
+.#{$bb-tc-css-prefix}-list {
+  border-top: $default-border;
+
+  .#{$bb-tc-css-prefix}-list-item:first-child {
+    margin-top: -1px;
+  }
+}
+
+.#{$bb-tc-css-prefix}-list-item {
+  .#{$bb-tc-css-prefix}-input {
+    height: $transaction-category-list-item-height;
+    margin-top: 0;
+  }
+
+  .#{$bb-tc-css-prefix} {
+    line-height: $transaction-category-list-item-height;
+    text-align: center;
+    vertical-align: top;
+    width: $transaction-category-list-icon-width;
+  }
+
+  .#{$bb-tc-css-prefix}-name {
+    line-height: $transaction-category-list-item-height;
+  }
+}
+
+.#{$bb-tc-css-prefix}-name {
+  line-height: $line-height-computed * 2.1;
+}
+
+.#{$bb-tc-css-prefix}-home {
+  @extend .fa-home;
+  color: $transaction-category-home-color;
+}
+
+.#{$bb-tc-css-prefix}-health-beauty {
+  @extend .fa-heart;
+  color: $transaction-category-health-beauty-color;
+}
+
+.#{$bb-tc-css-prefix}-groceries {
+  @extend .fa-shopping-basket;
+  color: $transaction-category-groceries-color;
+}
+
+.#{$bb-tc-css-prefix}-eating-drinking {
+  color: $transaction-category-eating-drinking-color;
+  &::before {
+    content: "\F0F5";
+  }
+}
+
+.#{$bb-tc-css-prefix}-transportation {
+  @extend .fa-car;
+  color: $transaction-category-transportation-color;
+}
+
+.#{$bb-tc-css-prefix}-shopping {
+  @extend .fa-shopping-cart;
+  color: $transaction-category-shopping-color;
+}
+
+.#{$bb-tc-css-prefix}-hobbies-entertainment {
+  @extend .fa-university;
+  color: $transaction-category-hobbies-entertainment-color;
+}
+
+.#{$bb-tc-css-prefix}-bills-utilities {
+  @extend .fa-file-text-o;
+  color: $transaction-category-bills-utilities-color;
+}
+
+.#{$bb-tc-css-prefix}-income {
+  @extend .fa-plus-square;
+  color: $transaction-category-income-color;
+}
+
+.#{$bb-tc-css-prefix}-other-income {
+  @extend .fa-database;
+  color: $transaction-category-other-income-color;
+}
+
+.#{$bb-tc-css-prefix}-savings {
+  @extend .fa-trophy;
+  color: $transaction-category-savings-color;
+}
+
+.#{$bb-tc-css-prefix}-transfer {
+  @extend .fa-exchange;
+  color: $transaction-category-transfer-color;
+}
+
+.#{$bb-tc-css-prefix}-fees {
+  @extend .fa-money;
+  color: $transaction-category-fees-color;
+}
+
+.#{$bb-tc-css-prefix}-other {
+  @extend .fa-question;
+  color: $transaction-category-other-color;
+}
+
+.#{$bb-tc-css-prefix}-uncategorized {
+  @extend .fa-archive;
+  color: $transaction-category-uncategorized-color;
+}
+
+@media (min-width: $screen-sm) {
+  .#{$bb-tc-css-prefix}-list-limited {
+    max-height: $transaction-category-list-limit;
+    overflow-y: scroll;
+  }
+}

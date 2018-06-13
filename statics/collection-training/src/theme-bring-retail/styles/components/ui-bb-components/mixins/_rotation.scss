@@ -1,0 +1,36 @@
+/**
+ * @name Positive rotation classes mixin
+ *
+ * @description
+ * This will generate classes with transform rotate '+' deg for a given interval
+ *
+ * Parameters:
+ * $minRotationAngle - starting angle
+ * $maxRotationAngle - end angle
+ */
+
+@mixin generate-positive-rotation-classes($minRotationAngle, $maxRotationAngle) {
+  @for $i from $minRotationAngle through $maxRotationAngle {
+    .rotate-p-#{$i}-deg {
+      transform: rotate(#{$i}deg);
+    }
+  }
+}
+
+/**
+ * @name Negative rotation classes mixin
+ *
+ * @description
+ * This will generate classes with transform rotate '-' deg for a given interval
+ *
+ * Parameters:
+ * $minRotationAngle - starting angle
+ * $maxRotationAngle - end angle
+ */
+@mixin generate-negative-rotation-classes($minRotationAngle, $maxRotationAngle) {
+  @for $i from $minRotationAngle through $maxRotationAngle {
+    .rotate-n-#{$i}-deg {
+      transform: rotate(-#{$i}deg);
+    }
+  }
+}

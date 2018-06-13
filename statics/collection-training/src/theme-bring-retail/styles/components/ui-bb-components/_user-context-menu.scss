@@ -1,0 +1,76 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB User context menu component
+ * --------------------------------------------------------------------------
+ * @name widget-bb-user-context-menu-ng
+ * @description
+ * UI component for rendering user context menu
+ *
+ * @example
+ * <div class="bb-user-context-menu">
+ *   <div
+ *     data-uib-popover-template="'#ext-bb-user-menu-ng/popover-template.html'"
+ *     data-popover-placement="auto bottom-right"
+ *     data-popover-is-open="true"
+ *     data-popover-trigger="outsideClick"
+ *     data-popover-class="notification-badge-popover popover-md">
+ *     <ui-bb-ellipsis-tooltip-ng data-tooltip="Stock Exchange Department">
+ *       <span>Stock Exchange Department</span>
+ *     </ui-bb-ellipsis-tooltip-ng>
+ *     <i class="fa fa-chevron-down" aria-hidden="true"></i>
+ *   </div>
+ * </div>
+ *
+ *  <script type="text/ng-template" id="#ext-bb-user-context-menu-ng/popover-template.html">
+ *    <div class="panel panel-no-offset bb-user-context-menu-popover">
+ *      <div class="panel-body user-context-block">
+ *        <a href="#" class="pull-right" >Change</a>
+ *        <div class="user-context-menu-company-name">Stock Exchange Department</div>
+ *        <div>Online Banking Service Agreement</div>
+ *      </div>
+ *      <div class="panel-body user-actions-block">
+ *        <div class="row">
+ *          <div class="col-sm-12 user-context-menu-username">Admin</div>
+ *        </div>
+ *        <div class="row">
+ *          <div class="col-sm-12"><a class="user-action" href="/manage-profile" title="Manage profile">Manage profile</a></div>
+ *        </div>
+ *        <div class="row">
+ *          <div class="col-sm-12"><span class="user-action" title="Log out">Log out</span></div>
+ *        </div>
+ *      </div>
+ *    </div>
+ *  </script>
+ */
+
+.bb-user-context-menu {
+  margin-top: $margin-small-vertical;
+  border-left: $default-border;
+  padding: $user-context-menu-padding;
+
+  .bb-user-context-menu-popover {
+    .user-context-block {
+      border-bottom: $default-border;
+    }
+
+    .user-actions-block {
+      .row {
+        padding: $user-context-menu-actions-padding;
+      }
+
+      .user-action, .user-action:hover {
+        color: $user-context-menu-action-color;
+        text-decoration: none;
+      }
+    }
+
+    .user-context-menu-company-name {
+      color: $user-context-menu-company-name-color;
+      font-size: $font-size-xs;
+    }
+
+    .user-context-menu-username {
+      color: $user-context-menu-username-color;
+    }
+  }
+}

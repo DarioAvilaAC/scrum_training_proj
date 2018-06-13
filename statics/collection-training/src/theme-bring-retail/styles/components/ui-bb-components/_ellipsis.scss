@@ -1,0 +1,22 @@
+/**
+ * ------------------------------------------------------
+ * UI BB ellipsis component
+ * ------------------------------------------------------
+ * @name ui-bb-ellipsis-tooltip
+ * @description
+ * Show tooltip (and ellipsis) once the text in element goes
+ * out of the element size.
+ *
+ * @example
+ *  <div class="col-sm-1">
+ *    <span class="bb-ellipsis">
+ *      Very long text goes here. Very long text goes here.
+ *    </span>
+ *  </div>
+ */
+.bb-ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

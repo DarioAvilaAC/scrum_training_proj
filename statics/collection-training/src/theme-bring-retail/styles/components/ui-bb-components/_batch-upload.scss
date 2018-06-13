@@ -1,0 +1,272 @@
+.batch-upload {
+  background-color: $white;
+  box-shadow: $default-box-shadow;
+  border: $batch-upload-border-default;
+  height: $batch-upload-main-block-height;
+  border-radius: $border-radius-large;
+
+  &-dragover {
+    &-error {
+      .batch-upload-empty-queue, .batch-upload-files-queue {
+        &::before {
+          border-color: $brand-danger;
+          background-color: $batch-upload-danger;
+        }
+      }
+    }
+
+    .batch-upload-empty-queue, .batch-upload-files-queue {
+      &:before {
+        border-color: $brand-primary;
+        background-color: $batch-upload-color-primary;
+      }
+    }
+  }
+
+  &-empty-queue {
+    position: relative;
+    height: 100%;
+    margin: $batch-upload-spacing-main;
+    padding: $batch-upload-empty-queue-padding;
+
+    &:before {
+      position: absolute;
+      z-index: 0;
+      content: '';
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border: $batch-upload-border-transparent;
+      border-radius: $border-radius-large;
+    }
+  }
+
+  &-files-queue {
+    position: relative;
+    min-height: $batch-upload-main-block-height - $batch-upload-secondary-block-height;
+
+    &:before {
+      position: absolute;
+      z-index: 0;
+      content: '';
+      left: $batch-upload-spacing-main / 2;
+      top: $batch-upload-spacing-main / 2;
+      right: $batch-upload-spacing-main / 2;
+      bottom: $batch-upload-spacing-main / 2;
+      border: $batch-upload-border-transparent;
+      border-radius: $border-radius-large;
+    }
+  }
+
+  &-queue-actions {
+    button {
+      margin-left: $batch-upload-spacing-small;
+    }
+  }
+
+  &-wrapper {
+    background: $white;
+    box-shadow: $default-box-shadow;
+    border: $batch-upload-border-default;
+    border-radius: $border-radius-large;
+  }
+
+  &-drop-message {
+    position: relative;
+  }
+
+  &-queue-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-files-header  {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $gray-lightest;
+    padding: 0 $batch-upload-spacing-main;
+    border-bottom: $batch-upload-border-default;
+    height: $batch-upload-secondary-block-height;
+  }
+
+  &-header, &-footer {
+    background-color: $gray98;
+    padding: $batch-upload-spacing-small;
+    height: $batch-upload-secondary-block-height;
+  }
+
+  &-header {
+    border-bottom: $batch-upload-header-border;
+  }
+
+  &-footer {
+    border-top: $batch-upload-border-default;
+
+    .btn {
+      padding: $batch-upload-footer-btn-padding;
+    }
+  }
+
+  &-menu-body {
+    overflow: auto;
+    padding: $batch-upload-spacing-main;
+    height: $batch-upload-main-block-height - $batch-upload-secondary-block-height;
+  }
+
+  &-body {
+    width: 100%;
+    border-radius: $border-radius-base;
+  }
+
+  &-empty-queue {
+    height: 100%;
+    margin: $batch-upload-spacing-main;
+    padding: $batch-upload-empty-queue-padding;
+    border-radius: $border-radius-large;
+  }
+
+  &-files-queue {
+    border-radius: $border-radius-large;
+    min-height: $batch-upload-main-block-height - $batch-upload-secondary-block-height;
+  }
+
+  &-file {
+    display: flex;
+    text-align: center;
+    position: relative;
+    border-bottom: $batch-upload-file-border;
+    padding: $batch-upload-spacing-md $batch-upload-spacing-main;
+    &:first-child {
+      border-top: $batch-upload-file-border;
+    }
+    &.danger {
+      color: $brand-danger;
+
+      .batch-upload-file-progress {
+        background: $batch-upload-danger;
+      }
+    }
+  }
+
+  &-file-progress {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $batch-upload-color-primary;
+  }
+
+  &-file-icon {
+    display: flex;
+    align-items: center;
+    margin-right: $batch-upload-font-size-smaller;
+    font-size: $batch-upload-file-icon-size;
+  }
+
+  &-title {
+    color: $gray-base;
+    margin: $batch-upload-spacing-main * 2.5 auto $batch-upload-spacing-main / 2;
+  }
+
+  &-subtitle {
+    margin-bottom: 0;
+    color: $gray-darker;
+  }
+
+  &-type-title {
+    margin-bottom: 0;
+    color: $gray-base;
+  }
+
+  &-subtitle-status {
+    @include font-size($batch-upload-font-size-smaller);
+  }
+
+  &-file-data {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    align-items: baseline;
+    flex-direction: column;
+
+    .file-size {
+      font-size: 70%;
+    }
+  }
+
+  &-type {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0;
+    padding-top: $batch-upload-type-padding-top;
+    border: $default-border;
+    border-radius: $border-radius-base;
+    background-color: $white;
+    box-shadow: $default-box-shadow;
+    @include size($batch-upload-type-width, $batch-upload-type-height);
+
+    &-content {
+      position: absolute;
+      font-weight: normal;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &-wrapper {
+      display: inline-block;
+      padding: $batch-upload-spacing-main;
+    }
+
+    &.selected {
+      border: $batch-upload-border-primary;
+      background-color: $batch-upload-color-primary;
+
+      i {
+        opacity: 1;
+      }
+    }
+
+    i {
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      border-radius: 50%;
+      color: $batch-upload-color-light-primary;
+      top: $batch-upload-type-icon-top;
+      right: $batch-upload-type-icon-right;
+      @include font-size($batch-upload-type-icon-font-size);
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        right: 0;
+        z-index: -1;
+        border-radius: 50%;
+        background-color: $white;
+        @include square($batch-upload-icon-bg-size);
+      }
+    }
+  }
+
+  &-file-buttons {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+    .fa-trash-o, .fa-repeat {
+      color: $gray-darker;
+      @include font-size($batch-upload-trash-icon-font-size);
+    }
+    .fa-check {
+      color: $brand-success;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Master Detail component
+ * --------------------------------------------------------------------------
+ * @name bb-master-detail
+ * @description
+ * UI component for rendering list and content with border between them
+ * on md+ screens
+ *
+ * @example
+ * <div>
+ *   <div class="master-detail-list col-sm-3">
+ *     <div>list item 1</div>
+ *     <div>list item 2</div>
+ *     <div>list item 3</div>
+ *   </div>
+ *   <div class="master-detail-content col-sm-9">
+ *     <div>Content</div>
+ *   </div>
+ * </div>
+ */
+
+.master-detail-list {
+  border-right: $default-border;
+  border-color: $gray-light;
+  margin-right: -1px;
+}
+
+.master-detail-content {
+  border-left: $default-border;
+  border-color: $gray-light;
+}
+
+@media (max-width: #{$screen-xs-max}) {
+  .master-detail-list {
+    border-width: 0;
+    margin-right: 0;
+  }
+
+  .master-detail-content {
+    border-width: 0;
+  }
+}

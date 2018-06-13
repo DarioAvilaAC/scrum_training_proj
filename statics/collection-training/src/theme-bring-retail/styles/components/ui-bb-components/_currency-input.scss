@@ -1,0 +1,75 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Currency Input component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-currency-input-ng
+ * @description
+ * UI component for selecting currency and amount
+ *
+ * @example
+ *  <div class="currency-input">
+ *    <div class="currency">
+ *      <ui-bb-dropdown-select>
+ *        <button type="button" class="btn btn-default btn-dropdown-toggle" uib-dropdown-toggle>
+ *          <span class="dropdown-option placeholder">EUR</span>
+ *          <span class="dropdown-option dropdown-selected" ui-bb-dropdown-selected></span>
+ *          <span class="fa chevron-icon fa-chevron-down chevron-down content-right"></span>
+ *        </button>
+ *        <ul class="uib-dropdown-menu ng-transclude-node dropdown-menu" role="menu" aria-labelledby="single-button">
+ *          <li role="menuitem" class="dropdown-option">
+ *            <a href="">EUR</a>
+ *          </li>
+ *        </ul>
+ *      </ui-bb-dropdown-select>
+ *    </div>
+ *    <div class="amount">
+ *      <input />
+ *    </div>
+ *    <div class="seperator">
+ *      <span />
+ *    </div>
+ *    <div class="decimals">
+ *      <input />
+ *    </div>
+ *  </div>
+ */
+.currency-input {
+
+  display: flex;
+
+  .currency {
+    flex-basis: $currency-input-switcher-width;
+   
+    button {
+      padding: $currency-input-button-padding;
+    }
+  }
+
+  .amount {
+    flex-grow: 1;
+    margin-left: $currency-input-block-spacing;
+    margin-right: 0;
+    min-width: $currency-input-amount-holder-min-width + ($padding-base-horizontal * 2);
+
+    &.no-currency {
+      margin-left: 0;
+    }
+  }
+
+  .seperator {
+    flex-basis: $currency-input-seperator-holder-width;
+    line-height: $currency-input-seperator-line-height;
+    text-align: center;
+  }
+
+  .decimals {
+    margin: 0;
+    flex-basis: $currency-input-decimal-holder-width;
+    min-width: $currency-input-decimal-holder-min-width + ($padding-base-horizontal * 2);
+   
+    input {
+      text-align: center;
+    }
+  }
+ 
+}

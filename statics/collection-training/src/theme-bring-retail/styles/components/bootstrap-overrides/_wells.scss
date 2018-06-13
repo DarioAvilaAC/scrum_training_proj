@@ -1,0 +1,32 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Well component override
+ * --------------------------------------------------------------------------
+ * @name wells
+ * @description
+ * Use the well as a simple effect on an element to give it an inset effect
+ *
+ * @example
+ * <div class="well">Look, I'm in a well!</div>
+ * <div class="well well-lg">Look, I'm in a large well!</div>
+ * <div class="well well-sm">Look, I'm in a small well!</div>
+ */
+
+.well-xl {
+  padding: $well-xl-padding;
+}
+
+.well-lighter {
+  background-color: $gray-lightest;
+  color: $gray-dark;
+  box-shadow: none;
+  border-width: 0;
+}
+
+.well-margin-top {
+  margin-top: $well-margin-top;
+}
+
+.well-border-radius-large {
+  border-radius: $border-radius-large
+}

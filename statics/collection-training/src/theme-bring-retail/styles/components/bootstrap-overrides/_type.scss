@@ -1,0 +1,15 @@
+// Body text
+// -------------------------
+
+.lead {
+  margin-bottom: $line-height-computed;
+  font-size: ceil(($font-size-base * 1.23)); // ~16px
+
+  @media (min-width: $screen-sm-min) {
+    @include font-size($font-size-h4);
+  }
+}
+
+.page-header-small {
+  margin: $page-header-small-margin;
+}

@@ -1,0 +1,61 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Budget Card component
+ * --------------------------------------------------------------------------
+ * @name bb-budget-card
+ * @description
+ * UI component for rendering budget cards
+ *
+ * @example
+ * <div class="budget-card-container">
+ *  <div class="budget-card-title"></div>
+ *
+ *  <div class="budget-card-body">
+ *   <div class="budget-card-chart"></div>
+ *
+ *   <div class="panel-offset">
+ *    <div class="budget-amount-group"></div>
+ *   </div>
+ * </div>
+ */
+
+.budget-card-wrapper {
+  max-width: $budget-card-max-width;
+  min-width: $budget-card-min-width;
+
+  .budget-card-category-icon {
+    color: $gray-light;
+    vertical-align: 0;
+  }
+}
+
+.budget-amount-group {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.budget-amount-label {
+  font-size: $font-size-small;
+  color: $gray-dark;
+}
+
+.budget-card-title {
+  position: relative;
+  border-bottom: $default-border;
+  text-align: center;
+  height: $budget-card-title-height;
+
+  h3 {
+    margin: $budget-card-title-offset;
+    display: inline-block;
+  }
+
+  .card-edit-btn {
+    cursor: pointer;
+  }
+}
+
+.budget-card-body {
+  padding: $budget-card-body-offset;
+  text-align: center;
+}

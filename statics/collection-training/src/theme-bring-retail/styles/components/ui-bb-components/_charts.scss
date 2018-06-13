@@ -1,0 +1,124 @@
+/**
+ * --------------------------------------------------------------------------
+ * Shared Chart.js styles
+ * --------------------------------------------------------------------------
+ * @name ui-bb-chartjs-chart-*
+ * @description
+ * Shared styles for Chart.js UI components
+ * Some styles are read inside code that generates canvas and for those
+ * styles examples cannot be provided.
+ *
+ * @example
+ * <div class="chart-tooltip chart-tooltip-default bb-arrow-top">
+ *   <span>Tooltip title</span>
+ *   <hr class="tooltip-divider">
+ *   <div>Amount
+ *      <span class="pull-right text-success">
+ *        10
+ *      </span>
+ *   </div>
+ * </div>
+ *
+ * <div class="chart-tooltip chart-tooltip-default bb-arrow-bottom">
+ *   <span>Tooltip title</span>
+ *   <hr class="tooltip-divider">
+ *   <div>Amount
+ *      <span class="pull-right text-success">
+ *        10
+ *      </span>
+ *   </div>
+ * </div>
+ *
+ * <div class="chart-tooltip chart-tooltip-default bb-arrow-near bb-arrow-bottom">
+ *   <span>Tooltip title</span>
+ *   <hr class="tooltip-divider">
+ *   <div>Amount
+ *      <span class="pull-right text-success">
+ *        10
+ *      </span>
+ *   </div>
+ * </div>
+ *
+ * <div class="chart-tooltip chart-tooltip-default bb-arrow-far bb-arrow-bottom">
+ *   <span>Tooltip title</span>
+ *   <hr class="tooltip-divider">
+ *   <div>Amount
+ *      <span class="pull-right text-success">
+ *        10
+ *      </span>
+ *   </div>
+ * </div>
+ */
+
+.chart-layout-change {
+  width: $screen-xs-max;
+}
+
+.chart-tooltip {
+  display: block;
+  position: absolute;
+  min-width: $chart-tooltip-width;
+  z-index: 1;
+
+  &.chart-tooltip-wide {
+    min-width: $chart-tooltip-width-wide;
+  }
+}
+
+.chart-tooltip-default {
+  will-change: transform;
+  border: $default-border;
+  border-color: $chart-tooltip-default-border-color;
+  border-radius: $border-radius-base;
+  background-color: $chart-tooltip-default-background-color;
+  box-shadow: $default-box-shadow;
+  color: $chart-tooltip-default-color;
+  line-height: $line-height-computed;
+  padding: $chart-tooltip-padding;
+  @include arrow(
+    $chart-tooltip-arrow-size,
+    $chart-tooltip-arrow-border-size,
+    $chart-tooltip-arrow-position-default,
+    $chart-tooltip-default-background-color,
+    $chart-tooltip-default-border-color
+  );
+
+  &.bb-arrow-near {
+    @include arrow(
+      $chart-tooltip-arrow-size,
+      $chart-tooltip-arrow-border-size,
+      $chart-tooltip-arrow-position-near,
+      $chart-tooltip-default-background-color,
+      $chart-tooltip-default-border-color
+    );
+  }
+
+  &.bb-arrow-far {
+    @include arrow(
+      $chart-tooltip-arrow-size,
+      $chart-tooltip-arrow-border-size,
+      $chart-tooltip-arrow-position-far,
+      $chart-tooltip-default-background-color,
+      $chart-tooltip-default-border-color
+    );
+  }
+
+  .amount {
+    white-space: nowrap;
+  }
+}
+
+.chart-tooltip-divider {
+  padding: $chart-tooltip-divider-padding;
+  margin: $chart-tooltip-divider-margin;
+}
+
+.chart-tooltip-info-icon {
+  @extend .pull-left;
+  line-height: $line-height-computed;
+}
+
+.chart-tooltip-info-text {
+  @extend .pull-left;
+  width: $chart-tooltip-info-text-width;
+}

@@ -1,0 +1,56 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Privileges Table component
+ * --------------------------------------------------------------------------
+ * @name bb-privileges-table
+ * @description
+ * Styles for displaying table with privileges with minimum widths,
+ * and horizontal scroll.
+ *
+ * @example
+ * <div class="panel-overflow-auto-x">
+ *   <table class="table table-card bb-privileges-table">
+ *     <thead>
+ *       <tr>
+ *         <th class="bb-privileges-table-function"></th>
+ *         <th class="bb-privileges-table-column">View</th>
+ *         <th class="bb-privileges-table-column">Create</th>
+ *         <th class="bb-privileges-table-column">Edit</th>
+ *         <th class="bb-privileges-table-column">Delete</th>
+ *       </tr>
+ *     </thead>
+ *     <tbody>
+ *       <tr>
+ *         <td class="bb-privileges-table-function">SEPA CT</td>
+ *         <td class="bb-privileges-table-column">...</td>
+ *         <td class="bb-privileges-table-column">...</td>
+ *         <td class="bb-privileges-table-column">...</td>
+ *         <td class="bb-privileges-table-column">...</td>
+ *       </tr>
+ *     </tbody>
+ *   </table>
+ * </div>
+ */
+
+.bb-privileges-table {
+  table-layout: fixed;
+  min-width: $privileges-table-min-width;
+
+  .bb-privileges-table-function {
+    width: $privileges-table-function-column-width;
+  }
+
+  .bb-privilege-table-column {
+    width: $privileges-table-column-min-width;
+    padding: 0;
+
+    input[type="checkbox"] {
+      @include dimensions($checkbox-dimensions-size, $checkbox-dimensions-size);
+      visibility: visible;
+
+      &:before {
+        left: 0;
+      }
+    }
+  }
+}

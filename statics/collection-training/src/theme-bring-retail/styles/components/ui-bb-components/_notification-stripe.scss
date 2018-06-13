@@ -1,0 +1,86 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Notification stripe component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-notification-stripe
+ * @description UI component for rendering notifications
+ *
+ * @example
+ *  <ui-bb-notification-stripe>
+ *    <div class="notification-stripe row bg-success">
+ *     <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+ *       Payment order authorized successfully!
+ *     </div>
+ *     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+ *       <button type="button" class="close">
+ *         <span aria-hidden="true">&times;</span>
+ *       </button>
+ *     </div>
+ *    </div>
+ *  </ui-bb-notification-stripe>
+ */
+
+.notifications {
+  position: fixed;
+  z-index: $notification-stripe-z-index;
+  left: 50%;
+  @include translate(-50%, 0);
+  top: $navbar-top-height;
+  margin-left: $navbar-side-width / 2;
+}
+
+.notification-stripe {
+  &.row {
+    margin: $notification-stripe-margin;
+    width: $notification-stripe-web-width;
+    border-radius: $border-radius-base;
+    padding: $notification-stripe-padding;
+    overflow: hidden;
+    display: block;
+    .col-xs-1 {
+      padding-left: 5px;
+    }
+
+    &.bg-success {
+      background-color: $brand-success-bright;
+      border: $notification-stripe-success-border;
+      .close, .fa {
+        color: $brand-success;
+        opacity: 1;
+      }
+    }
+
+    &.bg-danger {
+      background-color: $brand-danger-bright;
+      border: $notification-stripe-danger-border;
+      .close, .fa {
+        color: $brand-danger;
+        opacity: 1;
+      }
+    }
+
+    .notification-stripe-icon {
+      line-height: inherit;
+
+      &.col-xs-1 {
+        padding-left: $notification-base-indent;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .notifications {
+    margin-left: 0;
+  }
+}
+
+// Notifications for small screens should fit the viewport
+@media #{$information-xs-screen} {
+  .notifications {
+    width: 100%;
+  }
+  .notification-stripe.row {
+    width: 100%;
+  }
+}

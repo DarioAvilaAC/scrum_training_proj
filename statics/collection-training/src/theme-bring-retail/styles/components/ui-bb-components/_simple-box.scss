@@ -1,0 +1,25 @@
+/**
+ * --------------------------------------------------------------------------
+ * Banking simple box container specific customizations
+ * --------------------------------------------------------------------------
+ *
+ * @name simple-box
+ * @description This item contains customization related to container-box templates. Using custom classes.
+ * @example
+ *  // business-banking custom class
+ *  <div class="simple-box-layout business-banking">
+ *    <div class="widget-bb-dummy"></div>
+ *  </div>
+ */
+.simple-box-layout {
+    // Custom class for business banking
+    &.business-banking {
+        background-color: $simple-box-business-background-color;
+    }
+    @media (min-width: $screen-sm-min) {
+        &.business-banking {
+            padding-left: $simple-box-business-horizontal-padding;
+            padding-right: $simple-box-business-horizontal-padding;
+        }
+    }
+}

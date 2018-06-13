@@ -1,0 +1,133 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Stepper component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-stepper-ng
+ * @description
+ * UI component for spliting views into multiple steps that
+ * user needs to pass in order to complete some process.
+ *
+ * @example
+ * <div class="bb-stepper panel panel-default">
+ *   <div class="bb-stepper-indicator panel-heading">
+ *     <div class="visible-xs row">
+ *       <div class="col-xs-3"></div>
+ *       <div class="col-xs-6 text-center">
+ *         <span class="bb-stepper-step-progress">Step 1 of 2</span>
+ *       </div>
+ *       <div class="col-xs-3 text-right">
+ *         <a class="bb-stepper-btn btn btn-primary">Next</a>
+ *       </div>
+ *     </div>
+ *     <div class="bb-stepper-step hidden-xs">
+ *       <a class="bb-stepper-step-item label active">
+ *         <span class="bb-stepper-step-number">1</span>
+ *       </a>
+ *       <span class="bb-stepper-step-title">Step 1</span>
+ *       <hr class="bb-stepper-step-separator">
+ *     </div>
+ *     <div class="bb-stepper-step hidden-xs">
+ *       <a class="bb-stepper-step-item label">
+ *         <span class="bb-stepper-step-number">2</span>
+ *       </a>
+ *       <span class="bb-stepper-step-title">Step 2</span>
+ *       <hr class="bb-stepper-step-separator">
+ *     </div>
+ *   </div>
+ *   <div class="bb-stepper-content panel-body">
+ *     <ui-bb-stepper-step-ng title="Step 1">
+ *       <div class="bb-stepper-content-step">
+ *         <p class="ng-scope">Step 1 content</p>
+ *         <input type="text" placeholder="Placeholder">
+ *       </div>
+ *     </ui-bb-stepper-step-ng>
+ *   </div>
+ *   <div class="bb-stepper-controls panel-footer panel-footer-white hidden-xs clearfix">
+ *     <div class="pull-right">
+ *       <a class="bb-stepper-btn btn btn-default">Cancel</a>
+ *       <a class="bb-stepper-btn btn btn-primary">Next</a>
+ *     </div>
+ *   </div>
+ * </div>
+ */
+
+.bb-stepper {
+  margin: 0;
+}
+
+.bb-stepper-indicator {
+  border: none;
+
+  .bb-stepper-step {
+    display: inline-block;
+
+    &:last-child .bb-stepper-step-separator {
+      display: none;
+    }
+  }
+
+  .bb-stepper-step-item {
+    background-color: $gray;
+    color: $white;
+    font-size: $font-size-base;
+    line-height: $stepper-step-item-size;
+    margin-right: $stepper-step-item-spacing;
+    padding: 0;
+    text-align: center;
+    @include size($stepper-step-item-size, $stepper-step-item-size);
+
+    &:hover {
+      cursor: default;
+    }
+
+    &.active,
+    &.passed {
+      background-color: $brand-primary;
+    }
+
+    &.passed {
+      &:not(.disabled):hover {
+        cursor: pointer;
+      }
+
+      .bb-stepper-step-number {
+        display: none;
+      }
+
+      .bb-stepper-step-icon {
+        display: inline;
+      }
+    }
+
+    .bb-stepper-step-icon {
+      display: none;
+    }
+  }
+
+  .bb-stepper-step-separator {
+    display: inline-block;
+    margin: $stepper-step-separator-spacing-vertical $stepper-step-item-spacing;
+    width: $stepper-step-separator-width;
+  }
+}
+
+.bb-stepper-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.bb-stepper-controls {
+  border-top: $default-border;
+  padding-top: $stepper-controls-padding-top;
+}
+
+@media (max-width: $screen-xs-max) {
+  .bb-stepper .bb-stepper-indicator {
+    background-color: $gray-lighter;
+  }
+
+  .bb-stepper-step-progress {
+    display: inline-block;
+    line-height: $stepper-step-progress-line-height;
+  }
+}

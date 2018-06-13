@@ -1,0 +1,78 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Chart.js bar chart component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-chartjs-chart-bar-ng
+ * @description
+ * Chart.js bar chart UI component
+ *
+ * Some styles are read inside code that generates canvas and
+ * because of that, examples cannot be provided for all styles.
+ *
+ * Dataset colors are defined with a class that has prefix chart-bar-dataset-
+ * followed by the index of the dataset (starting with 0). For example:
+ * .chart-bar-dataset-0 .chart-bar-dataset-1 etc.
+ *
+ * Axis font and color are defined inside .chart-bar-axis-x and .chart-bar-axis-y
+ *
+ * @example
+ * <div class="chart-bar-legend">
+ *   <ul class="0-legend">
+ *     <li>
+ *       <span style="background-color:rgb(185, 228, 255)"></span>Set 1
+ *     </li>
+ *     <li>
+ *       <span style="background-color:rgb(58, 179, 255)"></span>Set 2
+ *     </li>
+ *   </ul>
+ * </div>
+ */
+
+.chart-bar-dataset {
+  &-0 {
+    color: $chart-bar-dataset-dark;
+  }
+  &-1 {
+    color: $chart-bar-dataset-light;
+  }
+}
+
+.chart-bar-axis {
+  font-family: $font-family-base;
+  &-x {
+    color: $chart-bar-x-axis-color;
+  }
+  &-y {
+    color: $chart-bar-y-axis-color;
+    padding: $chart-bar-y-axis-padding;
+  }
+}
+
+.chart-bar-legend {
+  margin: $chart-bar-legend-margin;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: $chart-bar-legend-dataset-margin;
+
+    span {
+      border-radius: $border-radius-base;
+      display: inline-block;
+      height: $chart-bar-legend-box-size;
+      margin-right: $chart-bar-legend-box-size;
+      width: $chart-bar-legend-box-size;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .chart-bar-legend {
+    margin: $chart-bar-legend-margin-xs;
+  }
+}

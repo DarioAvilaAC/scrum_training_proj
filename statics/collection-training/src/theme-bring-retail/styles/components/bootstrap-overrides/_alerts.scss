@@ -1,0 +1,43 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Alerts override
+ * --------------------------------------------------------------------------
+ * @name alerts
+ * @description alerts overrides. For alers we have defined border and background colors.
+ *
+ * @example
+ * Default alert
+ * <div class="alert" role="alert">...</div>
+ *
+ * Primary alert
+ * <div class="alert alert-primary" role="alert">...</div>
+ *
+ * Success alert
+ * <div class="alert alert-success" role="alert">...</div>
+ *
+ * Warning alert
+ * <div class="alert alert-warning" role="alert">...</div>
+ *
+ * Danger alert
+ * <div class="alert alert-danger" role="alert">...</div>
+ */
+
+.alert-primary {
+  background-color: $brand-primary-lightest;
+  border-color: $brand-primary;
+}
+
+.alert-success {
+  background-color: $brand-success-lightest;
+  border-color: $brand-success;
+}
+
+.alert-warning {
+  background-color: $brand-warning-lightest;
+  border-color: $brand-warning;
+}
+
+.alert-danger {
+  background-color: $brand-danger-lightest;
+  border-color: $brand-danger;
+}

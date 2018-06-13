@@ -1,0 +1,130 @@
+/**
+ * @description
+ * Component for rendering css only progress indicator
+ *
+ * @example
+ * <div class="progress-indicator donut rotate-anticlockwise"
+ *  <div class="donut-left-slice"></div>
+ *
+ *  <div class="donut-right-slice"></div>
+ *
+ *  <div class="progress-indicator-donut-overlay"></div>
+ * </div>
+ */
+
+@include generate-negative-rotation-classes(0, 180);
+
+.progress-indicator {
+  position: relative;
+
+  &.donut {
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-color: $gray-lighter;
+
+    .donut-left-slice, .donut-right-slice {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .donut-left-slice {
+      left: 0;
+      border-bottom-left-radius: 1000px;
+      border-top-left-radius: 1000px;
+    }
+
+    .donut-right-slice {
+      right: 0;
+      border-bottom-right-radius: 1000px;
+      border-top-right-radius: 1000px;
+    }
+
+    .transition-base {
+      transition: transform 0.3s linear;
+    }
+
+    .reset-slice {
+      transform: rotate(0deg);
+      transition: none;
+      background: inherit;
+    }
+
+    &.rotate-anticlockwise {
+      .donut-left-slice {
+        z-index: 2;
+        transform-origin: center right;
+      }
+
+      .donut-right-slice {
+        z-index: 1;
+        transform-origin: center left;
+      }
+    }
+  }
+
+  &.indicator-color-danger-bright {
+    &.donut {
+      background-color: $brand-danger-bright;
+    }
+  }
+
+  &-donut-overlay {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $progress-donut-thickness;
+    height: $progress-donut-thickness;
+    z-index: 5;
+    border-radius: 50%;
+    background: $white;
+
+    .label-amount-left {
+      margin: 0;
+    }
+  }
+
+  .d-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+
+  .d-table-cell {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+  }
+}
+
+.label-color-success {
+  color: $brand-success-lighted;
+}
+
+.indicator-color-success {
+  background-color: $brand-success-lighted;
+}
+
+.label-color-warning {
+  color: $brand-warning-darker;
+}
+
+.indicator-color-warning {
+  background-color: $brand-warning;
+}
+
+.label-color-danger {
+  color: $brand-danger;
+}
+
+.indicator-color-danger {
+  background-color: $brand-danger;
+}

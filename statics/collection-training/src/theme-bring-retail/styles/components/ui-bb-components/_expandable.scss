@@ -1,0 +1,37 @@
+/**
+ * --------------------------------------------------------------------------
+ * Expandable UI component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-expandable-ng
+ * @description
+ * Component made from clickable "summary" section, which toggles
+ * "details" section. By default summary holds text and arrow icon, but it can
+ * be boxed with bb-expandable-box class
+ *
+ * @example
+ * <div class="bb-expandable-box ng-isolate-scope">
+ *   <div ng-click="$ctrl.toggle()" class="dropdown-select bb-expandable-dropdown" role="button" tabindex="0">
+ *     <i class="fa chevron-icon pull-right fa-chevron-up chevron-up" role="button"></i>
+ *     <div>Expandable summary</div>
+ *   </div>
+ *   <div class="bb-expandable-details">
+ *     <div>Expandable details</div>
+ *   </div>
+ * </div>
+ */
+
+.bb-expandable-box {
+  border: $default-border;
+  padding: 0 $padding-base-horizontal;
+
+  .dropdown-select {
+    padding: $padding-base-vertical 0;
+  }
+
+  .bb-expandable-details > *:first-child {
+    display: block;
+    border-top: $default-border;
+    padding-top: $expandable-details-padding-top;
+    margin-top: $expandable-details-margin-top;
+  }
+}

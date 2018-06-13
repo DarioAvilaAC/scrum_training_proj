@@ -1,0 +1,50 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's form controls
+ * --------------------------------------------------------------------------
+ * @name form-inputs
+ * @description
+ * Form controls and form control overlays overrides
+ *
+ * @example
+ * <!-- With overlay class -->
+ * <div class="form-control-overlay">
+ *  <input type="text" class="form-control" placeholder="" autocomplete="off">
+ *  <span class="fa fa-search form-control-feedback form-control-icon-holder" aria-hidden="true"></span>
+ * </div>
+ *
+ * @example
+ * <!-- Without overlay class -->
+ * <div>
+ *  <input type="text" class="form-control" placeholder="" autocomplete="off">
+ *  <span class="fa fa-search form-control-feedback form-control-icon-holder" aria-hidden="true"></span>
+ * </div>
+ */
+
+.form-control {
+  &:hover:not(:focus,[disabled],[readonly]) {
+    border-color: $gray-dark;
+  }
+
+  &:focus {
+    border-color: $brand-primary;
+    box-shadow: none;
+  }
+}
+
+.form-control-icon-holder {
+  line-height: $form-control-line-height;
+}
+
+.form-control-overlay {
+  position: absolute;
+  top: $form-group-position-top;
+  left: $form-group-position-left;
+  width: $form-group-width;
+  min-width: $form-group-min-width;
+  z-index: 2;
+}
+
+.input-group-btn > .btn {
+  height: $input-height-base; // Make input group button at least the height of their input counterpart
+}

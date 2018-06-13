@@ -1,0 +1,166 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Account card component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-account-card
+ * @description
+ * UI component for rendering account details
+ * Can be used for both, own accounts and contact details
+ *
+ * @example
+ * <ui-bb-account-card class="bb-account-card">
+ *  <div class="bb-account-card-content">
+ *    <div class="bb-account-card-info">
+ *      <div class="bb-account-card-name">Mr and Mrs J. Smith</div>
+ *      <div class="bb-account-card-amount">
+ *        <ui-bb-format-amount>
+ *          <span class="amount amount-positive">
+ *            <span class="amount-currency">€</span>
+ *            <span class="amount-whole-number">1,000</span>
+ *            <span class="amount-decimal-points">.</span>
+ *            <span class="amount-decimals">00</span>
+ *          </span>
+ *        </ui-bb-format-amount>
+ *      </div>
+ *      <div class="bb-account-card-number">NL25TRIO0253844320</div>
+ *      <div class="bb-account-card-additional">
+ *        <div class="bb-account-card-additional-name text-muted">Available balance</div>
+ *        <ui-bb-format-amount class="bb-account-card-additional-amount amount-regular-color text-muted">
+ *          <span class="amount amount-positive">
+ *            <span class="amount-currency">€</span>
+ *            <span class="amount-whole-number">1,500</span>
+ *            <span class="amount-decimal-points">.</span>
+ *            <span class="amount-decimals">00</span>
+ *          </span>
+ *        </ui-bb-format-amount>
+ *      </div>
+ *    </div>
+ *  </div>
+ * </ui-bb-account-card>
+ *
+ * // card without padding and border and with included hover state
+ * <ui-bb-account-card class="bb-account-card bb-account-card-large bb-account-card-open hover-item">
+ *  <div class="bb-account-card-content">
+ *    ...
+ *  </div>
+ * </ui-bb-account-card>
+ */
+
+.bb-account-card {
+  background-color: $white;
+  border: $default-border;
+  border-color: $gray-light;
+  border-radius: $border-radius-base;
+  display: block;
+  padding: $account-card-padding;
+
+  &.bb-account-card-large {
+    padding: $account-card-padding-large;
+  }
+
+  &.bb-account-card-open {
+    border: none;
+  }
+}
+
+.bb-account-card-content,
+.bb-account-card-content-inline {
+  @extend .clearfix;
+  display: inline-block;
+}
+
+.bb-account-card-content {
+  width: 100%;
+}
+
+.bb-account-card-avatar {
+  margin: $account-card-avatar-margin;
+  float: left;
+
+  .bb-avatar {
+    margin: 0;
+  }
+}
+
+.bb-account-card-name,
+.bb-account-card-number {
+  float: left;
+  display: inline-block;
+}
+
+.bb-account-card-long-name {
+  @extend strong;
+}
+
+.bb-account-card-long-name,
+.bb-account-card-long-number {
+  float: left;
+  min-width: 50%;
+}
+
+.bb-account-card-long-number {
+  @extend .text-muted;
+}
+
+.bb-account-card-name {
+  width: $account-card-name-width;
+  margin-right: $account-card-name-margin-right;
+}
+
+.bb-account-card-number {
+  @extend .text-muted;
+}
+
+.bb-account-card-additional {
+  width: $account-card-additons-width;
+  min-width: $account-card-additons-min-width;
+}
+
+.bb-account-card-amount,
+.bb-account-card-additional,
+.bb-account-card-additional-amount {
+  float: right;
+  text-align: right;
+}
+
+.bb-account-card-amount {
+  display: inline-block;
+}
+
+.bb-account-card-additional-name {
+  float: left;
+  text-align: left;
+}
+
+@media #{$information-sm-screen} {
+  .bb-account-card-additional {
+    display: none;
+  }
+
+  .bb-account-card-name,
+  .bb-account-card-number {
+    float: none;
+    display: block;
+  }
+
+  .bb-account-card-name {
+    width: $account-card-name-width-sm;
+  }
+}
+
+@media #{$information-xs-screen} {
+  .bb-account-card-avatar {
+    display: none;
+  }
+  .bb-account-card-content,
+  .bb-account-card-content-inline,
+  .bb-account-card-amount {
+    display: block;
+  }
+  .bb-account-card-amount,
+  .bb-account-card-additional,
+  .bb-account-card-additional-amount {
+    text-align: initial;
+    float: none;
+  }
+}

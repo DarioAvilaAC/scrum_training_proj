@@ -1,0 +1,33 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Privilege Indicator component
+ * --------------------------------------------------------------------------
+ * @name bb-privilege-indicator
+ * @description
+ * Component that displays check or X depending on privilege.
+ * Additionally displays lock icon as a badge if the privilege has limits.
+ *
+ * @example
+ * <ui-bb-privilege-indicator-ng
+ *   has-badge="true"
+ *   has-privilege="true">
+ * </ui-bb-privilege-indicator-ng>
+ */
+
+ .bb-privilege-indicator {
+  position: relative;
+
+  .privilege-on {
+    color: $privilege-on-color;
+  }
+
+  .privilege-off {
+    color: $privilege-off-color;
+  }
+
+  .privilege-badge {
+    position: absolute;
+    color: $privilege-badge-color;
+    top: $privilege-badge-top;
+  }
+}

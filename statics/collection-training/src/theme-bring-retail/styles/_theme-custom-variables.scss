@@ -1,0 +1,526 @@
+// Theme specific variables
+
+// Common / Shared variables
+$default-shadow-color: rgba(0, 0, 0, .1);
+
+$default-border: 1px solid $gray;
+$transparent-border: 1px solid transparent;
+$default-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+$selected-item-bgr: $gray;
+
+// Avatar component
+$avatar-size: 40px;
+$avatar-size-big: $avatar-size * 2;
+$avatar-size-small: 30px;
+$avatar-default-margin: 0 15px;
+
+// Account card component
+$account-card-padding: 20px 20px 20px 15px;
+$account-card-padding-large: 20px 38px 20px 20px;
+$account-card-name-width: 30em;
+$account-card-name-width-sm: 20em;
+$account-card-name-margin-right: 1em;
+$account-card-avatar-margin: 0 18px 0 0;
+$account-card-additons-width: 30%;
+$account-card-additons-min-width: 250px;
+
+// Shared chart styles variables
+$chart-tooltip-default-color: $gray-base;
+$chart-tooltip-default-background-color: $white;
+$chart-tooltip-default-border-color: $gray-light;
+$chart-tooltip-padding: 7px 15px;
+$chart-tooltip-width: 165px;
+$chart-tooltip-width-wide: 175px;
+$chart-tooltip-arrow-size: 10px;
+$chart-tooltip-arrow-position-near: 25%;
+$chart-tooltip-arrow-position-default: 50%;
+$chart-tooltip-arrow-position-far: 75%;
+$chart-tooltip-arrow-border-size: 2px;
+$chart-tooltip-divider-margin: 5px 0;
+$chart-tooltip-divider-padding: 0;
+$chart-tooltip-info-text-width: 115px;
+
+// Bar chart component
+$chart-bar-dataset-dark: $brand-primary;
+$chart-bar-dataset-light: $brand-primary-lightest;
+$chart-bar-x-axis-color: $gray-base;
+$chart-bar-y-axis-color: $gray-dark;
+$chart-bar-y-axis-padding: 10px;
+$chart-bar-legend-margin: 10px 0;
+$chart-bar-legend-margin-xs: 10px 15px;
+$chart-bar-legend-dataset-margin: 15px;
+$chart-bar-legend-box-size: 10px;
+
+// Checkbox/Radio common variables
+$checkbox-radio-dimension: 15px;
+
+// Checkbox
+$checkbox-dimensions-size: $checkbox-radio-dimension;
+$checkbox-border-default: 1px solid $gray-dark;
+$checkbox-font-size: $checkbox-dimensions-size * 0.8;
+$checkbox-indeterminate-dimensions: $checkbox-dimensions-size;
+$checkbox-hover-border-color: $brand-primary;
+$checkbox-ie-top-margin: 1px;
+$checkbox-inline-ie-top-margin: 4px;
+
+// Radio
+$radio-border-default: 1px solid $gray-dark;
+$radio-dimensions-size: $checkbox-radio-dimension;
+$radio-indeterminate-dimensions-size: $radio-dimensions-size;
+$radio-border-radius: 50%;
+$radio-hover-border-color: $brand-primary;
+$radio-box-shadow: 0px 0px 0px 1px $gray-darker;
+$radio-checked-inner-shadow: inset 0px 0px 0px 2px $white;
+$radio-checked-inner-shadow-disabled: inset 0px 0px 0px 2px $gray-lighter;
+$radio-indeterminate-dimensions: $radio-dimensions-size;
+$radio-border: 1px solid $gray-dark;
+
+// Donut chart component
+$chart-donut-margin-bottom: 55px;
+$chart-donut-margin-top: $chart-donut-margin-bottom;
+$chart-donut-max-width: 400px;
+$chart-donut-padding: 0 40px;
+$chart-donut-colors:
+  $brand-success-lighted,
+  $brand-warning-lighted,
+  $brand-primary-lighted,
+  $brand-secondary-lighted,
+  $brand-success-light,
+  $brand-warning-light,
+  $brand-primary-light,
+  $brand-secondary-light,
+  $brand-success-lighter,
+  $brand-warning-lighter,
+  $brand-primary-lighter,
+  $brand-secondary-lighter,
+  $brand-success-lightest,
+  $brand-warning-lightest,
+  $brand-primary-lightest,
+  $brand-secondary-lightest;
+
+
+// Empty state component
+$empty-state-icon-margin: 40px 0;
+$empty-state-subtitle-margin-bottom: 50px;
+
+// Expandable component
+$expandable-details-margin-top: 4px;
+$expandable-details-padding-top: 10px;
+
+// Format amount component
+$format-amount-positive-color: $brand-primary;
+$format-amount-negative-color: $brand-danger;
+$format-amount-base-line-height: 1em;
+$format-amount-decimals-font-size: .77em;
+$format-amount-decimals-line-height: 1.5em;
+$format-amount-decimals-margin-top: -.2em;
+$amount-plain-height: 1em;
+
+/* total input height = line-height + 2 vertical paddings + 2px for borders */
+$input-total-base-height: $font-size-base * $line-height-base + $padding-base-vertical * 2 + 2;
+$input-group-margin-bottom: 15px;
+
+// Logo component
+$logo-height: 120px;
+$logo-margin-bottom: 40px;
+$logo-position-left: 50%;
+
+// Switcher component
+$switcher-width: 34px;
+$switcher-height: 9px;
+$switcher-background-default: $gray-lighter;
+$switcher-background-on: $brand-success;
+$switcher-background-off: $brand-danger;
+$switcher-border-color-on: $brand-success-darker;
+$switcher-border-color-off: $brand-danger-darker;
+$switcher-slider-size: $switcher-height * 1.67;
+$switcher-slider-background: $white;
+$switcher-slider-active: $brand-primary;
+$switcher-text-margin-left: 10px;
+$switcher-transition-speed: 0.2s;
+$switcher-disabled-opacity: .5;
+
+//  Notification
+$notification-base-indent: 15px;
+$notification-offset: 5px;
+$notification-spacing: 12px;
+$notification-spacing-small: 2px;
+$notification-width: 400px;
+$notification-height: 90px;
+$notification-font-size-small: $font-size-xs;
+
+//  Notification Badge
+$notification-badge-margin-top: 13px;
+$notification-badge-btn-padding: 8px 9px 5px 9px;
+$notification-badge-btn-dot-padding: 0 3px;
+$notification-badge-btn-dot-top: -1px;
+$notification-badge-btn-dot-right: 0;
+$notification-badge-btn-dot-size: 18px;
+
+//  Notification Popover
+$notification-popover-list-height: $notification-height * 3 + 2px;
+$notification-popover-custom-line-height: 1.7;
+/* transform translate x = badge width / 2 - arrow right offset - arrow width / 2 - popover border width */
+$notification-popover-arrow-translate-x: 7px;
+
+// Notification stripe
+$notification-stripe-web-width: 500px;
+$notification-stripe-margin: 1rem 0;
+$notification-stripe-padding: 1.5rem 0;
+$notification-stripe-success-border: 1px solid $brand-success;
+$notification-stripe-danger-border: 1px solid $brand-danger;
+$notification-stripe-z-index: 100;
+
+$load-more-btn-padding-small: 1px 22px;
+
+// Screen sizes
+$information-sm-screen: "(max-width : 650px)";
+$information-xs-screen: "(max-width : 500px)";
+
+// Empty element placeholder
+$empty-placeholder-radius: 1rem;
+$empty-placeholder-spinner-size: 5rem;
+$empty-placeholder-height: 15rem;
+
+// Table
+$table-font-default: $font-size-small;
+$table-font-xs: $font-size-xs;
+$table-cell-padding: 1.6rem;
+$table-cell-odd: $gray-lightest;
+$table-cell-even: $white;
+$table-cell-hover: $gray-lighter;
+$table-cell-selected: $brand-primary-bright;
+$table-fixed-cell-border-width: 1px;
+
+// Details
+$details-background: $gray-lightest;
+$details-text-align: inherit;
+$details-padding: $table-cell-padding;
+$details-row-padding-top: 1rem;
+$details-row-padding-top-media-sm: inherit;
+
+//** Width of column with btn-group elements (last column)
+$table-actions-col-width: 10rem;
+//** Table controls block padding
+$table-controls-padding: 15px;
+//** Table fixed columns padding
+$table-large-col-padding: 40px;
+$table-small-col-padding: 15px;
+//** Table first scrollable column padding
+$table-scrollable-col-first-padding: 30px;
+//** Table last scrollable column padding
+$table-scrollable-col-last-padding: 20px;
+//** Width of column with checkbox (fist column)
+$checkbox-col-width: 1rem;
+//** Left margin for table cell in mobile view
+$small-table-col-margin: 120px;
+$table-limits-col-width: 170px;
+$table-header-spinner-right: -10px;
+$table-header-spinner-top: 15%;
+$table-header-icon-margin: 0 6px;
+$table-info-padding: 1rem 1.6rem;
+$table-info-border-default: 1px solid $gray-light;
+$table-collapsible-panel-body-padding: 16px;
+
+// Panel
+$panel-heading-navigation-padding: 10px 15px 9px;
+$panel-heading-nav-icon-margin: 0 18px 0 0;
+$panel-heading-nav-icon-font-size: 15px;
+$panel-heading-nav-icon-line-height: 20px;
+$panel-heading-title-btn-padding: 13px 20px;
+$panel-body-padding-small: 0 15px;
+$panel-box-shadow: $default-box-shadow;
+
+// Dropdowns
+$dropdown-chevron-height: $line-height-computed;
+$dropdown-chevron-offset-right: 10px;
+$dropdown-chevron-width: $font-size-base;
+$dropdown-menu-margin: 5px 0 0;
+$dropdown-menu-padding: 5px 0;
+$dropdown-menu-item-padding: 4px $line-height-computed;
+$dropdown-menu-active-item-mark-offset-top: $line-height-computed / 3.5;
+$dropdown-menu-active-item-mark-offset-left: $line-height-computed / 6;
+$dropdown-placeholder-padding-right: 5px;
+
+// Select account
+$account-selector-option-content-height: 40px;
+$account-selector-option-height: $account-selector-option-content-height + $spacer * 6;
+$account-selector-height: $account-selector-option-content-height + $spacer * 8;
+$account-selector-scrollbar-height: ($account-selector-option-height + 1) * 5;
+$account-selector-chevron-position-right: $spacer * 3;
+$account-selector-options-margin-bottom: -1px;
+$account-selector-spinner-size: 15px;
+
+// Batch upload
+$batch-upload-spacing-small: 1.2rem;
+$batch-upload-spacing-md: 1.4rem;
+$batch-upload-spacing-main: 2rem;
+$batch-upload-file-icon-size: 3rem;
+$batch-upload-color-light-primary: $brand-primary-light;
+$batch-upload-color-primary: $brand-primary-bright;
+$batch-upload-danger: $brand-danger-bright;
+$batch-upload-border-default: 1px solid $gray-light;
+$batch-upload-main-block-height: 500px;
+$batch-upload-secondary-block-height: 60px;
+$batch-upload-type-height: 100px;
+$batch-upload-type-width: 200px;
+$batch-upload-type-padding-top: 33px;
+$batch-upload-empty-queue-padding: 160px 50px;
+$batch-upload-type-icon-top: 5px;
+$batch-upload-type-icon-right: 5px;
+$batch-upload-font-size-smaller: $font-size-small;
+$batch-upload-type-icon-font-size: 19px;
+$batch-upload-trash-icon-font-size: 20px;
+$batch-upload-footer-btn-padding: 0.5rem 3rem;
+$batch-upload-icon-bg-size: 16px;
+$batch-upload-file-border: 1px solid $gray;
+$batch-upload-border-primary: 1px solid $brand-primary;
+$batch-upload-border-transparent: 1px dashed transparent;
+$batch-upload-header-border: 1px solid $gray-lightest;
+$batch-upload-border-dashed-default: 1px dashed $gray-dark;
+
+// Search box
+$search-box-input-padding-right: 30px;
+$search-box-icon-horizontal-padding: 12px;
+$search-box-icon-vertical-padding: 10px;
+$search-box-clear-horizontal-padding: 50px;
+$search-box-clear-vertical-padding: 7px;
+$search-box-max-width: 350px;
+$search-box-addon-size: 1.8rem;
+$search-box-addon-horizontal-padding: 50px;
+$search-box-addon-horizontal-padding-small: 10px;
+$search-box-addon-z-index: 5;
+
+// Autocomplete search
+$autocomplete-search-list-item-padding-small: 6px 15px;
+$autocomplete-search-list-item-padding: 12px 15px;
+$autocomplete-search-list-item-border-color: $gray-light;
+$autocomplete-search-list-item-background-color: $brand-primary-bright;
+$autocomplete-search-message-color: $gray-dark;
+$autocomplete-search-list-item-color: $gray-base;
+$autocomplete-search-list-item-border: 1px solid $autocomplete-search-list-item-border-color;
+$autocomplete-search-list-height: 300px;
+
+// Categories
+$transaction-category-list-limit: 330px;
+$transaction-category-list-item-height: 60px;
+$transaction-category-list-icon-width: 34px;
+$transaction-category-home-color: $brand-success;
+$transaction-category-health-beauty-color: $brand-danger-lighted;
+$transaction-category-groceries-color: $brand-warning;
+$transaction-category-eating-drinking-color: $brand-secondary-darker;
+$transaction-category-transportation-color: $brand-success-darker;
+$transaction-category-shopping-color: $brand-warning-lighted;
+$transaction-category-hobbies-entertainment-color: $brand-secondary-lighted;
+$transaction-category-bills-utilities-color: $brand-danger;
+$transaction-category-income-color: $brand-primary;
+$transaction-category-other-income-color: $brand-warning-light;
+$transaction-category-savings-color: $brand-primary-darker;
+$transaction-category-transfer-color: $brand-warning-darker;
+$transaction-category-fees-color: $brand-danger-darker;
+$transaction-category-other-color: $gray-darker;
+$transaction-category-uncategorized-color: $gray-dark;
+
+/** Navigation */
+$navbar-box-shadow: 0 0 2px 0 rgba(0,0,0,0.14),
+    0 2px 2px 0 rgba(0,0,0,0.12),
+    0 1px 3px 0 rgba(0,0,0,0.2);
+$navbar-brand-width: 200px;
+$navbar-side-width: 200px;
+$navbar-top-height: $navbar-height;
+$navigation-main-content-padding-top: 30px;
+$navigation-main-content-padding-left: 15px;
+$navigation-main-content-padding-right: 15px;
+
+// Navigate to component
+$navigate-to-padding: 10px 15px;
+
+/** Simple box container */
+// business banking
+$simple-box-business-horizontal-padding: 30px;
+$simple-box-business-background-color: $body-bg;
+
+/** Currency input ui component **/
+$currency-input-button-padding: 6.5px 12px;
+$currency-input-block-spacing: 4%;
+$currency-input-switcher-width: 29%;
+$currency-input-seperator-holder-width: 4%;
+$currency-input-seperator-line-height: $form-control-line-height;
+$currency-input-amount-holder-min-width: 35px;
+$currency-input-decimal-holder-width: 17%;
+$currency-input-decimal-holder-min-width: 20px;
+
+/** Credit suggest ui component **/
+$credit-suggest-success-feedback-right: 38px;
+$credit-suggest-search-result-ammount-line-height: 40px;
+
+
+// Portfolio summary
+$portfolio-client-bottom-margin: 30px;
+$portfolio-currency-label-margin: 10px;
+$portfolio-heading-divider-right: 68px;
+$portfolio-stripe-table-header-margin: -30px;
+$portfolio-stripe-table-header-margin-xs: $portfolio-stripe-table-header-margin - 10px;
+$portfolio-stripe-header-items-padding: 44px;
+$portfolio-stripe-header-items-padding-xs: $portfolio-stripe-header-items-padding + 10px;
+$portfolio-assets-width: 385px;
+$portfolio-asset-height: 27px;
+$portfolio-asset-padding-top: 4px;
+$portfolio-asset-margin-small-vertical: $margin-small-vertical - 2;
+$portfolio-asset-icon-margin-small-horizontal: 7px;
+$portfolio-asset-icon-height: 12px;
+$portfolio-asset-icon-width: 4px;
+$portfolio-stripe-table-title-padding-left: 25px;
+$portfolio-stripe-table-header-color: $gray-lightest;
+$portfolio-stripe-table-row-color: $gray-darker;
+$portfolio-asset-percent-padding-left: 20px;
+$portfolio-asset-percent-padding-right: 0;
+$portfolio-asset-asset-name-padding-left: 10px;
+$portfolio-asset-asset-name-padding-right: 0;
+$portfolio-positions-col-width: 200px;
+$portfolio-positions-col-last-width: 69px;
+$portfolio-positions-col-height: 50px;
+$portfolio-title-padding: 20px;
+$portfolio-stripe-list-item-padding: 10px;
+$portfolio-stripe-text-gray: $gray-dark;
+$portfolio-stripe-long-num-offset: 30px;
+$portfolio-stripe-instrument-name-line-height: 18px;
+$portfolio-stripe-details-amount-heading-margin: 8px;
+$portfolio-stripe-table-header-border: 2px solid $table-border-color;
+$portfolio-stripe-table-header-shadow-border: inset 0 1px 0 0 $table-border-color;
+$portfolio-transactions-position-switcher-btn-width: 90px;
+$portfolio-padding: 10px;
+$portfolio-padding-left: 15px;
+$portfolio-label-default-margin: 7px;
+$portfolio-transactions-selected-panel-padding-top: $portfolio-padding - $portfolio-label-default-margin;
+$portfolio-transactions-selected-panel-padding-left: $portfolio-padding-left - $portfolio-label-default-margin;
+$portfolio-transactions-status-open-border: 1px solid $brand-success;
+$portfolio-transactions-status-pending-border: 1px solid $brand-warning;
+$portfolio-transactions-status-closed-border: 1px solid $brand-danger;
+
+$portfolio-stripe-heading-xs-height: 40px;
+
+$portfolio-stripe-colors:
+  $brand-success-lightest,
+  $brand-warning-lightest,
+  $brand-primary-lightest,
+  $brand-secondary-lightest,
+  $brand-success-lighter,
+  $brand-warning-lighter,
+  $brand-primary-lighter,
+  $brand-secondary-lighter,
+  $brand-success-light,
+  $brand-warning-light,
+  $brand-primary-light,
+  $brand-secondary-light,
+  $brand-success-lighted,
+  $brand-warning-lighted,
+  $brand-primary-lighted,
+  $brand-secondary-lighted;
+
+$filter-panel-background-color: $gray-lightest;
+$filter-padding: 0 10px;
+$filter-margin-between-row: 5px;
+$filter-field-example-text-color: $gray-dark;
+$filter-field-example-margin-top: 3px;
+$filter-space-between-buttons: 10px;
+
+$portfolio-valuation-chart-padding: 0 30px 30px 30px;
+$portfolio-performance-chart-padding: 20px 30px 30px 30px;
+$portfolio-valuation-tooltip-corner-radius: 2px;
+$portfolio-performance-tooltip-corner-radius: 2px;
+$portfolio-valuation-ticks-padding: 20px;
+$portfolio-performance-ticks-padding: 20px;
+
+// Notification popups
+$notification-popup-wrapper-top: $navbar-top-height;
+$notification-popup-wrapper-right: 0;
+
+// Notification stickies
+$notification-sticky-wrapper-margin-top: $navigation-main-content-padding-top * -1;
+$notification-sticky-wrapper-margin-left: $navigation-main-content-padding-left * -1;
+$notification-sticky-wrapper-margin-right: $navigation-main-content-padding-right * -1;
+
+// Loading Overlay
+$loading-overlay-cover-zindex: 1035;
+$loading-overlay-spinner-zindex: 1037;
+$loading-overlay-spinner-size: 5rem;
+$loading-overlay-cover-background: $gray-lightest;
+$loading-overlay-cover-opacity: 0.6;
+
+// User header
+$user-header-padding: 20px;
+
+// User context menu
+$user-context-menu-actions-padding: 3px 0;
+$user-context-menu-action-color: $gray-base;
+$user-context-menu-username-color: $gray-dark;
+$user-context-menu-company-name-color: $gray-darker;
+$user-context-menu-padding: 15px 0 15px 15px;
+
+// Datepicker
+$datepicker-border-primary: 1px solid $brand-primary;
+$datepicker-border-secondary: 1px solid $brand-secondary;
+$datepicker-day-button-size: 25px;
+$datepicker-month-button-size: 45px;
+$datepicker-year-button-size: 39px;
+$datepicker-container-padding: 15px;
+$datepicker-table-cell-padding: 0 5px 10px;
+$datepicker-day-button-horizontal-offset: 5px;
+$datepicker-day-button-padding: 0 $datepicker-day-button-horizontal-offset;
+$datepicker-month-button-padding: 0 25px;
+$datepicker-year-button-padding: 3px 5px 4px;
+$datepicker-title-button-padding: 0.3em 0;
+$datepicker-title-button-radius: 2em;
+$datepicker-min-width: 265px;
+
+// Small page header margin
+$page-header-small-margin: 20px 0;
+
+// Card component
+$card-padding: 15px;
+$card-margin: 10px 0;
+$card-checkbox-width: 30px;
+$card-header-margin: 0 0 -15px 0;
+$card-checkbox-margin-top: 4px;
+
+// Well
+$well-xl-padding: 40px;
+$well-margin-top: 25px;
+
+// Limits modal
+$limits-modal-info-icon-margin: 0 0 0 6px;
+$limits-modal-form-group-margin-bottom: 5px;
+
+// Privilege indicator
+$privilege-on-color: $brand-success;
+$privilege-off-color: $gray-light;
+$privilege-badge-color: $brand-primary;
+$privilege-badge-top: -12px;
+
+// Card table
+$card-table-bottom-margin: 10px;
+
+// Privileges table
+$privileges-table-min-width: 460px;
+$privileges-table-function-column-width: 145px;
+$privileges-table-column-min-width: 50px;
+
+// Stepper
+$stepper-step-item-size: 24px;
+$stepper-step-item-spacing: 10px;
+$stepper-step-progress-line-height: 30px;
+$stepper-step-separator-spacing-vertical: 4px;
+$stepper-step-separator-width: 40px;
+$stepper-controls-padding-top: 25px;
+
+// Budget card component
+$budget-card-max-width: 320px;
+$budget-card-min-width: 264px;
+$budget-card-title-height: 45px;
+$budget-card-title-offset: 0 0 0 5px;
+$budget-card-body-offset: 0 20% $panel-body-padding;
+
+// Progress indicator component
+$progress-donut-thickness: 92%;

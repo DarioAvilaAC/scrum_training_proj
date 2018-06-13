@@ -1,0 +1,90 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Labels override
+ * --------------------------------------------------------------------------
+ * @name labels
+ * @description
+ * A label displays content classification.
+ * Add a <span class="label-content"> with a :before pseudo-element to insert generated content to a label.
+ *
+ * @example
+ * Default label
+ * <span class="label label-default">
+ *   <span class="label-content">Default Label</span>
+ * </span>
+ */
+
+// Labels
+
+label {
+  font-weight: $headings-font-weight;
+}
+
+.label {
+  background-color: $white;
+  border-radius: 1.1em;
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: normal;
+  padding: .4em .6em .4em;
+  vertical-align: baseline;
+
+  // Displays generated content, such as the label status on mobile responsive view
+  &:before {
+    content: attr(data-label);
+  }
+
+  // Hides default label status label on mobile responsive view
+  .label-content {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .label {
+    // Hides generated content, such as the label status on desktop view
+    &:before {
+      content: none;
+    }
+
+    // Displays default label status on desktop view
+    .label-content {
+      display: inline;
+    }
+  }
+}
+
+// Colors by system status
+//
+// Need to be removed from here.
+// Ideally, the native Bootstrap modifier classes should be added to change the appearance of a label.
+// The following classes are not generic enough to be applied consistency across applications.
+
+.label-unauthorized,
+.label-entered {
+  @include label-variant($label-primary-bg);
+}
+
+.label-authorized,
+.label-processed {
+  @include label-variant($label-success-bg);
+}
+
+.label-partially_authorized,
+.label-accepted,
+.label-pending {
+  @include label-variant($label-warning-bg);
+}
+
+.label-rejected,
+.label-rejected_by_user {
+  @include label-variant($label-danger-bg);
+}
+
+.label-announced {
+  @include label-variant($label-primary-bg);
+}
+
+.label-deleted {
+  @include label-variant($label-default-bg);
+}

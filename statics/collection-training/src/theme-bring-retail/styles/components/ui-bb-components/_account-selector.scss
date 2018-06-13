@@ -1,0 +1,125 @@
+/**
+ * --------------------------------------------------------------------------
+ * UI BB Selector component
+ * --------------------------------------------------------------------------
+ * @name ui-bb-account-selector
+ * @description
+ * UI component for creating dropdown accounts selector.
+ * It can display initials based on a name if image is not available.
+ *
+ * @example
+ * <ui-bb-account-selector class="bb-account-selector drop-shadow"
+                           data-placeholder="Select account" data-select-all="true">
+ *  <ui-bb-dropdown-select >
+ *    <div class="dropdown-select" uib-dropdown data-keyboard-nav>
+ *      <button type="button" class="btn btn-default btn-dropdown-toggle" uib-dropdown-toggle>
+ *        <span class="dropdown-option dropdown-selected" ui-bb-dropdown-selected></span>
+ *        <span class="dropdown-option placeholder">Select account</span>
+ *        <span class="fa chevron-icon fa-chevron-down chevron-down"></span>
+ *      </button>
+ *
+ *      <ul class="uib-dropdown-menu dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+ *       <li role="menuitem" class="dropdown-option">
+ *         <a href="">
+ *         <div class="pull-left account-detail">
+ *           <div class="select-all-label">All Accounts</div>
+ *         </div>
+ *         <div class="pull-right text-right">
+ *           <div class="select-all-quantity">7 accounts</div>
+ *         </div>
+ *         </a>
+ *       </li>
+ *      </ul>
+ *    </div>
+ *  </ui-bb-dropdown-select>
+ * </ui-bb-account-selector>
+ */
+
+.dropdown-select {
+  .dropdown-selected {
+    color: $text-color;
+  }
+}
+
+.bb-account-selector {
+  .dropdown-menu {
+    padding: 0;
+    border: none;
+    border-radius: $border-radius-medium;
+    max-height: none;
+    overflow: hidden;
+
+    .dropdown-option {
+      &:not(:last-child) {
+        margin-bottom: $account-selector-options-margin-bottom;
+        border-top: $default-border;
+        border-bottom: $default-border;
+      }
+    }
+  }
+}
+
+.bb-account-selector-toggle {
+  height: auto;
+
+  &.drop-shadow {
+    @include box-shadow($default-box-shadow);
+  }
+
+  &.dropdown-toggle {
+    padding: 0;
+    border: none;
+    border-radius: $border-radius-medium;
+    background-color: $white;
+
+    .dropdown-option {
+      margin: 0;
+
+      &.placeholder {
+        @extend .px-3;
+        @extend .py-4;
+        @extend .double-line;
+      }
+    }
+
+    .chevron-icon {
+      right: $account-selector-chevron-position-right;
+      color: $gray-dark;
+      pointer-events: none;
+    }
+  }
+}
+
+.bb-account-selector-option {
+  color: $text-color;
+
+  .dropdown-toggle & {
+    min-height: $account-selector-height;
+  }
+
+  &:active:hover,
+  &:active:focus,
+  &:active.focus,
+  &.active:hover,
+  &.active:focus,
+  &.active.focus,
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $text-color;
+    background-color: $dropdown-link-hover-bg;
+    text-decoration: none;
+  }
+}
+
+.bb-account-selector-option-content {
+  min-height: $account-selector-option-content-height;
+}
+
+.bb-account-selector-scrollable-area {
+  max-height: $account-selector-scrollbar-height;
+}
+
+.bb-account-selector-spinner {
+  @include spinner($account-selector-spinner-size);
+}

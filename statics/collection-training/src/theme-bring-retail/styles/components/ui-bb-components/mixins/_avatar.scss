@@ -1,0 +1,8 @@
+@mixin avatar-size($avatar-diameter) {
+  height: $avatar-diameter;
+  width: $avatar-diameter;
+    span {
+      line-height: $avatar-diameter - 2;
+      @include font-size($avatar-diameter / 2 * 0.75);
+    }
+}

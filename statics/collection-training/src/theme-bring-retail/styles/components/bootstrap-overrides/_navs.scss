@@ -1,0 +1,81 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap's Navs override
+ * --------------------------------------------------------------------------
+ * @name navs
+ * @description 
+ * Navigation available in Bootstrap share general markup and styles, from the 
+ * base .nav class to the active and disabled states. Swap modifier classes to 
+ * switch between each style.
+ *
+ * @example
+ * <ul class="nav nav-tabs">
+ *   <li class="active"><a href="#">Links <span class="sr-only">(current)</span></a></li>
+ *   <li><a href="#">Home</a></li>
+ *   <li class="disabled"><a href="#">Cards</a></li>
+ *   <li><a href="#">Link</a></li>
+ *   <li><a href="#">Link2</a></li>
+ *   <li><a href="#">Some Tab Item</a></li>
+ * </ul>
+ */
+.nav-tabs {
+  overflow-x: auto; 
+  width: 100%;
+  white-space: nowrap;
+  border: 0;
+
+  &::after {
+    background-color: $gray;
+    content: '';
+    height: $navs-nav-tab-after-height;
+    display: block;
+  }
+}
+       
+.nav-tabs li {
+  display: inline-table;
+  border-left: 0;
+  float: none;
+  font-weight: $headings-font-weight;
+  font-size: $font-size-small;
+
+  a {
+    border: none;
+    margin-right: 0;
+
+    &:hover {
+      border: 0;
+    }
+  }
+
+  &:first-child {
+    a, a:hover { 
+      padding-left: 0;
+    }
+  }
+}
+
+.nav-tabs li.active {
+  border: 0;
+  background-color: transparent; 
+
+  &:first-child {
+    a, a:hover, a:visited, a:active, a:focus {
+      margin-left: 0;
+    }
+  }
+
+  a, a:hover, a:visited, a:active, a:focus {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: $navs-nav-tab-active-item-border;
+    padding: $navs-nav-tab-active-item-padding;
+    margin: $navs-nav-tab-active-item-margin;
+    color: $brand-primary;
+    background-color: transparent; 
+  }
+}
+
+.nav-tabs li.disabled > a, .nav-tabs li.disabled > a:hover {
+  color: $gray;
+}

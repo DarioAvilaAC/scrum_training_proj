@@ -1,0 +1,143 @@
+/**
+ * --------------------------------------------------------------------------
+ * Collapsible table component
+ * --------------------------------------------------------------------------
+ * @name table-collapsible
+ * @description
+ * Component where every tbody acts like a collapsible panel. First tr stands for header and second - for body.
+ *
+ * @example
+ *<table class="table-collapsible">
+ *  <thead>
+ *  <tr>
+ *    <th>Date</th>
+ *    <th>Description</th>
+ *    <th>Price</th>
+ *    <th></th>
+ *  </tr>
+ *  </thead>
+ *  <tbody class="table-collapsible-panel">
+ *  <tr class="table-collapsible-panel-heading">
+ *    <td>4/22/17</td>
+ *    <td>Fee - Bonds - Leannon, Hartmann and Okuneva</td>
+ *    <td>77,635.65</td>
+ *    <td></td>
+ *  </tr>
+ *  <tr class="table-collapsible-panel-body">
+ *    <td class="table-collapsible-panel-body-content" colspan="4">
+ *      <h4>Leannon, Hartmann and Okuneva</h4>
+ *      <div class="row">
+ *        <div class="col-xs-12">
+ *          Price: 77,635.65
+ *        </div>
+ *      </div>
+ *    </td>
+ *  </tr>
+ *  </tbody>
+ *  <tbody class="table-collapsible-panel">
+ *  <tr class="table-collapsible-panel-heading">
+ *    <td>4/22/17</td>
+ *    <td>Kris and Sons</td>
+ *    <td>95,031.25</td>
+ *    <td></td>
+ *  </tr>
+ *  <tr class="table-collapsible-panel-body">
+ *    <td class="table-collapsible-panel-body-content" colspan="4">
+ *      <h4>Kris and Sons</h4>
+ *      <div class="row">
+ *        <div class="col-xs-12">
+ *          Price: 95,031.25
+ *        </div>
+ *      </div>
+ *    </td>
+ *  </tr>
+ *  </tbody>
+ *</table>
+ */
+
+.table-collapsible {
+
+  &.table-striped {
+
+    .table-collapsible-panel {
+
+      &:last-child {
+        border-bottom: $table-info-border-default;
+      }
+
+      &:nth-child(even):not(.open) {
+        .table-collapsible-panel-heading {
+          background-color: $table-cell-odd;
+
+          &:hover {
+            background-color: $table-cell-hover;
+          }
+        }
+      }
+      &:nth-child(odd):not(.open) {
+        .table-collapsible-panel-heading {
+          background-color: $table-cell-even;
+
+          &:hover {
+            background-color: $table-cell-even;
+          }
+        }
+      }
+
+      .table-collapsible-panel-body {
+        background-color: $table-cell-odd;
+
+        &:hover {
+          background-color: $table-cell-odd;
+        }
+
+        &-content {
+          padding: $table-collapsible-panel-body-padding;
+        }
+      }
+    }
+  }
+
+  &-body + &-body {
+    border-top: 0;
+  }
+
+  .table-collapsible-panel.open {
+    .table-collapsible-panel-heading {
+      background-color: $brand-primary-lightest;
+
+      &:hover {
+        background-color: $brand-primary-lightest;
+      }
+    }
+
+    .table-collapsible-toggle {
+      color: $link-color;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  &-toggle {
+    color: $text-muted;
+
+    &-wrap {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        border-left: $default-border;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &:hover {
+      color: $gray-base;
+    }
+  }
+}

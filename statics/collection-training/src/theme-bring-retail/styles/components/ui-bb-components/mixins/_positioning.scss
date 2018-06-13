@@ -1,0 +1,22 @@
+@mixin stick-content-right($width, $height, $content-width, $content-height) {
+  width: $width;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  &:before {
+    position: absolute;
+    top: ($height - $content-height) / 2;
+    left: ($width - $content-width) / 2;
+  }
+}
+
+@mixin stick-right($content-width, $content-height) {
+  position: absolute;
+  width: $content-width;
+  height: $content-height;
+  top: 50%;
+  margin-top: -$content-height / 2;
+  right: 0px;
+  margin-left: 0;
+}

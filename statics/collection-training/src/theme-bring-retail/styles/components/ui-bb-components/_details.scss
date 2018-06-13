@@ -1,0 +1,43 @@
+/**
+ * ------------------------------------------------------
+ * UI BB details component
+ * ------------------------------------------------------
+ * @name ui-bus-payment-order-details
+ * @description
+ * Details row to be expanded on click
+ *
+ * @example
+ * <table>
+ *   <tbody>
+ *     <tr class="bb-table-details">
+ *       <td>Details goes here...</td>
+ *     </tr>
+ *   </tbody>
+ * </table>
+ */
+.bb-table-details {
+  background-color: $details-background;
+  td {
+    padding: $details-padding;
+    text-align: $details-text-align;
+    .row {
+      padding-top: $details-row-padding-top;
+    }
+  }
+}
+
+table > tbody > tr.bb-table-details {
+  &:hover {
+    background-color: $details-background;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .bb-table-details {
+    td {
+      .row {
+        padding-top: $details-row-padding-top-media-sm;
+      }
+    }
+  }
+}
