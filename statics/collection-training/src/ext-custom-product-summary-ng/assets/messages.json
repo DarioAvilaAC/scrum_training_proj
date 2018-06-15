@@ -1,0 +1,22 @@
+{
+  "en-US": {
+    "summary.no.products": "Please be advised you do not have any products available. Please contact our customer service team to see what products can best suit your needs.",
+    "message.loading": "Loading",
+
+    "model.error.auth": "You are not authorized to perform this action",
+    "model.error.connectivity": "There was a connection problem, please try again",
+    "model.error.user": "There is a problem with the action you are trying to perform",
+    "model.error.unexpected": "An unexpected error occurred while performing this action",
+
+    "label.totalBalance": "Total balance",
+    "label.totalBalanceInfo": "This total balance includes all of your current and savings products on this screen.",
+    "label.availableBalance": "Available balance",
+    "label.accruedInterestAmount": "Accrued Interest",
+    "label.creditLimit": "Credit Limit",
+
+    "label.title.my.products": "Dashboard",
+    "button.label.manageAccounts": "Manage Products",
+
+    "product.label.no.alias": "No alias set for this product"
+  }
+}

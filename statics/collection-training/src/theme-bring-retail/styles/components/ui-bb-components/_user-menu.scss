@@ -19,10 +19,35 @@
  * </div>
  */
 
+
+
+/**
+ * Necessary changes for custom user menu
+ */
+$user-menu-tb-padding: 10px;
+
 .bb-user-menu {
   margin-top: $margin-small-vertical;
   border-left: $default-border;
+  border-right: $default-border;
+  color: $gray80;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: $user-menu-tb-padding;
+  padding-bottom: $user-menu-tb-padding;
   a {
     cursor: pointer;
   }
+}
+
+.faw-logout {
+    font-size: 13px;
+    border-left: $default-border;
+    margin-left: 12px;
+    padding: 10px 12px;
+    line-height: inherit;
+    vertical-align: middle;
+    a {
+       color: $white;
+    }
 }

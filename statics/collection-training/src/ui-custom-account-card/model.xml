@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <feature>
+        <name>ui-custom-account-card</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="version" label="Version" readonly="true" viewHint="designModeOnly">
+                <value type="string">1.1.139</value>
+            </property>
+        </properties>
+    </feature>
+</catalog>

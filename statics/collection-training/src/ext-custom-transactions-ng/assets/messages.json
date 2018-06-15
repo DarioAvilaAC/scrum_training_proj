@@ -1,0 +1,53 @@
+{
+  "en-US": {
+    "details.label.counterParty": "Counter party",
+    "details.label.scheduledDate": "Scheduled date",
+    "details.label.transactionReference": "Transaction Reference",
+    "details.label.instructedCurrency": "Instructed currency",
+    "details.label.currencyExchangeRate": "Currency exchange rate",
+    "details.label.instructedAmount": "Instructed amount",
+    "details.label.description": "Description",
+    "details.label.date": "Date",
+    "details.label.transactionType": "Transaction Type",
+    "details.label.creditAmount": "Credit Amount",
+    "details.label.debitAmount": "Debit Amount",
+    "details.label.loadMore": "Load more",
+    "details.label.category": "Category",
+    "details.label.searchMore": "Load more search results",
+    "details.label.allTransactionsLoaded": "All transactions have been loaded",
+    "details.label.changeCategory": "Change Category",
+
+    "model.error.auth": "You are not authorized to perform this action",
+    "model.error.connectivity": "There was a connection problem, please try again",
+    "model.error.user": "There is a problem with the action you are trying to perform",
+    "model.error.unexpected": "An unexpected error occurred while performing this action",
+
+    "message.label.loading": "Loading",
+
+    "filter.button.main": "Filter",
+    "filter.button.apply": "Apply",
+    "filter.button.cancel": "Cancel",
+    "filter.label.amountFrom": "From",
+    "filter.label.amountTo": "To",
+    "filter.label.credit": "Credit",
+    "filter.label.debit": "Debit",
+    "filter.label.dateRange": "Date range",
+    "filter.label.amountRange": "Amount range",
+    "filter.label.creditDebitIndicator": "Credit/Debit indicator",
+    "filter.label.search": "Search",
+    "filter.label.clearSearch": "Clear search",
+    "filter.label.submitSearch": "Submit search",
+
+    "pagination.label.first": "First",
+    "pagination.label.last": "Last",
+    "pagination.label.next": "Next",
+    "pagination.label.prev": "Previous",
+    "pagination.label.pageNavigation": "Page navigation",
+
+    "notification.transaction.category.change.success": "Transaction category edited successfully",
+    "notification.transaction.category.change.fail": "Transaction category editing failed",
+
+    "search.no.results.title": "No results found",
+    "search.no.results.subtitle": "We can't find what you are looking for.<br>Please try a different criteria."
+  }
+}

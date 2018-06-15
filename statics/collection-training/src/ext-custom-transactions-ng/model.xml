@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <feature>
+        <name>ext-custom-transactions-ng</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="version" label="Version" readonly="true" viewHint="designModeOnly">
+                <value type="string">1.7.3</value>
+            </property>
+            <property label="Title" name="title" viewHint="text-input,admin">
+                <value type="string">Extension for listing transactions</value>
+            </property>
+        </properties>
+    </feature>
+</catalog>

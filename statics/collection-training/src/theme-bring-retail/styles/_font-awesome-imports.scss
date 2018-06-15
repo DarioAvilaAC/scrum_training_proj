@@ -19,5 +19,7 @@ $fa-font-path:        "vendor/font-awesome/fonts";
 @import "vendor/font-awesome/scss/icons";
 @import "vendor/font-awesome/scss/screen-reader";
 
-
-@import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css");
+/*!
+ * Added this part so that ext-custom-user-menu-ng would work with fa-power-off icon
+ */
+/* @import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css"); */

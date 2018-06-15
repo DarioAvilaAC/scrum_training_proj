@@ -1,0 +1,152 @@
+<div data-ng-controller="TransactionsController as $ctrl" class="ext-custom-transactions-ng">
+  <div class="panel panel-default panel-no-offset">
+    <div class="panel-body">
+      <h2>Transactions</h2>
+    </div>
+  </div>
+  <ui-bb-loading-indicator-ng data-is-loading="$ctrl.loading" data-loading-text="{{ 'message.label.loading' | i18n }}">
+    <div class="notifications">
+      <ui-bb-notification-stripe
+        data-ng-repeat="notification in state.notifications"
+        data-timeout-second="{{ $ctrl.dismissTime }}"
+        data-message="{{ notification.message | i18n }}"
+        data-on-close="$ctrl.dismissNotification(notification.id)"
+        data-type="bg-{{ notification.level }}"
+        data-icon-classes="{{ notification.level === 'success' ?
+          'fa-check-circle' : 'fa-exclamation-circle' }} fa">
+      </ui-bb-notification-stripe>
+    </div>
+
+    <!-- Errors -->
+    <ui-bb-substitute-error-ng data-message="$ctrl.errors.transactionsError.message | i18n">
+      <ui-bb-empty-state-ng
+        data-icon-classes="fa fa-5x fa-search text-muted"
+        data-title="{{ 'search.no.results.title' | i18n }}"
+        data-subtitle="{{ 'search.no.results.subtitle' | i18n }}"
+        data-is-empty="ext.helpers.showNoResults($ctrl)"
+      >
+        <div class="list-group">
+          <uib-accordion class="transaction-group list-items-wrapper" data-ng-repeat="(date, transactions) in (($ctrl.searching && $ctrl.searchTransactions) || $ctrl.transactions) track by date">
+            <div class="hidden list-item"></div>
+            <div class="transaction-group-date panel panel-line-header list-item">{{ date | date: 'mediumDate' }}</div>
+            <uib-accordion-group class="list-item list-item-transaction-accordion"
+              data-ng-repeat="transaction in transactions track by transaction.id"
+              data-template-url="#ext-bb-transactions-ng/group-template.html"
+              data-is-open="false">
+              <uib-accordion-heading>
+                <div class="transaction-item row"
+                  data-ng-class="ext.helpers.getCategoryIconClass(transaction.category, false)"
+                  role="row"
+                >
+                  <div class="transaction-category-icon col-xs-1 text-center" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_1">
+                    <span aria-hidden="true" title="{{ transaction.category }}" class="bb-transaction-category bb-transaction-category-large {{ ext.helpers.getCategoryIconClass(transaction.category) }}"></span>
+                  </div>
+                  <div
+                    data-ng-class="{ 'col-xs-7': transaction.customType === ext.helpers.transactionTypes.TYPE_1, 'col-xs-8': transaction.customType !== ext.helpers.transactionTypes.TYPE_1 }"
+                  >
+                    <div class="transaction-party row" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_1">
+                      <strong class="transaction-party-name col-xs-12">{{ transaction.counterPartyName }}</strong>
+                      <div class="transaction-category col-xs-12 text-muted">{{ transaction.category }}</div>
+                    </div>
+                    <div class="transaction-party row" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_2">
+                      <strong class="transaction-party-name col-xs-12">{{ transaction.counterPartyName }}</strong>
+                      <div class="transaction-type-group col-xs-12 text-muted">{{ transaction.typeGroup }}</div>
+                    </div>
+                    <div class="transaction-party row" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_3">
+                      <strong class="transaction-description col-xs-12">{{ transaction.description }}</strong>
+                      <div class="transaction-type-group col-xs-12 text-muted">{{ transaction.typeGroup }}</div>
+                    </div>
+                    <div class="transaction-party row" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_4">
+                      <strong class="transaction-type-group col-xs-12">{{ transaction.typeGroup }}</strong>
+                    </div>
+                  </div>
+                  <div class="transaction-amount pull-right">
+                    <strong>
+                      <ui-bb-format-amount
+                        data-ng-class="{ 'amount-regular-color': transaction.creditDebitIndicator === 'DBIT' }"
+                        data-amount="ext.helpers.getSignedAmount(transaction)"
+                        data-wrap
+                        data-show-plus-sign>
+                      </ui-bb-format-amount>
+                    </strong>
+                  </div>
+                </div>
+              </uib-accordion-heading>
+              <div
+                class="transaction-details"
+                data-ng-class="{ 'col-xs-11 col-xs-offset-1': transaction.customType === ext.helpers.transactionTypes.TYPE_1, 'col-xs-12': transaction.customType !== ext.helpers.transactionTypes.TYPE_1 }"
+              >
+                <p class="transaction-details-change-category-btn row col-xs-12" data-ng-if="transaction.customType === ext.helpers.transactionTypes.TYPE_1">
+                  <button class="btn-link remove-offsets" data-ng-click="$ctrl.changeTransactionCategory(transaction)">{{ ::'details.label.changeCategory' | i18n }}</button>
+                </p>
+                <div class="transaction-details-type-group row" data-ng-if="transaction.typeGroup">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.transactionType' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.typeGroup"></p>
+                </div>
+                <div class="transaction-details-party row" data-ng-if="transaction.counterPartyName">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.counterParty' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.counterPartyName"></p>
+                </div>
+                <div class="transaction-details-scheduled-date row" data-ng-if="transaction.scheduledDate">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.scheduledDate' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.scheduledDate"></p>
+                </div>
+                <div class="transaction-details-reference row" data-ng-if="transaction.reference">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.transactionReference' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.reference"></p>
+                </div>
+                <div class="transaction-details-instructed-currency row" data-ng-if="transaction.instructedCurrency">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.instructedCurrency' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.instructedCurrency"></p>
+                </div>
+                <div class="transaction-details-exchange-rate row" data-ng-if="transaction.currencyExchangeRate">
+                  <div class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.currencyExchangeRate' | i18n }}</div>
+                  <div class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.currencyExchangeRate"></div>
+                </div>
+                <div class="transaction-details-instructed-amount row" data-ng-if="transaction.instructedAmount">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.instructedAmount' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8">
+                    <span class="debit-credit-sign" data-ng-bind="transaction.debitCreditSign"></span>
+                    <ui-bb-format-amount
+                      class="amount-regular-color"
+                      data-amount="transaction.instructedAmount"
+                      data-currency="transaction.instructedCurrency">
+                    </ui-bb-format-amount>
+                  </p>
+                </div>
+                <div class="transaction-details-description row" data-ng-if="transaction.description">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.description' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.description"></p>
+                </div>
+                <div class="transaction-details-category row" data-ng-if="transaction.category">
+                  <p class="transaction-details-label col-xs-6 col-sm-4">{{ ::'details.label.category' | i18n }}</p>
+                  <p class="transaction-details-value col-xs-6 col-sm-8" data-ng-bind="transaction.category"></p>
+                </div>
+              </div>
+            </uib-accordion-group>
+            <div data-ng-if="!$last" class="hidden"></div>
+          </uib-accordion>
+        </div>
+
+      </ui-bb-empty-state-ng>
+    </ui-bb-substitute-error-ng>
+  </ui-bb-loading-indicator-ng>
+</div>
+
+<script type="text/ng-template" id="#ext-bb-transactions-ng/group-template.html">
+  <div class="panel panel-default panel-hover panel-open-darker">
+    <div class="panel-heading panel-heading-collapse" data-ng-click="toggleOpen()">
+      <div class="panel-title panel-title-smaller">
+        <div class="col-xs-12" data-uib-accordion-transclude="heading">
+          <uib-accordion-header>
+            {{heading}}
+          </uib-accordion-header>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="panel-collapse collapse" data-uib-collapse="!isOpen">
+      <div class="panel-body" data-ng-transclude></div>
+    </div>
+  </div>
+</script>

@@ -10,6 +10,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
+  display: inline-block;
   @include clearfix;
 
   > li {
@@ -19,7 +20,7 @@
     > a {
       position: relative;
       display: block;
-      padding: $nav-link-padding;
+      padding: 10px 30px;
       &:hover,
       &:focus {
         text-decoration: none;

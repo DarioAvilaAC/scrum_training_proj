@@ -1,0 +1,102 @@
+<div data-ng-controller="ProductSummaryController as $ctrl"
+  class="ext-custom-product-summary-ng"
+  data-element-dimensions="dimensions"
+>
+  <ui-bb-loading-indicator-ng data-is-loading="$ctrl.isProductLoading" data-loading-text="{{ 'message.loading' | i18n }}">
+  <ui-bb-substitute-error-ng data-message="$ctrl.productKindsError.message | i18n">
+    <div data-ng-if="!$ctrl.productKinds.length" class="text-center">
+      <div class="h1 text-muted">
+        <i class="fa fa-5x fa-folder-open"></i>
+      </div>
+      <p>{{ ::'summary.no.products' | i18n }}</p>
+    </div>
+    <uib-accordion data-close-others="false"
+     data-template-url="#ext-bb-product-summary-ng/accordion-template.html"
+    >
+      <div class="row h1">
+        <div class="col-md-12">
+          {{::'label.title.my.products' | i18n }}
+          <!--<button -->
+            <!--class="btn btn-default pull-right"-->
+            <!--data-i18n-key="button.label.manageAccounts"-->
+            <!--data-ng-click="$ctrl.viewManageProducts()">-->
+          <!--</button>-->
+        </div>
+      </div>
+      <div class="panel" data-ng-if="$ctrl.total">
+        <div class="panel-body panel-body-large total-balance">
+          <strong>
+            <div class="pull-left">
+              {{ ::'label.totalBalance' | i18n }}
+              <i class="fa fa-question-circle-o"
+                aria-hidden="true"
+                data-popover-trigger="click outsideClick"
+                data-uib-popover="{{ ::'label.totalBalanceInfo' | i18n }}"
+                data-popover-placement="bottom"
+              ></i>
+            </div>
+            <ui-bb-format-amount
+              class="pull-right"
+              data-amount="$ctrl.total.value"
+              data-currency="$ctrl.total.currency"
+              data-wrap-decimals>
+            </ui-bb-format-amount>
+          </strong>
+        </div>
+      </div>
+      <uib-accordion-group data-ng-class="productKind.id"
+        data-ng-repeat="productKind in ext.helpers.filterVisibleProducts($ctrl.productKinds) track by productKind.id"
+        data-is-open="productKind.isOpen"
+        data-template-url="#ext-bb-product-summary-ng/group-template.html"
+        data-heading="{{productKind.name}}"
+      >
+        <uib-accordion-heading>
+          <strong>
+            {{ productKind.name }}
+            <i class="pull-right fa" data-ng-class="productKind.isOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+            <div class="pull-right text-muted" data-ng-if="::productKind.aggregatedBalance">
+              <ui-bb-format-amount
+                data-amount="productKind.aggregatedBalance.value"
+                data-currency="productKind.aggregatedBalance.currency"
+                data-wrap-decimals
+              ></ui-bb-format-amount>
+            </div>
+          </strong>
+        </uib-accordion-heading>
+        <ui-bb-account-card
+          data-ng-repeat="product in productKind.products | filter:{ visible: true} track by product.id"
+          data-ng-click="$ctrl.selectProduct(product)"
+          data-ng-class="$ctrl.productSelected.id === product.id ? 'active': ''"
+          class="selectable bb-account-card bb-account-card-large bb-account-card-open hover-item list-item"
+          data-account-name="ext.helpers.handleAlias(product.alias,product.name)"
+          data-account-number="product.identifier"
+          data-amount="product.primaryValue"
+          data-currency="product.currency"
+          data-additional-info="ext.helpers.buildAdditionalInfo(product)"
+        ></ui-bb-account-card>
+      </uib-accordion-group>
+    </uib-accordion>
+  </ui-bb-substitute-error-ng>
+  </ui-bb-loading-indicator-ng>
+</div>
+
+<script type="text/ng-template" id="#ext-bb-product-summary-ng/accordion-template.html">
+  <div role="tablist" data-ng-transclude></div>
+</script>
+
+<script type="text/ng-template" id="#ext-bb-product-summary-ng/group-template.html">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-heading-collapse panel-heading-large" data-ng-click="toggleOpen()">
+      <div class="panel-title panel-title-smaller">
+        <div data-uib-accordion-transclude="heading">
+          <uib-accordion-header>
+            {{heading}} <i class="pull-right fa" data-ng-class="isOpen ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+          </uib-accordion-header>
+        </div>
+      </div>
+    </div>
+    <div class="panel-collapse collapse list-items-wrapper" uib-collapse="!isOpen">
+      <div ng-transclude></div>
+    </div>
+  </div>
+</script>

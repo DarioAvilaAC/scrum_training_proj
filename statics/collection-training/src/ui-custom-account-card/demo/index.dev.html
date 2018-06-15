@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ui-custom-account-card component</title>
+  <script src="../../node_modules/vendor-bb-angular/scripts/vendor-bb-angular.js"></script>
+  <script src="../../node_modules/lib-bb-currency-ng/scripts/lib-bb-currency-ng.js"></script>
+  <script src="../../node_modules/ui-bb-avatar-ng/scripts/ui-bb-avatar-ng.js"></script>
+  <script src="../../ui-bb-format-amount/dist/scripts/ui-bb-format-amount.js"></script>
+  <script src="../dist/scripts/ui-bb-account-card.js"></script>
+  <script>
+    angular.module('ui-bb-component-demo', ['ui-bb-account-card'])
+      .controller('DemoController', function() {
+        this.name = 'ui-bb-account-card';
+        this.from = {
+          name: 'Current account',
+          account: 'NL09INGB0789655421',
+          amount: 12345.67,
+          currency: 'EUR'
+        };
+    });
+
+    angular.element(document).ready(function() {
+      angular.bootstrap(document, ['ui-bb-component-demo']);
+    });
+  </script>
+</head>
+<body ng-controller="DemoController as demo">
+  <h1>{{ demo.name }}</h1>
+  <ui-bb-account-card
+    account-name="demo.from.name"
+    account-number="demo.from.name.account"
+    amount="demo.from.amount"
+    currency="demo.from.currency"
+    show-avatar="true"
+  ></ui-bb-account-card>
+</body>
+</html>
