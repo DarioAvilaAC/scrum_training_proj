@@ -8,17 +8,13 @@ body {
     z-index: 99;
 }
 
-.page-container .lp-columns{
-    margin-top: 15px;
-}
-
 *:focus {
     outline: none;
 }
- 
+
 
 .navbar {
-    background-color: $brand-primary;
+    background-color: $gray40;
     box-shadow: none;
 }
 
@@ -29,7 +25,7 @@ body {
 .container {
   & > .navbar-header {
     margin-left: -15px;
-    background-color: $brand-primary;
+    background-color: $gray40;
     width: 200px;
   }
 
@@ -41,7 +37,7 @@ body {
   }
 
   & > .navbar-nav {
-    .bb-user-menu { 
+    .bb-user-menu {
         border-left: 0;
     }
   }
@@ -62,7 +58,7 @@ body {
             .main-area{
                 display: none;
             }
-    
+
         }
 
         .navbar-brand{
@@ -101,11 +97,11 @@ body {
                         visibility: hidden;
                     }
                 }
-            } 
+            }
         }
     }
 
-    .container {   
+    .container {
         text-align: center;
 
         .navbar-header {
@@ -113,7 +109,7 @@ body {
         }
 
         .main-area {
-            float: none; 
+            float: none;
             display: inline-block;
         }
     }
@@ -179,19 +175,19 @@ body {
         min-height: 40px;
     }
 
-    .nav.navbar-nav{  
+    .nav.navbar-nav{
         float: none;
         height: 50px;
         min-height: 50px;
-        text-align: center; 
+        text-align: center;
         max-width: 689px;
-        margin: 0 auto;  
+        margin: 0 auto;
 
-        li{     
+        li{
             float: left;
             border: none;
             font-weight: 700;
-        
+
             &.active{
                 a{
                     background-color: $brand-primary;
@@ -224,8 +220,8 @@ body {
                 border: none;
                 height: 20px;
                 margin-top: 0;
-                width: 7px; 
-                transform: rotate(90deg);  
+                width: 7px;
+                transform: rotate(90deg);
                 margin-right: 0;
                 margin-left: 8px;
             }
@@ -241,7 +237,7 @@ body {
                     li{
                         width: 100%;
                         padding: 0 20px;
-                        
+
                         a{
                             background-color: $white;
                             color: #3E3E3E;
@@ -280,7 +276,7 @@ body {
                     background-color: $brand-primary;
                 }
             }
-        }  
+        }
     }
 }
 
@@ -291,9 +287,9 @@ body {
     background-color: #fff;
     height: 50px;
 
-   
+
     .bb-universal-nav.navbar {
-        background-color: rgba(0,0,0,0); 
+        background-color: rgba(0,0,0,0);
         display: inline-block;
     }
 
@@ -306,11 +302,11 @@ body {
             float: none;
             text-align: center;
 
-    
+
             li {
                 float: none;
                 display: inline-block;
-            }   
+            }
         }
     }
 
@@ -320,21 +316,42 @@ body {
 }
 
 .rb-content {
-    width: 100%; 
+    width: 100%;
     transition: padding 0.5s ease-in-out;
 }
-     
+
 
 @media only screen and (min-width: $screen-sm) {
     .rb-row-content {
         padding: 0;
-    }   
+    }
 }
 
 
 
 /* Navigation bar background */
 .navbar.navbar-default.navbar-static-top.rb-navbar-top {
-    background-color: $gray40;
+    background-color: $gray40 ;
+}
 
+.nav > li {
+  height:44px;
+}
+
+.logo-brand {
+  width: 105px;
+    margin-left: 6%;
+}
+
+.logo-brand > img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    ol, ul {
+      margin: 0px;
+    }
+    .nav > li {
+      width: 100%;
+    }
 }
