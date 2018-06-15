@@ -89,3 +89,16 @@
   max-width: 100%;
   min-width: 100%;
 }
+
+
+/**
+ * Changed info popover background and text color
+ */
+.popover {
+    background-color: $black;
+    color: $gray80;
+
+    .arrow:after {
+      border-bottom-color: $black;
+    }
+}

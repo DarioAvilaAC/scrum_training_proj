@@ -63,6 +63,14 @@
             </div>
           </strong>
         </uib-accordion-heading>
+
+        <ul>
+          <li>Account Name</li>
+          <li>Ccy</li>
+          <li>Available balance</li>
+          <li>Credit limit</li>
+        </ul>
+
         <ui-bb-account-card
           data-ng-repeat="product in productKind.products | filter:{ visible: true} track by product.id"
           data-ng-click="$ctrl.selectProduct(product)"

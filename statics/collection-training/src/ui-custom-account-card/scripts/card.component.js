@@ -40,6 +40,7 @@ const uiBbAccountCard = {
           data-image="$ctrl.accountImage">
         </ui-bb-avatar>
       </div>
+
       <div class="bb-account-card-info">
         <div class="bb-account-card-long-name">{{ $ctrl.accountName }}</div>
         <div class="bb-account-card-amount pull-right">
