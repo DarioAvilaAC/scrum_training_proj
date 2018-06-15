@@ -1,13 +1,13 @@
 <catalog>
     <widget>
-        <name>ImageWidget</name>
+        <name>MyContentWidget</name>
         <extendedItemName>CXPContentWidget</extendedItemName>
         <properties>
             <property label="Title" name="title" viewHint="role=user">
-                <value type="string">Custom Image</value>
+                <value type="string">Custom Text</value>
             </property>
             <property name="templateList" label="Templates">
-                <value type="string">CustomImage,$(itemRoot)/templates/articletemplate.html </value>
+                <value type="string">CustomText,$(itemRoot)/templates/articletemplate.html </value>
             </property>
             <property name="templateUrl" label="Template" viewHint="input=select-one,role=manager">
                 <value type="string">$(itemRoot)/templates/articletemplate.html</value>
