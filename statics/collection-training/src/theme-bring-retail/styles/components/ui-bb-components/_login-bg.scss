@@ -72,6 +72,14 @@
   display:inline-block;
 }
 
-.loginPage > .be-ex-body-copy {
-  color:white !important;
+.login-message {
+  text-align: center;
+  color: $gray95;
+  font-size:3vw;
+  font-weight:bold;
+  margin-top: -50px;
+}
+
+.login-message > h3 {
+font-size:3vw;
 }
