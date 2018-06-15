@@ -15,13 +15,17 @@
 
 .custom-inputs {
   border: solid 0px;
-  border-bottom: solid 2px $gray-darker;
   background-color: transparent;
   box-shadow:none;
+  border-bottom: solid 2px $gray-darker;
   &.active {
-    border-bottom: solid 3px $brand-primary;
+    border-bottom: solid 2px $brand-primary;
   }
+  padding-right: 8%;
+
 }
+
+
 
 .input-spacing {
   margin-bottom:15%;
@@ -53,4 +57,29 @@
 
 .panel-bg {
   background-color: rgba(255,255,255,0.8);
+}
+
+.toggle-button {
+  width: 5%;
+  display: inline-block;
+  position: relative;
+  margin-top:-22px;
+  float:right;
+  cursor: pointer;
+}
+
+.toggle-space {
+  display:inline-block;
+}
+
+.login-message {
+  text-align: center;
+  color: $gray95;
+  font-size:3vw;
+  font-weight:bold;
+  margin-top: -50px;
+}
+
+.login-message > h3 {
+font-size:3vw;
 }

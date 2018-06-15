@@ -16,6 +16,9 @@
 import i18nNgKey from 'ui-bb-i18n-ng';
 import ngAriaModuleKey from 'vendor-bb-angular-ng-aria';
 
+let myItem = document.getElementById('myInput');
+console.log(myItem.type);
+
 export const dependencyKeys = [
   i18nNgKey,
   ngAriaModuleKey,

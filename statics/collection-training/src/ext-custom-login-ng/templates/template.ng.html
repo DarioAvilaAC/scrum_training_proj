@@ -18,11 +18,20 @@
             <label data-i18n-key="login.label.password"></label>
             <input data-ng-model="$ctrl.password"
               name="password"
-              class="form-control custom-inputs text-ctrl"
-              type="password"
+              class="form-control custom-inputs text-ctrl pwd toggle-space"
+              id="myInput"
+              type="{{type}}"
               autocomplete="off"
               aria-label="{{:: 'login.label.password' | i18n }}"
             />
+
+            <div class="toggle-button">
+            <i class="fas {{icon}}"   ng-init="type='password'; icon='fa-eye'"
+               ng-mouseleave="type='password'; icon='fa-eye'"
+               ng-mousedown="type = 'text'; icon='fa-eye-slash'"
+               ng-mouseup="type ='password'; icon='fa-eye'"></i>
+            </div>
+
         </div>
         <div data-ng-if="$ctrl.loginError" data-i18n-key="login.error.invalidCredentials" class="text-danger text-danger-pos"></div>
         <div class="form-group">
