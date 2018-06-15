@@ -64,12 +64,19 @@
           </strong>
         </uib-accordion-heading>
 
-        <ul>
-          <li>Account Name</li>
-          <li>Ccy</li>
-          <li>Available balance</li>
-          <li>Credit limit</li>
-        </ul>
+          <div class="container-fluid row">
+            <div class="col">Account Name</div>
+            <div class="col">Ccy</div>
+            <div class="col">Available balance</div>
+            <div class="col">Credit limit</div>
+          </div>
+
+          <!--<ul>-->
+            <!--<li>Account Name</li>-->
+            <!--<li>Ccy</li>-->
+            <!--<li>Available balance</li>-->
+            <!--<li>Credit limit</li>-->
+          <!--</ul>-->
 
         <ui-bb-account-card
           data-ng-repeat="product in productKind.products | filter:{ visible: true} track by product.id"
@@ -82,6 +89,16 @@
           data-currency="product.currency"
           data-additional-info="ext.helpers.buildAdditionalInfo(product)"
         ></ui-bb-account-card>
+
+        <!--<button-->
+        <!--class="btn btn-default center-block"-->
+        <!--data-i18n-key="button.label.viewAllAccounts"-->
+        <!--data-ng-click="$ctrl.Accounts()">-->
+          <!--<a href="/portalserver/retail-banking-demo/accounts"></a>-->
+        <!--</button>-->
+
+        <a href="/portalserver/retail-banking-demo/accounts" data-i18n-key="button.label.viewAllAccounts" class="btn btn-default center-block"></a>
+
       </uib-accordion-group>
     </uib-accordion>
   </ui-bb-substitute-error-ng>
