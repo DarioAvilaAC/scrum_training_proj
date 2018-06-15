@@ -48,6 +48,8 @@
     "notification.transaction.category.change.fail": "Transaction category editing failed",
 
     "search.no.results.title": "No results found",
-    "search.no.results.subtitle": "We can't find what you are looking for.<br>Please try a different criteria."
+    "search.no.results.subtitle": "We can't find what you are looking for.<br>Please try a different criteria.",
+
+    "transactions.label.viewAll": "View all transactions"
   }
 }
